@@ -15,11 +15,13 @@ class HeaderComponent extends Component {
                     <ul className="navbar-nav">
                         {isUserLoggedIn && <li><Link className="nav-link" to="/welcome/SEPT">Home</Link></li>}
                         {isUserLoggedIn && <li><Link className="nav-link" to="/todos">Todos</Link></li>}
+                        {isUserLoggedIn && <li><input className="nav-search" type="text" placeholder="Search.."></input></li>}
                     </ul>
                     <ul className="navbar-nav navbar-collapse justify-content-end">
                         {!isUserLoggedIn && <li><Link className="nav-link" to="/login">Login</Link></li>}
                         {isUserLoggedIn && <li><Link className="nav-link" to="/logout" onClick={AuthenticationService.logout}>Logout</Link></li>}
                     </ul>
+
                 </nav>
             </header>
         )
