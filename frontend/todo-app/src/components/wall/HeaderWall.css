@@ -1,0 +1,39 @@
+/*css needs to be fixed with adjustment of frame size*/
+
+.wallnav {
+    /*overflow:hidden;*/
+    background-color: rgb(121, 53, 53);
+    display:flex;
+    flex-direction:row;
+    align-items:center;
+    height:10%;
+
+}
+
+.wallLogo {
+    font: 40px courier,serif;
+    font-weight: bold;
+    color:black;
+    margin-left: 5%;
+    margin-right: 40%;
+}
+
+.Greetings{
+    font: 20px courier,serif;
+    font-weight: bold;
+    color:black;
+}
+
+.profilePic{
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 5px;
+    width: 150px;
+    margin-left:10%;
+    margin-right: 10%;
+    border-radius: 8px;
+    padding:5px;
+    margin-top:10px;
+    margin-bottom:3px;
+}
+
