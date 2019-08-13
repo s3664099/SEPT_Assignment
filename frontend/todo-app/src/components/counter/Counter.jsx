@@ -74,8 +74,7 @@ class CounterButton extends Component {
             <div className="counter">
                 <button onClick={() => this.props.incrementMethod(this.props.by)} >+{this.props.by}</button>
                 <button onClick={() => this.props.decrementMethod(this.props.by)} >-{this.props.by}</button>
-                {/*<span className="count" 
-            >{this.state.counter}</span>*/}
+               { /*<span className="count" >{this.state.counter}</span>*/}
             </div>
         )
     }
