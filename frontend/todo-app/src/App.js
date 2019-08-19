@@ -3,17 +3,13 @@ import Counter from './components/counter/Counter'
 import TodoApp from './components/todo/TodoApp'
 //import './App.css';
 //import './bootstrap.css';
-import HeaderWall from './components/wall/HeaderWall'
-import FooterWall from './components/wall/FooterWall'
-import SideNavBar from './components/wall/SideNavBar';
+import Wall from './components/wall/Wall.jsx'
 
 class App extends Component {
   render() {
     return (
       <div className="App">
-        <HeaderWall />
-        <SideNavBar />
-        <FooterWall />
+        <Wall />
       </div>
     );
   }
