@@ -1,0 +1,13 @@
+.postContainer{
+    border: 2px solid gray;
+    border-radius: 5px;
+    width: 60%;
+    display: inline-block;
+    margin:3%;
+    padding:5px;
+
+}
+
+.userImage, .userName, .editButton{
+    display: inline-block;
+}
