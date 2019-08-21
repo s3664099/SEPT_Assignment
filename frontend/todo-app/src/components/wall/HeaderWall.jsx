@@ -1,9 +1,6 @@
 import React, {Component} from 'react'
 import './HeaderWall.css'
-<<<<<<< HEAD
 import Search from './Search.jsx'
-=======
->>>>>>> aea955ae5f36cae241733a70740109f0af4d1406
 
 class HeaderWall extends Component {
 
@@ -15,7 +12,6 @@ class HeaderWall extends Component {
                     <div className="wallLogo">
                         <a className ="RMITWall">RMITWall</a>
                     </div>
-<<<<<<< HEAD
 
                     <div className="search">
                       <Search/>
@@ -23,13 +19,6 @@ class HeaderWall extends Component {
 
                     <div className="Greetings">
                         Welcome, {userName}
-=======
-                    <div className="Greetings"> 
-                        Welcome,  
-                    </div>
-                    <div className="Greetings">{userName}</div>
-                    <div > 
->>>>>>> aea955ae5f36cae241733a70740109f0af4d1406
                         <img className ="profilePic" src="http://placekitten.com/300/200"></img>
                     </div>
                 </nav>
@@ -39,8 +28,4 @@ class HeaderWall extends Component {
 }
 
 
-<<<<<<< HEAD
 export default HeaderWall
-=======
-export default HeaderWall
->>>>>>> aea955ae5f36cae241733a70740109f0af4d1406
