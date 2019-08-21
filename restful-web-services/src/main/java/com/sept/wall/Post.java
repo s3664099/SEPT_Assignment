@@ -1,10 +1,17 @@
+package com.sept.wall;
+
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+
 
 public class Post {
 	
+	@Id
+	@GeneratedValue
 	//basic post variables
 	private int postId;
 	private LocalDate date;
@@ -38,7 +45,7 @@ public class Post {
 		
 		//sets display post to true as this is coming from the front end
 		//Thus, it is assumed that a new post will be want to be displayed
-		this.display = true;
+		display = true;
 		
 		//creates a timestamp for the post
 		this.date = LocalDate.now();
@@ -47,6 +54,8 @@ public class Post {
 	//This method toggles the display value
 	public void setDisplay() 
 	{
+		//if the display is set to true, it is visible,
+		//otherwise it is not visible. The delete option flicks the display
 		display = !display;
 	}
 	
@@ -55,5 +64,85 @@ public class Post {
 	{
 		return display;
 	}
+	
+	//removes a like, if the users no longer likes the post
+	public void removeLike(User liker)
+	{
+		
+		boolean foundLiker = false;
+		User liketoRemove = null;
+		
+		//checks through the users that have liked the post
+		for (User like:Likes)
+		{
+			//if the student has been found
+			if(like.studentId == liker.studentId)
+			{
+				foundLiker = true;
+				liketoRemove = like;
+			}
+		}
+		
+		if (foundLiker)
+			Likes.remove(liketoRemove);
+	}
+	
+	public boolean likePost(User liker)
+	{
+		//sets flag to determine whether the user has already liked the post
+		boolean alreadyLiked = false;
+		
+		//checks through the users that have liked the post
+		for (User like:Likes)
+		{
+			//if the student has been found
+			if(like.studentId == liker.studentId)
+
+				//the flag is set
+				alreadyLiked = true;
+		}
+		
+		//if the flag has not been set
+		if(!alreadyLiked)
+
+			//the user is added to the list of people who liked the post
+			Likes.add(liker);
+		
+		return alreadyLiked;
+	}
+	
+	//setter
+	public void editPost(String post)
+	{
+		this.post = post;
+	}
+	
+	//getters
+	public User getUser()
+	{
+		return user;
+	}
+	
+	public String getPost()
+	{
+		return post;
+	}
+	
+	public LocalDate getDate()
+	{
+		return date;
+	}
+	
+	public int getId()
+	{
+		return postId;
+	}
+	
+	public int getNoLikes()
+	{
+		//returns the number of users who have liked the post
+		return Likes.size();
+	}
+
 
 }

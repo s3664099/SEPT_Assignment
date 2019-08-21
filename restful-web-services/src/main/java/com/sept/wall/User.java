@@ -1,3 +1,5 @@
+package com.sept.wall;
+
 
 //Stub for the user to allow testing of wall & post
 public class User {
