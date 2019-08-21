@@ -2,35 +2,55 @@
 
 .wallnav {
     /*overflow:hidden;*/
+<<<<<<< HEAD
     background-color: #000054;
     display: inline-block;
     width: 100%;
     color: white;
+=======
+    background-color: rgb(121, 53, 53);
+    display:flex;
+    flex-direction:row;
+    align-items:center;
+    height:10%;
+
+>>>>>>> aea955ae5f36cae241733a70740109f0af4d1406
 }
 
 .wallLogo {
     font: 40px courier,serif;
     font-weight: bold;
+<<<<<<< HEAD
     margin-top: 10px;
     margin-left: 5%;
     margin-right: 5%;
     width: 300px;
     vertical-align: baseline;
     display: inline-block;
+=======
+    color:black;
+    margin-left: 5%;
+    margin-right: 40%;
+>>>>>>> aea955ae5f36cae241733a70740109f0af4d1406
 }
 
 .Greetings{
     font: 20px courier,serif;
     font-weight: bold;
+<<<<<<< HEAD
     text-align: right;
     display: inline;
     float: right;
+=======
+    color:black;
+>>>>>>> aea955ae5f36cae241733a70740109f0af4d1406
 }
 
 .profilePic{
     border: 1px solid #ddd;
     border-radius: 4px;
     padding: 5px;
+<<<<<<< HEAD
     width: 100px;
     margin-left: 40px;
     border-radius: 8px;
@@ -72,3 +92,14 @@
   text-align: left;
   text-decoration: none;
 }
+=======
+    width: 150px;
+    margin-left:10%;
+    margin-right: 10%;
+    border-radius: 8px;
+    padding:5px;
+    margin-top:10px;
+    margin-bottom:3px;
+}
+
+>>>>>>> aea955ae5f36cae241733a70740109f0af4d1406

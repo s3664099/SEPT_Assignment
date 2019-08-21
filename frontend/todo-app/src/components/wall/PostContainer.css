@@ -1,13 +1,25 @@
 .postContainer{
     border: 2px solid gray;
     border-radius: 5px;
+<<<<<<< HEAD
     width: 90%;
     display: inline-block;
     margin:3%;
     padding:5px;
     text-align: justify;
+=======
+    width: 60%;
+    display: inline-block;
+    margin:3%;
+    padding:5px;
+
+>>>>>>> aea955ae5f36cae241733a70740109f0af4d1406
 }
 
 .userImage, .userName, .editButton{
     display: inline-block;
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> aea955ae5f36cae241733a70740109f0af4d1406
