@@ -1,0 +1,27 @@
+.sidenav,.activityNavBar {
+    height:100%;
+    width:15%;
+    background-color: rgb(235, 216, 193);
+   
+}
+
+.sidenav a, .activityNavBar a{
+    display:block;
+    padding: 8px 8px 8px 32px;
+    margin-bottom: 20px;
+    font-size: 25px;
+    color:#4c4444;
+    text-decoration: none;
+}
+
+.sidenav a:hover{
+    color:#f1f1f1;
+}
+
+.activityNavBar{
+    float:right;
+}
+
+.sidenav{
+    float:left;
+}
