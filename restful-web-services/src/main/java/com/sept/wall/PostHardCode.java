@@ -2,6 +2,7 @@ package com.sept.wall;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.stereotype.Service;
@@ -16,10 +17,10 @@ public class PostHardCode {
 	
 	//creates and adds some posts to the list
 	static {
-		postlist.add(new Post (34,"This is cool",LocalDate.now()));
-		postlist.add(new Post (38,"Multiple Choice Sucks",LocalDate.now()));
-		postlist.add(new Post (21,"Not cool dude, not cool",LocalDate.now()));
-		postlist.add(new Post (30,"Yeah, just that",LocalDate.now()));
+		postlist.add(new Post (34,"This is cool",new Date()));
+		postlist.add(new Post (38,"Multiple Choice Sucks",new Date()));
+		postlist.add(new Post (21,"Not cool dude, not cool",new Date()));
+		postlist.add(new Post (30,"Yeah, just that",new Date()));
 	}
 	
 	//returns a list of all posts
@@ -44,7 +45,7 @@ public class PostHardCode {
 	
 	//adds a post to the list
 	public void add(int studentId, String post) {
-		postlist.add(new Post(postValue, post, LocalDate.now()));
+		postlist.add(new Post(postValue, post, new Date()));
 		postValue++;
 	}
 	
