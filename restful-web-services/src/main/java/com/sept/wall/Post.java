@@ -4,19 +4,14 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-
 
 public class Post {
 	
-	@Id
-	@GeneratedValue
 	//basic post variables
 	private int postId;
 	private LocalDate date;
 	private String post;
-	private User user;
+	private int studentNumber;
 	private boolean display;
 	
 	//this is called when the post is a comment
@@ -28,13 +23,29 @@ public class Post {
 	//A list to store the users who like the post
 	private List<User> Likes = new ArrayList<User>();
 
+	public Post(int postId, String post, LocalDate date) {
+		//The text message contained within the post
+		this.post = post;
+		
+		//The post Id is generated based on the ID of the previous
+		//post for the user.
+		this.postId = postId;
+		
+		//sets display post to true as this is coming from the front end
+		//Thus, it is assumed that a new post will be want to be displayed
+		display = true;
+		
+		//creates a timestamp for the post
+		this.date = date;
+	}
+	
 	//Creates the initial post that was submitted by the user
 	//This constructor is called from the front end
-	public Post(User user, int postId, String post) {
+	public Post(int studentNumber, int postId, String post, LocalDate date) {
 		
 		//This is the owner/creator of the post
 		//At this stage posts can only be posted on the user's wall
-		this.user = user;
+		this.studentNumber = studentNumber;
 		
 		//The text message contained within the post
 		this.post = post;
@@ -118,9 +129,9 @@ public class Post {
 	}
 	
 	//getters
-	public User getUser()
+	public int getUser()
 	{
-		return user;
+		return studentNumber;
 	}
 	
 	public String getPost()
