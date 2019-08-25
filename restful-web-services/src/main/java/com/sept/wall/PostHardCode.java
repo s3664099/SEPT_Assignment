@@ -44,8 +44,8 @@ public class PostHardCode {
 	}
 	
 	//adds a post to the list
-	public void add(int studentId, String post) {
-		postlist.add(new Post(postValue, post, new Date()));
+	public void addPostToWall(int studentId, String post, Date date) {
+		postlist.add(new Post(postValue, post, date));
 		postValue++;
 	}
 	
@@ -72,7 +72,7 @@ public class PostHardCode {
 	}
 	
 	//get a post based on the id of the post
-	public Post getPostById(int studentId, int id) {
+	public void updatePostById(int studentId, int id, String message) {
 		
 		Post postToReturn = null;
 		
@@ -81,7 +81,7 @@ public class PostHardCode {
 				postToReturn = post;
 		}
 		
-		return postToReturn;
+		postToReturn.editPost(message);
 		
 	}
 

@@ -21,7 +21,7 @@ import com.inflectra.spiratest.addons.junitextension.SpiraTestConfiguration;
         //following are REQUIRED
         url = "https://rmit-university.spiraservice.net",
         login = "s3664099",
-        password = "",
+        password = "HA3:x)r$>in*6H",
         projectId = 379
 )
 

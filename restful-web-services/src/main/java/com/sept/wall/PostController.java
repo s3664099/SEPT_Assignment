@@ -2,6 +2,7 @@ package com.sept.wall;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -66,7 +67,15 @@ public class PostController {
 	@GetMapping(path = "users/{studentid}/Post/{post}")
 	public void newPost(@PathVariable int studentid, String post) {
 		
-		code.add(studentid, post);
+		Date date = new Date();
+		
+		code.addPostToWall(studentid, post, date);
+		
+	}
+	
+	//edit post on wall
+	@GetMapping(path = "users/{studentid/Post/{id}/{post}")
+	public void newPost(@PathVariable int studentid, int id, String post ) {
 		
 	}
 	
