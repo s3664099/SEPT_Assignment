@@ -27,7 +27,8 @@ public class DBLink {
 			while(results.next()) {
 			
 				//creates a new post containing the details of the post
-				Post post = new Post(results.getInt(2),results.getInt(1),results.getString(5),results.getDate(3));
+				Post post = new Post(results.getInt(2),results.getInt(1),results.getString(5),
+						results.getDate(3), results.getDate(4), results.getBoolean(6));
 				
 				//confirms that the post is visible, and if it is visible
 				//adds it to the array list
@@ -48,41 +49,25 @@ public class DBLink {
 	
 	//method to add a new post to the wall
 	public void addPostToWall(int studentId, String message, Date date) {
+				
+		//passes the details of the new post to the database to create a new entry
+		database.addPost(studentId, message, date);
+	}
+	
+	//method to update a post on the wall
+	public void updatePost(int id, String message, Date modDate, boolean modified) {
 		
-		//generates a unique ID by getting the last id in the database
-		int postId = getHighestPostId();
-		
-		//increases the id by one.
-		postId++;
-		
-		//creates a new post object
-		Post post = new Post(studentId, postId, message, date);
-		
-		//passes the object to the database link
-		database.addPost(post);
+		database.updatePost(id, message, modDate, modified);
 		
 	}
 	
-	//private method to get the last post ID
-	private int getHighestPostId() {
+	//method to update a post's visibility
+	public void updateVisibility(int id, boolean visibility) {
 		
-		//calls an sql to get the highest postID value
-		ResultSet results = database.getPostId();
-	
-		//extracts the value of the ID from the result
-		int id = 0;
-		try {
-			id = results.getInt(1);
-		} catch (SQLException ex) {
-			
-    		System.err.println("SQLException: " + ex.getMessage());
-    		System.err.println("SQLState: " + ex.getSQLState());
-    		System.err.println("VendorError: " + ex.getErrorCode());
-		}
-		
-		//returns the value of the ID.
-		return id;
+		database.updateVisibility(id, visibility);
 		
 	}
+	
+
 	
 }

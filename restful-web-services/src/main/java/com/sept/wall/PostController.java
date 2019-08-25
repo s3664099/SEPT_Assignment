@@ -75,12 +75,13 @@ public class PostController {
 	
 	//edit post on wall
 	@GetMapping(path = "users/{studentid/Post/{id}/{post}")
-	public void newPost(@PathVariable int studentid, int id, String post ) {
+	public void newPost(@PathVariable int studentId, int id, String post ) {
+		
+		Post modPost = code.findPostbyId(studentId, id);
+		
+		modPost.setModDate();
+		modPost.editPost(post);
 		
 	}
-	
-	
-	
-	
 
 }

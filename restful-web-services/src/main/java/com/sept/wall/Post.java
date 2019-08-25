@@ -13,8 +13,8 @@ public class Post {
 	private String post;
 	private int studentNumber;
 	private boolean display;
-	private boolean modified;
-	private Date modDate;
+	private boolean modified = false;
+	private Date modDate = null;
 	
 	//this is called when the post is a comment
 	private int parentPostId;
@@ -62,6 +62,50 @@ public class Post {
 		
 		//creates a timestamp for the post
 		this.date = date;
+	}
+	
+	//Getter and the setter for database
+	//This getter and setter is the one used for the database when the information
+	//is pulled down and a new copy of the post is required.
+	public Post(int studentNumber, int postId, String post, Date date, Date modDate, boolean modified) {
+		
+		this.studentNumber = studentNumber;
+		
+		this.post = post;
+		
+		this.postId = postId;
+
+		display = true;
+		
+		this.modDate = modDate;
+		
+		this.modified = modified;
+		
+		//creates a timestamp for the post
+		this.date = date;
+	}
+	
+	//getter and setter for modifications to the post
+	public void setModDate() {
+		
+		//sets the mod date
+		modDate = new Date();
+		
+		//checks whether the post has been modified
+		if (!modified) {
+			modified = !modified;
+		}
+		
+	}
+	
+	public Date getModDate() {
+		
+		return modDate;
+	}
+	
+	public boolean getModFlag() {
+
+		return modified;
 	}
 	
 	//This method toggles the display value
