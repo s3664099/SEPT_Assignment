@@ -2,7 +2,7 @@
  * 
  */
 /**
- * @author Jon
+ * @author Jon Ware
  *
  */
 package com.sept.rest.database.connection;

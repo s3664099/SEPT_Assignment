@@ -3,6 +3,7 @@ package com.sept.rest.database.connection;
 import static org.junit.jupiter.api.Assertions.*;
 
 import java.sql.ResultSet;
+import java.sql.SQLException;
 
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.AfterEach;
@@ -44,7 +45,15 @@ class TestDatabaseConnection {
 	void test2() {
 		ResultSet results = tdb.getPosts(3689650);
 		
-		assertNotNull(results);
+		boolean hasResults = false;
+		try {
+			hasResults = results.next();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		assertTrue(hasResults);
 	}
 	@Test
 	@DisplayName("Get invalid wall")
@@ -64,8 +73,15 @@ class TestDatabaseConnection {
 	@DisplayName("Get no comments")
 	void test5() {
 		ResultSet results = tdb.getWallComments(5);
+		boolean hasResults = false;
+		try {
+			hasResults = results.next();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		
-		assertNull(results);
+		assertFalse(hasResults);
 	}
 	@Test
 	@DisplayName("Get Invalid comments")
