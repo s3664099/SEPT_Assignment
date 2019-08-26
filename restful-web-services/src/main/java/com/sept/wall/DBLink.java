@@ -48,23 +48,23 @@ public class DBLink {
 	}
 	
 	//method to add a new post to the wall
-	public void addPostToWall(int studentId, String message, Date date) {
+	public void addPostToWall(int studentId, String message) {
 				
 		//passes the details of the new post to the database to create a new entry
-		database.addPost(studentId, message, date);
+		database.createPost(studentId, message);
 	}
 	
 	//method to update a post on the wall
-	public void updatePost(int id, String message, Date modDate, boolean modified) {
+	public void updatePost(int id, String message) {
 		
-		database.updatePost(id, message, modDate, modified);
+		database.editPost(id, message);
 		
 	}
 	
 	//method to update a post's visibility
-	public void updateVisibility(int id, boolean visibility) {
+	public void updateVisibility(int id) {
 		
-		database.updateVisibility(id, visibility);
+		database.deletePost(id);
 		
 	}
 	

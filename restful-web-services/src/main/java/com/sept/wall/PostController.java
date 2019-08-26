@@ -25,6 +25,7 @@ public class PostController {
 	//However, it will be the class which ultimately sends the SQL through
 	//to the database
 	PostHardCode code;
+	//DBLink code;
 			
 	//method to get a list of all visible posts
 	@GetMapping(path = "users/{studentid}/Post")
