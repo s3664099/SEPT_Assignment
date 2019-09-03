@@ -4,7 +4,7 @@ class CommentBox extends Component {
     render() {
         return (
             <div className="bottomBar">
-                Fake comment
+                Fake comment...
             </div>
         )
     }
