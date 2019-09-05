@@ -52,13 +52,14 @@ class PostContainer extends Component {
                         <div className="userInput">{post.postContent}</div>
                         <hr></hr>
                         <div><BottomBar /></div>
-                        <hr></hr>
+                        
                         <div>{
                             (typeof(post.comments)=='object')? 
                             <div>
                                 {
                                     post.comments.map((commentBox,indexb)=>
                                     <div>
+                                        <hr></hr>
                                         <div><CommentBox commentbox={commentBox}/></div>
                                     </div>)
                                 }
