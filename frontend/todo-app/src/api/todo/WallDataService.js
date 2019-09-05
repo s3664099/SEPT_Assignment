@@ -3,7 +3,7 @@ import { API_URL, JPA_API_URL } from '../../Constants'
 
 class WallDataService {
 
-	retrieveAllVisiblePosts(name) {
+    retrieveAllVisiblePosts(name) {
         //console.log('executed service')
         return axios.get(`${JPA_API_URL}/users/${studentId}/VisiblePosts`);
     }
