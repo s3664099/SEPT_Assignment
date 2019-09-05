@@ -26,7 +26,7 @@ class PostContainer extends Component {
         };
     }
     componentDidMount(){
-        fetch('http://localhost:3000/postbox')
+        fetch('http://localhost:3000/post')
         .then(res=>res.json())
         .then(
             (result)=>{
@@ -47,8 +47,6 @@ class PostContainer extends Component {
     render(){
         
         const userImage = "http://placekitten.com/300/200"
-
-
         return (
                    <div>
                    {
