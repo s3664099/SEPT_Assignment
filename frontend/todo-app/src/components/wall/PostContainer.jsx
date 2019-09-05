@@ -2,17 +2,6 @@ import React, {Component} from 'react'
 import BottomBar from './BottomBar'
 import './PostContainer.css'
 import CommentBox from './CommentBox'
-/*
-var myInit ={
-    method:'GET',
-    headers:{
-        'Content-Type':'application/json'
-    },
-    mode:'cors',
-    cache:'default'
-};
-let myRequest = new Request('http://localhost:3000/postbox', myInit);
-*/
 
 class PostContainer extends Component {
 
@@ -50,7 +39,7 @@ class PostContainer extends Component {
         return (
                    <div>
                    {
-                       this.state.posts.map((post)=>(
+                       this.state.posts.map((post,index)=>(
                         <div className="postContainer">
                         <div className="userImage">
                         <img className ="profilePic" src={userImage}></img>
@@ -64,10 +53,23 @@ class PostContainer extends Component {
                         <hr></hr>
                         <div><BottomBar /></div>
                         <hr></hr>
-                        <div><CommentBox /></div>
+                        <div>{
+                            (typeof(post.comments)=='object')? 
+                            <div>
+                                {
+                                    post.comments.map((commentBox,indexb)=>
+                                    <div>
+                                        <div><CommentBox commentbox={commentBox}/></div>
+                                    </div>)
+                                }
+                            </div>: null
+                        }</div>
                     </div>
                     ))
                    }
+
+
+
                     </div>
                
         );
