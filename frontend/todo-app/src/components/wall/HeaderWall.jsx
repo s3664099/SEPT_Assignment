@@ -10,7 +10,7 @@ var myInit ={
     mode:'cors',
     cache:'default'
 };
-let myRequest = new Request('http://localhost:4200/profile', myInit);
+let myRequest = new Request('http://localhost:3000/profile', myInit);
 
 class HeaderWall extends Component {
 

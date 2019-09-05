@@ -15,8 +15,6 @@ class Wall extends Component {
           <ActivityNavBar />
           <div className="Posts">
             <PostContainer />
-            <PostContainer />
-            <PostContainer />
           </div>
           <FooterWall />
         </div>
