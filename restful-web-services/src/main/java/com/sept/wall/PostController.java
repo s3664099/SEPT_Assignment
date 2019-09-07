@@ -65,24 +65,19 @@ public class PostController {
 	
 	//add a new post to the wall
 	@PostMapping(path = "users/{studentid}/AddPost/{post}")
-	public ResponseEntity<Void> newPost(@PathVariable int studentid, @RequestBody String post) {
+	public ResponseEntity<Void> newPost(@PathVariable int studentid, @RequestBody Post post) {
 		
 		Date date = new Date();
+		
+		post.setUser(studentid);
+		post.setDate(date);
 
-		boolean success = backEndDataBase.addPostToWall(studentid, post, date);
-		
-		//if the user is not the user for the wall
-		if (!success) {
-			
-			//a bad request is sent back
-			return ResponseEntity.badRequest().build();
-		}
-		
+		Post createdPost = postRepository.save(post);
+
 		URI uri = ServletUriComponentsBuilder.fromCurrentRequest()
-				.path("/{id}").buildAndExpand(backEndDataBase.getLastPost().getId()).toUri();
+				.path("/{id}").buildAndExpand(createdPost.getId()).toUri();
 		
 		return ResponseEntity.created(uri).build();		
-		
 		
 	}
 	

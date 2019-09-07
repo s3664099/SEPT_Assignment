@@ -27,7 +27,7 @@ public class DBLink {
 			while(results.next()) {
 			
 				//creates a new post containing the details of the post
-				Post post = new Post(results.getInt(2),results.getInt(1),results.getString(5),
+				Post post = new Post(results.getInt(2),results.getLong(1),results.getString(5),
 						results.getDate(3), results.getDate(4), results.getBoolean(6));
 				
 				//confirms that the post is visible, and if it is visible
