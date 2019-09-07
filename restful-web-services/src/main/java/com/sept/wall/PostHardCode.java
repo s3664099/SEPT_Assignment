@@ -13,15 +13,15 @@ public class PostHardCode {
 	
 	//creates a list of posts and sets the last value
 	private static List<Post> postlist = new ArrayList<Post>();
-	private int postValue = 39;
+	private Long postValue = new Long(39);
 	private int studentId = 1;
 	
 	//creates and adds some posts to the list
 	static {
-		postlist.add(new Post (34,"This is cool",new Date()));
-		postlist.add(new Post (38,"Multiple Choice Sucks",new Date()));
-		postlist.add(new Post (21,"Not cool dude, not cool",new Date()));
-		postlist.add(new Post (30,"Yeah, just that",new Date()));
+		postlist.add(new Post (new Long(34),"This is cool",new Date()));
+		postlist.add(new Post (new Long(38),"Multiple Choice Sucks",new Date()));
+		postlist.add(new Post (new Long(21),"Not cool dude, not cool",new Date()));
+		postlist.add(new Post (new Long(30),"Yeah, just that",new Date()));
 	}
 	
 	//returns a list of all posts
@@ -61,7 +61,7 @@ public class PostHardCode {
 	//returns the last post added to the list
 	public Post getLastPost() {
 		
-		return postlist.get(postValue-1);
+		return postlist.get(postlist.size());
 		
 	}
 	

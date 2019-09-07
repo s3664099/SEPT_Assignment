@@ -4,11 +4,18 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 
+@Entity
 public class Post {
 	
 	//basic post variables
-	private int postId;
+	@Id
+	@GeneratedValue (strategy = GenerationType.AUTO)
+	private Long postId;
 	private Date date;
 	private String post;
 	private int studentNumber;
@@ -25,7 +32,7 @@ public class Post {
 	//A list to store the users who like the post
 	private List<User> Likes = new ArrayList<User>();
 
-	public Post(int postId, String post, Date date) {
+	public Post(Long postId, String post, Date date) {
 		//The text message contained within the post
 		this.post = post;
 		
@@ -43,7 +50,7 @@ public class Post {
 	
 	//Creates the initial post that was submitted by the user
 	//This constructor is called from the front end
-	public Post(int studentNumber, int postId, String post, Date date) {
+	public Post(int studentNumber, Long postId, String post, Date date) {
 		
 		//This is the owner/creator of the post
 		//At this stage posts can only be posted on the user's wall
@@ -67,7 +74,7 @@ public class Post {
 	//Getter and the setter for database
 	//This getter and setter is the one used for the database when the information
 	//is pulled down and a new copy of the post is required.
-	public Post(int studentNumber, int postId, String post, Date date, Date modDate, boolean modified) {
+	public Post(int studentNumber, Long postId, String post, Date date, Date modDate, boolean modified) {
 		
 		this.studentNumber = studentNumber;
 		
@@ -83,6 +90,16 @@ public class Post {
 		
 		//creates a timestamp for the post
 		this.date = date;
+	}
+	
+	public void setDate(Date date) {
+		
+		this.date = date;
+		
+	}
+	
+	public void setUser(int studentNumber) {
+		this.studentNumber = studentNumber;
 	}
 	
 	//getter and setter for modifications to the post
@@ -190,7 +207,7 @@ public class Post {
 		return date;
 	}
 	
-	public int getId()
+	public Long getId()
 	{
 		return postId;
 	}

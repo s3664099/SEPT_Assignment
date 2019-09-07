@@ -30,26 +30,19 @@ public class PostController {
 	//At this stage this is hardcoded
 	//However, it will be the class which ultimately sends the SQL through
 	//to the database
-	PostHardCode backEndDataBase;
+	private PostHardCode backEndDataBase;
 	//DBLink code;
+	
+	private PostJPARepository postRepository;
 			
 	//method to get a list of all visible posts
 	@GetMapping(path = "users/{studentid}/PostVisible")
 	public List<Post> sendVisiblePostList(@PathVariable int studentid) {
 		
-		return backEndDataBase.getAll(studentid);
+		return postRepository.findByStudentId(studentid);
 		
 	}
-	
-	//method to get a list of all posts
-	@GetMapping(path = "users/{studentid}/PostAll")
-	public List<Post> sendPostList(@PathVariable int studentid) {
 		
-		return backEndDataBase.getAllVisible(studentid);
-		
-	}
-	
-	
 	//delete post by id
 	@DeleteMapping(path = "users/{studentid}/DeletePost/{id}")
 	public ResponseEntity<String> DeletePost(@PathVariable int studentid, @PathVariable int id) {
