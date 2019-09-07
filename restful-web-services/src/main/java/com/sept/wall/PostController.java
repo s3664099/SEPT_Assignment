@@ -45,26 +45,21 @@ public class PostController {
 		
 	//delete post by id
 	@DeleteMapping(path = "users/{studentid}/DeletePost/{id}")
-	public ResponseEntity<String> DeletePost(@PathVariable int studentid, @PathVariable int id) {
+	public ResponseEntity<String> DeletePost(@PathVariable int studentid, @PathVariable Long id) {
 		
 		//Attempts to delete the post
-		boolean success = backEndDataBase.deletePost(studentid, id);
-		
-		//if the attempt is successful, this is advised
-		if (!success) {
-			return ResponseEntity.badRequest().body("Unable to Locate Post");
-		}
-		
+		postRepository.deleteById(id);
+
 		//otherwise the successful request is returned
-		return ResponseEntity.status(HttpStatus.OK).body("Delete Post Successful");
+		return ResponseEntity.noContent().build();
 		
 	}
 	
 	//get post by id
 	@GetMapping(path = "users/{studentid}/GetPost/{id}")
-	public Post getPost(@PathVariable int studentid, @PathVariable int id) {
+	public Post getPost(@PathVariable int studentid, @PathVariable Long id) {
 		
-		return backEndDataBase.findPostbyId(studentid, id);
+		return postRepository.findById(id).get();
 		
 	}
 	
