@@ -4,8 +4,9 @@ import FooterWall from './FooterWall'
 import SideNavBar from './SideNavBar'
 import ActivityNavBar from './ActivityNavBar'
 import PostContainer from './PostContainer'
-import newPostButton from './newPostButton'
+import NewPost from './NewPost'
 import './Wall.css'
+
 
 
 class Wall extends Component {
@@ -15,7 +16,7 @@ class Wall extends Component {
           <HeaderWall />
           <SideNavBar />
           <ActivityNavBar />
-          <newPostButton />
+          <NewPost />
           <div className="Posts">
             <PostContainer />
           </div>
