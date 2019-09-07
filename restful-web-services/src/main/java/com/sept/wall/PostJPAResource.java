@@ -22,7 +22,7 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 @RestController
 @CrossOrigin(origins="http://localhost:4200")
 
-public class PostController {
+public class PostJPAResource {
 	
 	//creates a constructor to be used for the process
 	@Autowired
@@ -36,7 +36,7 @@ public class PostController {
 	private PostJPARepository postRepository;
 			
 	//method to get a list of all visible posts
-	@GetMapping(path = "users/{studentid}/PostVisible")
+	@GetMapping(path = "users/{studentid}/Posts")
 	public List<Post> sendVisiblePostList(@PathVariable int studentid) {
 		
 		return postRepository.findByStudentId(studentid);
@@ -44,7 +44,7 @@ public class PostController {
 	}
 		
 	//delete post by id
-	@DeleteMapping(path = "users/{studentid}/DeletePost/{id}")
+	@DeleteMapping(path = "users/{studentid}/Posts/{id}")
 	public ResponseEntity<String> DeletePost(@PathVariable int studentid, @PathVariable Long id) {
 		
 		//Attempts to delete the post
@@ -56,7 +56,7 @@ public class PostController {
 	}
 	
 	//get post by id
-	@GetMapping(path = "users/{studentid}/GetPost/{id}")
+	@GetMapping(path = "users/{studentid}/Posts/{id}")
 	public Post getPost(@PathVariable int studentid, @PathVariable Long id) {
 		
 		return postRepository.findById(id).get();
@@ -64,7 +64,7 @@ public class PostController {
 	}
 	
 	//add a new post to the wall
-	@PostMapping(path = "users/{studentid}/AddPost/{post}")
+	@PostMapping(path = "users/{studentid}/Posts")
 	public ResponseEntity<Void> newPost(@PathVariable int studentid, @RequestBody Post post) {
 		
 		Date date = new Date();
@@ -82,14 +82,14 @@ public class PostController {
 	}
 	
 	//edit post on wall
-	@GetMapping(path = "users/{studentid/EditPost/{id}/{post}")
-	public void newPost(@PathVariable int studentId, int id, String post ) {
+	@GetMapping(path = "users/{studentid/Posts/{id}")
+	public ResponseEntity<Post> editPost(@PathVariable int studentId, @PathVariable Long id, @RequestBody Post post ) {
+				
+		post.setModDate();
+		post.setUser(studentId);
+		Post postUpdated = postRepository.save(post);
 		
-		Post modPost = backEndDataBase.findPostbyId(studentId, id);
-		
-		modPost.setModDate();
-		modPost.editPost(post);
-		
+		return new ResponseEntity<Post>(post, HttpStatus.OK);
 	}
 
 }
