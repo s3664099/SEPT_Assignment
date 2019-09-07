@@ -9,7 +9,7 @@ class SideNavBar extends Component {
                 <a href="#">nav1</a>
                 <a href="#">nav2</a>
                 <a href="#">nav3</a>
-                <a href="#">nav4</a> 
+                <a href="#">nav4</a>
             </div>
         )
     }

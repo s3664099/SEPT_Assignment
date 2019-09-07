@@ -5,6 +5,7 @@ import SideNavBar from './SideNavBar'
 import ActivityNavBar from './ActivityNavBar'
 import PostContainer from './PostContainer';
 import './Wall.css'
+import Popup from "reactjs-popup";
 
 class Wall extends Component {
     render() {
@@ -14,6 +15,8 @@ class Wall extends Component {
           <SideNavBar />
           <ActivityNavBar />
           <div className="Posts">
+
+
             <PostContainer />
             <PostContainer />
             <PostContainer />
