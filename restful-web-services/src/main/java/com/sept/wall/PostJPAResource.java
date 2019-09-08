@@ -81,8 +81,28 @@ public class PostJPAResource {
 		
 	}
 	
+	//add a new comment to the wall
+	@PostMapping(path = "users/{studentid}/Posts/{parentPostId}")
+	public ResponseEntity<Void> newComment(@PathVariable int studentid,
+			@PathVariable Long parentPostId, @RequestBody Post post) {
+		
+		Date date = new Date();
+		
+		post.setUser(studentid);
+		post.setDate(date);
+		post.setParentPostId(parentPostId);
+
+		Post createdPost = postRepository.save(post);
+
+		URI uri = ServletUriComponentsBuilder.fromCurrentRequest()
+				.path("/{id}").buildAndExpand(createdPost.getId()).toUri();
+		
+		return ResponseEntity.created(uri).build();		
+		
+	}
+	
 	//edit post on wall
-	@GetMapping(path = "users/{studentid/Posts/{id}")
+	@GetMapping(path = "users/{studentid}/Posts/{id}")
 	public ResponseEntity<Post> editPost(@PathVariable int studentId, @PathVariable Long id, @RequestBody Post post ) {
 				
 		post.setModDate();

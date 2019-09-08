@@ -24,7 +24,7 @@ public class Post {
 	private Date modDate = null;
 	
 	//this is called when the post is a comment
-	private int parentPostId;
+	private Long parentPostId;
 	
 	//generate a list to store any comments on the posts
 	private List<Post> Comments = new ArrayList<Post>();
@@ -131,6 +131,16 @@ public class Post {
 		//if the display is set to true, it is visible,
 		//otherwise it is not visible. The delete option flicks the display
 		display = !display;
+	}
+	
+	public Long getparentPostId() {
+		
+		return parentPostId;
+	}
+	
+	public void setParentPostId(Long parentPostId) {
+		
+		this.parentPostId = parentPostId;
 	}
 	
 	//returns the current display setting
