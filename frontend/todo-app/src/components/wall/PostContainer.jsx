@@ -69,8 +69,6 @@ class PostContainer extends Component {
                     ))
                    }
 
-
-
                     </div>
                
         );

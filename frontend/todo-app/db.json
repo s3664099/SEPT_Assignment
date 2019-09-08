@@ -1,50 +1,111 @@
 {
-    "post":[
+  "post": [
+    {
+      "id": 1,
+      "UserName": "student 1",
+      "postContent": "paragraph 1",
+      "postTime": "0915",
+      "comments": [
         {
-            "id":1,
-            "UserName": "student 1",
-            "postContent" : "paragraph 1",
-            "postTime" : "0915",
-            "comments":[
-                {"UserName": "fakeuser1", "comment":"comment from fake user1", "commentTime": "0945"},
-                {"UserName": "fakeuser2", "comment":"comment from fake user2", "commentTime": "0950"},
-                {"UserName": "fakeuser3", "comment":"comment from fake user3", "commentTime": "0955"}
-            ]
+          "UserName": "fakeuser1",
+          "comment": "comment from fake user1",
+          "commentTime": "0945"
         },
         {
-            "id":2,
-            "UserName": "student 2",
-            "postContent" : "paragraph 2",
-            "postTime" : "0915",
-            "comments":[
-                {"UserName": "fakeuser1", "comment":"abcd", "commentTime": "0945"},
-                {"UserName": "fakeuser2", "comment":"abcd", "commentTime": "0950"},
-                {"UserName": "fakeuser3", "comment":"abcd", "commentTime": "0955"}
-            ]
+          "UserName": "fakeuser2",
+          "comment": "comment from fake user2",
+          "commentTime": "0950"
         },
         {
-            "id":3,
-            "UserName": "student 3",
-            "postContent" : "paragraph 3",
-            "postTime" : "0915",
-            "comments":[
-                {"UserName": "fakeuser1", "comment":"abcd", "commentTime": "0945"},
-                {"UserName": "fakeuser2", "comment":"abcd", "commentTime": "0950"},
-                {"UserName": "fakeuser3", "comment":"abcd", "commentTime": "0955"}
-            ]
-        },
-        {
-            "id":4,
-            "UserName": "student 4",
-            "postContent" : "paragraph 4",
-            "postTime" : "0915",
-            "comments":[
-                {"UserName": "fakeuser1", "comment":"abcd", "commentTime": "0945"},
-                {"UserName": "fakeuser2", "comment":"abcd", "commentTime": "0950"},
-                {"UserName": "fakeuser3", "comment":"abcd", "commentTime": "0955"}
-            ]
+          "UserName": "fakeuser3",
+          "comment": "comment from fake user3",
+          "commentTime": "0955"
         }
-    ],
-
-    "profile": {"name":"randomName"}
+      ]
+    },
+    {
+      "id": 2,
+      "UserName": "student 2",
+      "postContent": "paragraph 2",
+      "postTime": "0915",
+      "comments": [
+        {
+          "UserName": "fakeuser1",
+          "comment": "abcd",
+          "commentTime": "0945"
+        },
+        {
+          "UserName": "fakeuser2",
+          "comment": "abcd",
+          "commentTime": "0950"
+        },
+        {
+          "UserName": "fakeuser3",
+          "comment": "abcd",
+          "commentTime": "0955"
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "UserName": "student 3",
+      "postContent": "paragraph 3",
+      "postTime": "0915",
+      "comments": [
+        {
+          "UserName": "fakeuser1",
+          "comment": "abcd",
+          "commentTime": "0945"
+        },
+        {
+          "UserName": "fakeuser2",
+          "comment": "abcd",
+          "commentTime": "0950"
+        },
+        {
+          "UserName": "fakeuser3",
+          "comment": "abcd",
+          "commentTime": "0955"
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "UserName": "student 4",
+      "postContent": "paragraph 4",
+      "postTime": "0915",
+      "comments": [
+        {
+          "UserName": "fakeuser1",
+          "comment": "abcd",
+          "commentTime": "0945"
+        },
+        {
+          "UserName": "fakeuser2",
+          "comment": "abcd",
+          "commentTime": "0950"
+        },
+        {
+          "UserName": "fakeuser3",
+          "comment": "abcd",
+          "commentTime": "0955"
+        }
+      ]
+    },
+    {
+      "UserName": "randomName",
+      "postContent": "sdrfs",
+      "postTime": "9/8/2019, 3:06:25 PM",
+      "id": 13
+    },
+    {
+      "UserName": "randomName",
+      "postContent": "serser",
+      "postTime": "9/8/2019, 3:07:37 PM",
+      "id": 14
+    }
+  ],
+  "profile": {
+    "name": "randomName"
+  }
 }
