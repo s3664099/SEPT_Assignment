@@ -1,4 +1,4 @@
-package com.sept.wall;
+package com.middlewareapp.wall;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

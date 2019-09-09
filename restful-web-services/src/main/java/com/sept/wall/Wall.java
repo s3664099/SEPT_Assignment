@@ -1,4 +1,4 @@
-package com.sept.wall;
+package com.middlewareapp.wall;
 
 import java.util.ArrayList;
 import java.util.List;

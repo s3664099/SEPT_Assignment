@@ -1,4 +1,4 @@
-package com.sept.wall;
+package com.middlewareapp.wall;
 
 
 //Stub for the user to allow testing of wall & post

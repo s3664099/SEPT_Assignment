@@ -1,4 +1,4 @@
-package com.sept.wall;
+package com.middlewareapp.wall;
 
 import java.sql.Date;
 import java.sql.ResultSet;
