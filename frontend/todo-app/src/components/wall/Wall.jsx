@@ -3,9 +3,12 @@ import HeaderWall from './HeaderWall'
 import FooterWall from './FooterWall'
 import SideNavBar from './SideNavBar'
 import ActivityNavBar from './ActivityNavBar'
-import PostContainer from './PostContainer';
+import PostContainer from './PostContainer'
+import NewPost from './NewPost'
 import './Wall.css'
 import Popup from "reactjs-popup";
+
+
 
 class Wall extends Component {
     render() {
@@ -14,6 +17,7 @@ class Wall extends Component {
           <HeaderWall />
           <SideNavBar />
           <ActivityNavBar />
+          <NewPost />
           <div className="Posts">
 
 
