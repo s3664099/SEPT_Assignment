@@ -1,6 +1,14 @@
 CREATE DATABASE TestDatabase;
 USE TestDatabase;
 
+CREATE TABLE Todo (
+	id				INT	UNSIGNED	NOT NULL,
+	username 	VARCHAR(30),
+	description	VARCHAR(1000),
+	targetDate	DATE,
+	isDone		BOOLEAN,
+	PRIMARY KEY (id)
+);
 CREATE TABLE Students (
 	StudentID	INT(7)	UNSIGNED	NOT NULL,
 	Given_Name	VARCHAR(250),
@@ -59,3 +67,10 @@ INSERT INTO WallComments (CommentID, ParentID, AuthorID, Message)
 VALUES (2, 1, 3664099, 'Arcu odio ut sem nulla pharetra. Purus faucibus ornare suspendisse sed.');
 INSERT INTO WallComments (CommentID, ParentID, AuthorID, Message)
 VALUES (3, 1, 3735236, 'Urna et pharetra pharetra massa massa. Eu tincidunt tortor aliquam nulla facilisi.');
+
+INSERT INTO Todo(id, username,description,target_date,is_done)
+VALUES(10001, 'sept', 'Learn JPA', sysdate(), false);
+INSERT INTO Todo(id, username,description,target_date,is_done)
+VALUES(10002, 'sept', 'Learn Data JPA', sysdate(), false);
+INSERT INTO Todo(id, username,description,target_date,is_done)
+VALUES(10003, 'sept', 'Learn Microservices', sysdate(), FALSE);
