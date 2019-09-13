@@ -78,5 +78,19 @@ public class PostJPAResource {
 		
 	}
 	
+	//edit post on wall
+	@GetMapping(path = "users/{studentid}/Posts/{id}")
+	public List editPost(@PathVariable int studentId, @PathVariable int id, @RequestBody PostID temppost ) {
+		
+		PostID post = backEndDataBase.findPostbyId(studentId, id);
+		
+		post.editPost(temppost.getPost());
+		post.setUser(studentId);
+		
+		//PostID postUpdated = postRepository.save(post);
+		
+		return backEndDataBase.getAllVisible(studentId);
+	}
+	
 
 }
