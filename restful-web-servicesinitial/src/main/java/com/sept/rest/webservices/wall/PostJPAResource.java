@@ -1,8 +1,5 @@
 package com.sept.rest.webservices.wall;
 
-import java.net.URI;
-import java.time.LocalDate;
-import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -37,10 +34,10 @@ public class PostJPAResource {
 	
 	//method to get a list of all visible posts
 	@GetMapping(path = "users/{username}/Posts")
-	public List<PostID> sendVisiblePostList(@PathVariable int studentid) {
+	public List<PostID> sendVisiblePostList(@PathVariable long studentid) {
 		
 		//return postRepository.findByStudentId(studentid);
-		return backEndDataBase.getAllVisible(studentid);
+		return backEndDataBase.getAllVisible(1);
 	}
 	
 	//delete post by id
@@ -57,7 +54,7 @@ public class PostJPAResource {
 	}
 	
 	//add a new post to the wall
-	@PostMapping(path = "users/{studentid}/Posts")
+	@PostMapping(path = "users/{studentid}/Posts/{add}")
 	public List newPost(@PathVariable int studentid, @RequestBody PostID post) {
 		
 		Date date = new Date();
