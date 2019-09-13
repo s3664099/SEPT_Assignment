@@ -18,8 +18,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
-import com.sept.wall.PostID;
-
 //sets up the middleware section of the system
 @RestController
 @CrossOrigin(origins="http://localhost:4200")
@@ -38,10 +36,23 @@ public class PostJPAResource {
 	private PostIDJPARepository postRepository;
 	
 	//method to get a list of all visible posts
-	@GetMapping(path = "users/{studentid}/Posts")
+	@GetMapping(path = "users/{username}/Posts")
 	public List<PostID> sendVisiblePostList(@PathVariable int studentid) {
 		
-		return postRepository.findByStudentId(studentid);
+		//return postRepository.findByStudentId(studentid);
+		return backEndDataBase.getAllVisible(studentid);
+	}
+	
+	//delete post by id
+	@DeleteMapping(path = "users/{username}/Posts/{id}")
+	public ResponseEntity<String> DeletePost(@PathVariable int studentid, @PathVariable int id) {
+		
+		//Attempts to delete the post
+		//postRepository.deleteById(id);
+		backEndDataBase.deletePost(studentid, id);
+
+		//otherwise the successful request is returned
+		return ResponseEntity.noContent().build();
 		
 	}
 	
