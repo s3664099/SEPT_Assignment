@@ -6,8 +6,8 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface PostIDJPARepository extends JpaRepository<Post, Long> {
+public interface PostIDJPARepository extends JpaRepository<PostID, Long> {
 	
-	List<Post> findByStudentId(int studentNumber);
+	List<PostID> findByStudentId(int studentNumber);
 	
 }
