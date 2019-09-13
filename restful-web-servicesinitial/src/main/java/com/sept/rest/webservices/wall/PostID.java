@@ -37,6 +37,8 @@ public class PostID {
 	//Creates the initial post that was submitted by the user
 	//This constructor is called from the front end
 	
+	
+	
 	//Getter and the setter for database
 	//This getter and setter is the one used for the database when the information
 	//is pulled down and a new copy of the post is required.
@@ -58,6 +60,12 @@ public class PostID {
 		this.Creation_Time = date;
 	}
 	
+	public PostID(int long1, String Message, Date date) {
+		this.OwnerID = long1;
+		this.Message = Message;
+		this.Creation_Time = date;
+	}
+
 	public void setDate(Date date) {
 		
 		this.Creation_Time = date;
