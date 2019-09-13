@@ -2,30 +2,28 @@
 
 .wallnav {
     /*overflow:hidden;*/
-    background-color: #bcbcd3;
     display: inline-block;
     width: 100%;
     color: white;
     align-items:center;
     height:10%;
+    border-bottom: 2px solid #bcbcd3;
 }
 
 .wallLogo {
-    font: 40px courier,serif;
+  font-size: 32px;
     font-weight: bold;
-    margin-top: 10px;
-    margin-left: 5%;
-    margin-right: 5%;
-    width: 300px;
+    margin-left: 10%;
+    margin: 5px auto;
     vertical-align: baseline;
     display: inline-block;
     color:black;
 }
 
 .Greetings{
-    font: 20px courier,serif;
-    font-weight: bold;
+    font-size: 20px;
     text-align: right;
+    margin-right: 10%;
     display: inline;
     float: right;
     color:black;
@@ -35,15 +33,12 @@
     border: 1px solid #ddd;
     border-radius: 4px;
     padding: 5px;
-    width: 100px;
+    width: 80px;
     border-radius: 8px;
     padding:5px;
     vertical-align: middle;
-    width: 150px;
-    margin-left:10%;
-    margin-right: 10%;
-    margin-top:10px;
-    margin-bottom:3px;
+    margin: 10px 0;
+    display: inline;
 }
 
 .search{
@@ -80,4 +75,3 @@
   text-align: left;
   text-decoration: none;
 }
-

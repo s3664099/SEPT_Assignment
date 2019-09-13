@@ -33,7 +33,7 @@ class HeaderWall extends Component {
                     items: result
                 });
             },
-        
+
         (error)=>{
             this.setState({
                 isLoaded:true,
@@ -52,7 +52,7 @@ class HeaderWall extends Component {
             return <div>Loading...</div>
         }else{*/
              return (
-                 
+
             <header>
                 <nav className="wallnav">
                     <div className="wallLogo">
@@ -64,14 +64,13 @@ class HeaderWall extends Component {
                     </div>
 
                     <div className="Greetings">
-                        Welcome, {this.props.name}
-                        <img className ="profilePic" src="http://placekitten.com/300/200"></img>
+                        <img className ="profilePic" src="http://placekitten.com/300/200"></img>Welcome, {this.props.name}
                     </div>
                 </nav>
             </header>
         )
         }
-       
+
     }
 //}
 
