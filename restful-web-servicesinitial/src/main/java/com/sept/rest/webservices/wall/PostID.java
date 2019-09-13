@@ -163,6 +163,8 @@ public class PostID {
 	public void editPost(String post)
 	{
 		this.Message = post;
+		this.Edited = true;
+		this.Modified_Time = new Date();
 	}
 	
 	//getters
