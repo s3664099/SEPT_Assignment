@@ -56,5 +56,41 @@ public class PostJPAResource {
 		
 	}
 	
+	//add a new post to the wall
+	@PostMapping(path = "users/{studentid}/Posts")
+	public List newPost(@PathVariable int studentid, @RequestBody PostID post) {
+		
+		Date date = new Date();
+		
+		post.setUser(studentid);
+		post.setDate(date);
+		
+		backEndDataBase.addPostToWall(post);
+
+		/*
+		PostID createdPost = postRepository.save(post);
+
+		URI uri = ServletUriComponentsBuilder.fromCurrentRequest()
+				.path("/{id}").buildAndExpand(createdPost.getId()).toUri();
+		*/
+		
+		return backEndDataBase.getAllVisible(studentid);		
+		
+	}
+	
+	//edit post on wall
+	@GetMapping(path = "users/{studentid}/Posts/{id}")
+	public List editPost(@PathVariable int studentId, @PathVariable int id, @RequestBody PostID temppost ) {
+		
+		PostID post = backEndDataBase.findPostbyId(studentId, id);
+		
+		post.editPost(temppost.getPost());
+		post.setUser(studentId);
+		
+		//PostID postUpdated = postRepository.save(post);
+		
+		return backEndDataBase.getAllVisible(studentId);
+	}
+	
 
 }

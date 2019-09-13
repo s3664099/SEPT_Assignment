@@ -45,17 +45,9 @@ public class PostIDHardCode {
 	}
 	
 	//adds a post to the list
-	public boolean addPostToWall(int studentId, String post, Date date) {
+	public void addPostToWall(PostID post) {
 		
-		boolean success = false;
-		
-		if (studentId == this.studentId) {
-			postlist.add(new PostID(postValue, post, date));
-			postValue++;
-			success = true;
-		}
-		
-		return success;
+		postlist.add(post);
 	}
 	
 	//returns the last post added to the list

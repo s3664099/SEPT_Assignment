@@ -5,16 +5,15 @@
     display: inline-block;
     width: 100%;
     color: white;
-    align-items:center;
-    height:10%;
     border-bottom: 2px solid #bcbcd3;
 }
 
 .wallLogo {
+    float: left;
   font-size: 32px;
     font-weight: bold;
-    margin-left: 10%;
     margin: 5px auto;
+    margin-left: 10%;
     vertical-align: baseline;
     display: inline-block;
     color:black;
@@ -37,7 +36,7 @@
     border-radius: 8px;
     padding:5px;
     vertical-align: middle;
-    margin: 10px 0;
+    margin: 5px 10px;
     display: inline;
 }
 
