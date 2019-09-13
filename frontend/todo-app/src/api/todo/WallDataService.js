@@ -1,7 +1,8 @@
 import axios from 'axios'
 import { API_URL, JPA_API_URL } from '../../Constants'
-
+ var studentId=1;
 class WallDataService {
+   
 
 
     retrieveAllVisiblePosts(name) {
@@ -11,11 +12,12 @@ class WallDataService {
 
     //If the request is successful, a message advising the success is sent
     //otherwise a bad requet is recieved and sent
+    /*
     deletePost(name, id) {
 
     	//console.log('executed service')
         return axios.get(`${JPA_API_URL}/users/${studentId}/Posts/${id}`, result);
-    }
+    }*/
 
     retrievePost(name, id) {
         //console.log('executed service')

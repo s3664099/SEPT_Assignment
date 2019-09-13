@@ -1,7 +1,7 @@
 import React, {Component} from 'react'
-import BottomBar from './BottomBar'
+//import BottomBar from './BottomBar'
 import './PostContainer.css'
-import CommentBox from './CommentBox'
+//import CommentBox from './CommentBox'
 import '../../api/todo/WallDataService.js'
 import axios from 'axios'
 
@@ -57,7 +57,7 @@ class PostContainer extends Component {
                         </div>
                         <div className="userInput">{post.post}</div>
                         <hr></hr>
-                        <div><BottomBar /></div>
+                       <div>{/*<BottomBar />*/}</div>
                         
                         <div>{
                             (typeof(post.comments)=='object')? 
@@ -66,7 +66,7 @@ class PostContainer extends Component {
                                     post.comments.map((commentBox,indexb)=>
                                     <div>
                                         <hr></hr>
-                                        <div><CommentBox commentbox={commentBox}/></div>
+                                <div>{/*<CommentBox commentbox={commentBox}/>*/}</div>
                                     </div>)
                                 }
                             </div>: null
