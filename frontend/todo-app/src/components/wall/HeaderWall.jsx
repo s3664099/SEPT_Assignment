@@ -1,6 +1,6 @@
 import React, {Component} from 'react'
 import './HeaderWall.css'
-//import Search from './Search.jsx'
+import Search from './Search.jsx'
 
 var myInit ={
     method:'GET',
@@ -60,7 +60,7 @@ class HeaderWall extends Component {
                     </div>
 
                     <div className="search">
-                      {/*<Search/>*/}
+                      {<Search/>}
                     </div>
 
                     <div className="Greetings">
