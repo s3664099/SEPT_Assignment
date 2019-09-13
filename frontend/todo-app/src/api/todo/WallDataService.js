@@ -7,7 +7,7 @@ class WallDataService {
 
     retrieveAllVisiblePosts(name) {
         //console.log('executed service')
-        return axios.get(`${JPA_API_URL}/users/${studentId}/PostVisible`);
+        return axios.get(`/users/${name}/Posts`);
     }
 
     //If the request is successful, a message advising the success is sent
@@ -28,7 +28,7 @@ class WallDataService {
     //a bad request is returned
     createPost(name, post) {
         //console.log('executed service')
-        return axios.post(`${JPA_API_URL}/users/${studentId}/Posts`, post);
+        return axios.post(`users/${studentId}/Posts`);
     }
 
     createComment(name, post, parentPostId) {
@@ -43,3 +43,5 @@ class WallDataService {
 
 
 }
+
+export default new WallDataService()

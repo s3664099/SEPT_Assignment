@@ -2,7 +2,8 @@ import React, {Component} from 'react'
 //import BottomBar from './BottomBar'
 import './PostContainer.css'
 //import CommentBox from './CommentBox'
-import '../../api/todo/WallDataService.js'
+import WallDataService from '../../api/todo/WallDataService.js'
+import AuthenticationService from './AuthenticationService.js'
 import axios from 'axios'
 
 var studentId = 1;
@@ -21,7 +22,8 @@ class PostContainer extends Component {
     }
     
     componentDidMount(){
-       fetch('http://localhost:8080/users/1/PostVisible')
+       let username = AuthenticationService.getLoggedInUserName()
+       WallDataService.retrieveAllVisiblePosts(username)
         .then(res=>res.json())
         .then(
             (result)=>{
