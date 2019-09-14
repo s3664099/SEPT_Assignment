@@ -13,6 +13,7 @@
 	</classpathentry>
 	<classpathentry kind="src" output="target/test-classes" path="src/test/java">
 		<attributes>
+			<attribute name="test" value="true"/>
 			<attribute name="optional" value="true"/>
 			<attribute name="maven.pomderived" value="true"/>
 		</attributes>
@@ -27,5 +28,6 @@
 			<attribute name="maven.pomderived" value="true"/>
 		</attributes>
 	</classpathentry>
+	<classpathentry kind="lib" path="/home/archimedes/eclipse/java-2019-06/eclipse/plugins/JUnitExtension/Jars/JUnit_5_Extension_jar/JUnit 5 Extension.jar"/>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>
