@@ -72,6 +72,11 @@ public class PostID {
 		this.OwnerID = StudentID;
 	}
 	
+	public Long getPostID()
+	{
+		return PostID;
+	}
+	
 	//getter and setter for modifications to the post
 	public void setModDate() {
 		

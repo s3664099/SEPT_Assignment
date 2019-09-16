@@ -57,9 +57,9 @@ public class PostIDHardCode {
 		
 		//iterates through list of posts and removes the ones 
 		//that aren't visible
-		for (PostID commentlist:postlist) {
-			if (commentlist.getDisplay())
-				listToSend.add(commentlist);
+		for (PostID comments:commentlist) {
+			if (comments.getDisplay())
+				listToSend.add(comments);
 		}
 		
 		return listToSend;
@@ -69,6 +69,18 @@ public class PostIDHardCode {
 	public void addPostToWall(PostID post) {
 		
 		postlist.add(post);
+	}
+	
+	//adds a post to the list
+	public void addCommentToWall(CommentID post) {
+		
+		commentlist.add(post);
+		
+		for (PostID posts:postlist) {
+			if (post.getParentID() == posts.getPostID())
+				posts.addComment(post);
+		}
+		
 	}
 	
 	//returns the last post added to the list
