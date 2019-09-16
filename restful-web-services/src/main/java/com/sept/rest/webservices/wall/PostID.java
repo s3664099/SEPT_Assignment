@@ -31,17 +31,8 @@ public class PostID {
 	
 	//A list to store the users who like the post
 	private List<Students> Likes = new ArrayList<Students>();
-
-
 	
-	//Creates the initial post that was submitted by the user
-	//This constructor is called from the front end
-	
-	
-	
-	//Getter and the setter for database
-	//This getter and setter is the one used for the database when the information
-	//is pulled down and a new copy of the post is required.
+	//constrictors
 	public PostID(int studentNumber, Long postId, String post, Date date, Date modDate, boolean modified) {
 		
 		this.OwnerID = studentNumber;
@@ -65,7 +56,12 @@ public class PostID {
 		this.Message = Message;
 		this.Creation_Time = date;
 	}
+	
+	public void addComment(PostID comment) {
+		Comments.add(comment);
+	}
 
+	//getters & setters
 	public void setDate(Date date) {
 		
 		this.Creation_Time = date;
