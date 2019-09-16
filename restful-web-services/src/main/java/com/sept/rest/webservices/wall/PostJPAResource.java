@@ -82,6 +82,28 @@ public class PostJPAResource {
 		
 	}
 	
+	//add a new comment to a post
+	@PostMapping(path = "users/{studentid}/Posts/{add}")
+	public List newComment(@PathVariable int studentid, @RequestBody CommentID post) {
+		
+		Date date = new Date();
+		
+		post.setUser(studentid);
+		post.setDate(date);
+		
+		backEndDataBase.addCommentToWall(post);
+
+		/*
+		PostID createdPost = postRepository.save(post);
+
+		URI uri = ServletUriComponentsBuilder.fromCurrentRequest()
+				.path("/{id}").buildAndExpand(createdPost.getId()).toUri();
+		*/
+		
+		return backEndDataBase.getAllVisible(post.getParentID());		
+		
+	}
+	
 	//edit post on wall
 	@GetMapping(path = "users/{studentid}/Posts/{id}")
 	public List editPost(@PathVariable int studentId, @PathVariable int id, @RequestBody PostID temppost ) {
