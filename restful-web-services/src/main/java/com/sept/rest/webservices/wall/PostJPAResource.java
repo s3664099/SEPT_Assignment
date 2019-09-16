@@ -37,7 +37,14 @@ public class PostJPAResource {
 	public List<PostID> sendVisiblePostList(@PathVariable long studentid) {
 		
 		//return postRepository.findByStudentId(studentid);
-		return backEndDataBase.getAllVisible(1);
+		return backEndDataBase.getAllVisible(studentid);
+	}
+	
+	@GetMapping(path = "users/{username}/Posts")
+	public List<PostID> sendVisibleCommentList(@PathVariable long parentid) {
+		
+		//return postRepository.findByStudentId(parentid);
+		return backEndDataBase.getAllVisible(parentid);
 	}
 	
 	//delete post by id
