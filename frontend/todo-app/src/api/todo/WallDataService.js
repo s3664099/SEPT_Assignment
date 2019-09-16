@@ -19,11 +19,6 @@ class WallDataService {
         return axios.get(`${JPA_API_URL}/users/${studentId}/Posts/${id}`, result);
     }*/
 
-    retrievePost(name, id) {
-        //console.log('executed service')
-        return axios.get(`${JPA_API_URL}/users/${studentId}/Posts/${id}`);
-    }
-
     //the new post is sent to the server. If the student Ids don't match
     //a bad request is returned
     createPost(name, post) {
