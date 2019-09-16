@@ -13,6 +13,7 @@ public class PostIDHardCode {
 	
 	//creates a list of posts and sets the last value
 	private static List<PostID> postlist = new ArrayList<PostID>();
+	private static List<PostID> commentlist = new ArrayList<PostID>();
 	private int postValue = 39;
 	private int studentId = 1;
 	
@@ -22,6 +23,11 @@ public class PostIDHardCode {
 		postlist.add(new PostID (38,"Multiple Choice Sucks",new Date()));
 		postlist.add(new PostID (21,"Not cool dude, not cool",new Date()));
 		postlist.add(new PostID (30,"Yeah, just that",new Date()));
+		
+		Long parentID = (long) 10;
+		commentlist.add(new CommentID (30, parentID, "Cool post",new Date()));
+		commentlist.add(new CommentID (30, parentID, "LOL",new Date()));
+		commentlist.add(new CommentID (30, parentID, "Smiley Face, Smiley Face",new Date()));
 	}
 	
 	//returns a list of all posts
@@ -44,10 +50,37 @@ public class PostIDHardCode {
 		return listToSend;
 	}
 	
+	//returns a list of all visible comments (based on ID of the parent comment)
+	public List getAllVisible(Long parentId) {
+		
+		List<PostID> listToSend = new ArrayList<PostID>();
+		
+		//iterates through list of posts and removes the ones 
+		//that aren't visible
+		for (PostID comments:commentlist) {
+			if (comments.getDisplay())
+				listToSend.add(comments);
+		}
+		
+		return listToSend;
+	}
+	
 	//adds a post to the list
 	public void addPostToWall(PostID post) {
 		
 		postlist.add(post);
+	}
+	
+	//adds a post to the list
+	public void addCommentToWall(CommentID post) {
+		
+		commentlist.add(post);
+		
+		for (PostID posts:postlist) {
+			if (post.getParentID() == posts.getPostID())
+				posts.addComment(post);
+		}
+		
 	}
 	
 	//returns the last post added to the list
