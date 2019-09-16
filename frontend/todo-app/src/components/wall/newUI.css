@@ -1,0 +1,76 @@
+/*css needs to be fixed with adjustment of frame size*/
+
+.wallnav {
+    /*overflow:hidden;*/
+    display: inline-block;
+    width: 100%;
+    color: white;
+    border-bottom: 2px solid #bcbcd3;
+}
+
+.wallLogo {
+    float: left;
+  font-size: 32px;
+    font-weight: bold;
+    margin: 5px auto;
+    margin-left: 10%;
+    vertical-align: baseline;
+    display: inline-block;
+    color:black;
+}
+
+.Greetings{
+    font-size: 20px;
+    text-align: right;
+    margin-right: 10%;
+    display: inline;
+    float: right;
+    color:black;
+}
+
+.profilePic{
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 5px;
+    width: 80px;
+    border-radius: 8px;
+    padding:5px;
+    vertical-align: middle;
+    margin: 5px 10px;
+    display: inline;
+}
+
+.search{
+    text-align: center;
+
+    display: inline-block;
+    width: 500px;
+}
+
+.search input {
+  width: 300px;
+  height: 30px;
+}
+
+.search button {
+  height: 30px;
+  vertical-align: middle;
+  padding-top: 7px;
+  padding-bottom: 23px;
+}
+
+.search ul {
+  float: left;
+  position:absolute;
+  background-color: white;
+  margin-left: 40px;
+  border: 1px solid black;
+  width: 300px;
+  color: black;
+  list-style-type: none;
+}
+
+.search ul li {
+  text-align: left;
+  text-decoration: none;
+}
