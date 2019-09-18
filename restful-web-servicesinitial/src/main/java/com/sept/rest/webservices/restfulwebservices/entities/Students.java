@@ -1,4 +1,4 @@
-package com.sept.rest.webservices.user;
+package com.sept.rest.webservices.restfulwebservices.entities;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -9,50 +9,50 @@ public class Students {
 	
 	//basic student variables
 	@Id
-	private int StudentID;
-	private String Display_Name;
-	private String Given_Name;
-	private String Family_Name;
+	private int studentId;
+	private String displayName;
+	private String givenName;
+	private String familyName;
 	
 	public Students(String displayName, int studentId, String giveName, String famName) {
 		
-		this.Display_Name = displayName;
-		this.StudentID = studentId;
-		this.Given_Name = giveName;
-		this.Family_Name = famName;
+		this.displayName = displayName;
+		this.studentId = studentId;
+		this.givenName = giveName;
+		this.familyName = famName;
 	
 	}
 
 	public String getDisplay_Name() {
-		return Display_Name;
+		return displayName;
 	}
 
 	public void setDisplay_Name(String display_Name) {
-		Display_Name = display_Name;
+		displayName = display_Name;
 	}
 
 	public int getStudentID() {
-		return StudentID;
+		return studentId;
 	}
 
 	public void setStudentID(int studentID) {
-		StudentID = studentID;
+		studentId = studentID;
 	}
 
 	public String getGiven_Name() {
-		return Given_Name;
+		return givenName;
 	}
 
 	public void setGiven_Name(String given_Name) {
-		Given_Name = given_Name;
+		givenName = given_Name;
 	}
 
 	public String getFamily_Name() {
-		return Family_Name;
+		return familyName;
 	}
 
 	public void setFamily_Name(String family_Name) {
-		Family_Name = family_Name;
+		familyName = family_Name;
 	}
 	
 }

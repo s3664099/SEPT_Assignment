@@ -1,13 +1,11 @@
 import axios from 'axios'
-import { API_URL, JPA_API_URL } from '../../Constants'
- var studentId=1;
+import { /*API_URL, */JPA_API_URL } from '../../Constants'
+
 class WallDataService {
    
-
-
     retrieveAllVisiblePosts(name) {
-        //console.log('executed service')
-        return axios.get(`${JPA_API_URL}/users/${studentId}/PostVisible`);
+        //console.log('executed wall service')
+        return axios.get(`${JPA_API_URL}/users/${name}/wall`);
     }
 
     //If the request is successful, a message advising the success is sent
@@ -19,27 +17,27 @@ class WallDataService {
         return axios.get(`${JPA_API_URL}/users/${studentId}/Posts/${id}`, result);
     }*/
 
-    retrievePost(name, id) {
+    retrievePost(name, studentId, id) {
         //console.log('executed service')
-        return axios.get(`${JPA_API_URL}/users/${studentId}/Posts/${id}`);
+        return axios.get(`${JPA_API_URL}/users/${name}/wall/${studentId}/${id}`);
     }
 
     //the new post is sent to the server. If the student Ids don't match
     //a bad request is returned
-    createPost(name, post) {
+    createPost(name, studentId, post) {
         //console.log('executed service')
-        return axios.post(`${JPA_API_URL}/users/${studentId}/Posts`, post);
+        return axios.post(`${JPA_API_URL}/users/${name}/wall/${studentId}`, post);
     }
 
-    createComment(name, post, parentPostId) {
+    createComment(name, studentId, post, parentPostId) {
     //console.log('executed service')
-        return axios.post(`${JPA_API_URL}/users/${studentId}/Posts/${parentPostId}`, post);
+        return axios.post(`${JPA_API_URL}/users/${name}/wall/${studentId}/${parentPostId}`, post);
     }
 
-    editPost(name, post) {
-    	return axios.post(`${JPA_API_URL}/users/${studentId}/Posts`, post);
+    editPost(name, studentId, post) {
+    	return axios.post(`${JPA_API_URL}/users/${name}/wall/${studentId}`, post);
     }
-
-
 
 }
+
+export default new WallDataService()
