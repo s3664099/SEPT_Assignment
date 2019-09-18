@@ -13,7 +13,11 @@
     "react-scripts": "2.1.8"
   },
   "scripts": {
+<<<<<<< HEAD
     "start": "react-scripts start",
+=======
+    "start": "set Port=4200 && react-scripts start",
+>>>>>>> 4b22a67c9986d46491f48fa31d8ffeeb2a750f95
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
