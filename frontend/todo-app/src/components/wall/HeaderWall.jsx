@@ -2,7 +2,7 @@ import React, {Component} from 'react'
 import './HeaderWall.css'
 import Search from './Search.jsx'
 
-var myInit ={
+/*var myInit ={
     method:'GET',
     headers:{
         'Content-Type':'application/json'
@@ -10,17 +10,17 @@ var myInit ={
     mode:'cors',
     cache:'default'
 };
-let myRequest = new Request('http://localhost:3000/profile', myInit);
+let myRequest = new Request('http://localhost:3000/profile', myInit);*/
 
 class HeaderWall extends Component {
 
     constructor(props){
         super(props);
-       /* this.state ={
+       this.state ={
             error:null,
             isLoaded:false,
             items:[]
-        };*/
+        };
     }
 /*
     componentDidMount(){
@@ -56,7 +56,7 @@ class HeaderWall extends Component {
             <header>
                 <nav className="wallnav">
                     <div className="wallLogo">
-                        <a className ="RMITWall">RMITWall</a>
+                        <div className ="RMITWall">RMITWall</div>
                     </div>
 
                     <div className="search">
@@ -65,7 +65,7 @@ class HeaderWall extends Component {
 
                     <div className="Greetings">
                         Welcome, {this.props.name}
-                        <img className ="profilePic" src="http://placekitten.com/300/200"></img>
+                        <img className ="profilePic" src="http://placekitten.com/300/200" alt="I tort I taw a puddy tat"></img>
                     </div>
                 </nav>
             </header>

@@ -4,10 +4,6 @@ import './PostContainer.css'
 //import CommentBox from './CommentBox'
 import WallDataService from '../../api/todo/WallDataService.js'
 import AuthenticationService from './AuthenticationService.js'
-import axios from 'axios'
-
-var studentId = 1;
-
 
 class PostContainer extends Component {
 
@@ -49,8 +45,8 @@ class PostContainer extends Component {
                    {
                        this.state.posts.map((post,index)=>(
                         <div className="postContainer">
-                        <div className="userImage">
-                        <img className ="profilePic" src={userImage}></img>
+                        <div className="userImage" alt="Puddy Tat">
+                        <img className ="profilePic" src={userImage} alt="Il est moi"></img>
                             <div className ="timeStamp">{post.date}</div>
                         </div>
                         <div className="userName"> {/*post.UserName*/} </div>
