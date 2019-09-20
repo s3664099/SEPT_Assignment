@@ -21,18 +21,18 @@ import com.sept.rest.webservices.restfulwebservices.todo.Todo;
 @CrossOrigin(origins="http://localhost:4200")
 @RestController
 public class TodoJpaResource {
-
+	
 	@Autowired
 	private TodoHardcodedService todoService;
 
 	@Autowired
 	private TodoJpaRepository todoJpaRepository;
 
-
+	
 	@GetMapping("/jpa/users/{username}/todos")
 	public List<Todo> getAllTodos(@PathVariable String username){
-		//return todoJpaRepository.findByUsername(username);
-		return todoService.findAll();
+		return todoJpaRepository.findByUsername(username);
+		//return todoService.findAll();
 	}
 
 	@GetMapping("/jpa/users/{username}/todos/{id}")
@@ -58,29 +58,29 @@ public class TodoJpaResource {
 	public ResponseEntity<Todo> updateTodo(
 			@PathVariable String username,
 			@PathVariable long id, @RequestBody Todo todo){
-
+		
 		todo.setUsername(username);
-
+		
 		Todo todoUpdated = todoJpaRepository.save(todo);
-
+		
 		return new ResponseEntity<Todo>(todo, HttpStatus.OK);
 	}
-
+	
 	@PostMapping("/jpa/users/{username}/todos")
 	public ResponseEntity<Void> createTodo(
 			@PathVariable String username, @RequestBody Todo todo){
-
+		
 		todo.setUsername(username);
-
+		
 		Todo createdTodo = todoJpaRepository.save(todo);
-
+		
 		//Location
 		//Get current resource url
 		///{id}
 		URI uri = ServletUriComponentsBuilder.fromCurrentRequest()
 				.path("/{id}").buildAndExpand(createdTodo.getId()).toUri();
-
+		
 		return ResponseEntity.created(uri).build();
 	}
-
+		
 }
