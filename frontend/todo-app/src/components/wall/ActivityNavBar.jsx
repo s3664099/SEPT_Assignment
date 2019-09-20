@@ -1,12 +1,12 @@
 import React, { Component } from 'react'
 import './SideNavBar.css'
-import Popup from "reactjs-popup";
 
 class ActivityNavBar extends Component {
+
     render() {
         return (
             <div className="activityNavBar">
-            <Popup trigger={<button className="newPostButton"> Create New Post </button>}
+            {/*<Popup trigger={<button className="newPostButton"> Create New Post </button>
       modal
       closeOnDocumentClick>
             <div>
@@ -15,9 +15,9 @@ class ActivityNavBar extends Component {
               <textarea name="message" rows="10" cols="100" placeholder="Write your status..."></textarea>
               <br/>
               <input type="submit"/>
-              </form>
-            </div>
-              </Popup>
+              </form>}
+            <div>
+              </Popup>*/}
                 <a href="#">nav2</a>
                 <a href="#">nav3</a>
                 <a href="#">nav4</a>
