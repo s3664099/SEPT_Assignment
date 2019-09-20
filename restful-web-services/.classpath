@@ -28,6 +28,5 @@
 			<attribute name="maven.pomderived" value="true"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="C:/Users/David/eclipse/java-oxygen/eclipse/plugins/Jars/JUnit_5_Extension_jar/JUnit 5 Extension.jar"/>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>
