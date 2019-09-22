@@ -7,7 +7,7 @@ matrix:
         directories:
          - node_modules
       before_script:
-        - cd /frontend/todo-app
+        - cd frontend/todo-app
       script:
         - npm test
         - npm build run
