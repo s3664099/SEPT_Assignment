@@ -6,9 +6,11 @@ matrix:
       cache:
         directories:
          - node_modules
+      before_script:
+        - cd /frontend/todo-app
       script:
-        - /frontend/todo-app/npm test
-        - /frontend/todo-app/npm build run
+        - npm test
+        - npm build run
 
     - language: java
       openjdk:
