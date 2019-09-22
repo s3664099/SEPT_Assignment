@@ -16,9 +16,9 @@ matrix:
       openjdk:
         - openjdk8
       before_script:
-		- cd restful-web-services/
+        - cd restful-web-services/
       script:
-		- mvn compile
+        - mvn compile
   
 
 
