@@ -10,12 +10,13 @@
     "react": "^16.8.4",
     "react-dom": "^16.8.4",
     "react-router-dom": "^4.3.1",
-    "react-scripts": "2.1.8"
+    "react-scripts": "2.1.8",
+    "react-test-renderer": "^16.9.0"
   },
   "scripts": {
     "start": "set Port=4200 && react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test",
+    "test": "react-scripts test && jest",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
