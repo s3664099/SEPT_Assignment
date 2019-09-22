@@ -48,7 +48,7 @@ class PostContainer extends Component {
                        this.state.posts.map((post,index)=>(
                         <div className="postContainer">
                         <div className="userImage">
-                        <img className ="profilePic" src={userImage}></img>
+                        <img className ="profilePic" src={userImage} alt="Profile Pic"></img>
                             <div className ="timeStamp">{post.creation_Time}</div>
                         </div>
                         <div className="userName"> {/*post.UserName*/} </div>

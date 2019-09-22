@@ -5,9 +5,9 @@ import Search from './Search.jsx'
 
 class HeaderWall extends Component {
 
-    constructor(props){
+    /*constructor(props){
         super(props);
-    }
+    }*/
 
 
     render(){
@@ -16,7 +16,7 @@ class HeaderWall extends Component {
             <header>
                 <nav className="wallnav">
                     <div className="wallLogo">
-                        <a className ="RMITWall">RMITWall</a>
+                        <a className ="RMITWall" href="http://www.rmit.edu.au">RMITWall</a>
                     </div>
 
                     <div className="search">
@@ -25,7 +25,7 @@ class HeaderWall extends Component {
 
                     <div className="Greetings">
                         Welcome, {this.props.name}
-                        <img className ="profilePic" src="http://placekitten.com/300/200"></img>
+                        <img className ="profilePic" src="http://placekitten.com/300/200" alt="Putty Tat"></img>
                     </div>
                 </nav>
             </header>

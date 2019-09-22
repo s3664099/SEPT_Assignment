@@ -20,9 +20,9 @@ class ActivityNavBar extends Component {
             </form>
           </div>
             </Popup>
-              <a href="#">nav2</a>
-              <a href="#">nav3</a>
-              <a href="#">nav4</a>
+              <a href="https://www.google.com">nav2</a>
+              <a href="https://www.google.com">nav3</a>
+              <a href="https://www.google.com">nav4</a>
           </div>
         )
     }
