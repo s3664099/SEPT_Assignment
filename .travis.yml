@@ -1,0 +1,19 @@
+matrix:
+  include:
+    - language: node_js
+      node_js: 
+        - "stable"
+      cache:
+        directories:
+         - node_modules
+      script:
+        - npm test
+        - npm build run
+
+    - language: java
+      openjdk:
+        - openjdk8
+  
+
+
+
