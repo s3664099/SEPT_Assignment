@@ -1,4 +1,3 @@
-
 DROP TABLE todo;
 
 CREATE TABLE todo (

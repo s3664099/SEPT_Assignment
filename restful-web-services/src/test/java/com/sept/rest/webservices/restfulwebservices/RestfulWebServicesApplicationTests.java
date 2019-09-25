@@ -6,7 +6,6 @@ import java.util.Optional;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.junit.runner.RunWith;
-
 import org.springframework.boot.test.autoconfigure.orm.jpa.TestEntityManager;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
@@ -18,7 +17,6 @@ import com.sept.rest.webservices.restfulwebservices.repositories.PostsRepository
 @ExtendWith(SpringExtension.class)
 @RunWith(SpringRunner.class)
 @SpringBootTest
-
 public class RestfulWebServicesApplicationTests {
 
 	private TestEntityManager entityManager;
