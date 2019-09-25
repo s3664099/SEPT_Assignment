@@ -2,8 +2,8 @@ import React, { Component } from 'react'
 import axios from 'axios'
 import Suggestions from './Suggestions.jsx'
 
-const { API_KEY } = process.env
-const API_URL = 'http://jsonplaceholder.typicode.com/posts'
+//const { API_KEY } = process.env
+//const API_URL = 'http://jsonplaceholder.typicode.com/posts'
 
 class Search extends Component {
   state = {

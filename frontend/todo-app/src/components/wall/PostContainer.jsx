@@ -1,7 +1,10 @@
 import React, {Component} from 'react'
-import BottomBar from './BottomBar'
+
+//import BottomBar from './BottomBar'
 import './PostContainer.css'
-import CommentBox from './CommentBox'
+//import CommentBox from './CommentBox'
+import WallDataService from '../../api/todo/WallDataService.js'
+import AuthenticationService from './AuthenticationService.js'
 
 class PostContainer extends Component {
 
@@ -14,8 +17,10 @@ class PostContainer extends Component {
             posts:[]
         };
     }
+    
     componentDidMount(){
-        fetch('http://localhost:3000/post')
+       let username = AuthenticationService.getLoggedInUserName()
+       WallDataService.retrieveAllVisiblePosts(username)
         .then(res=>res.json())
         .then(
             (result)=>{
@@ -42,16 +47,16 @@ class PostContainer extends Component {
                        this.state.posts.map((post,index)=>(
                         <div className="postContainer">
                         <div className="userImage">
-                        <img className ="profilePic" src={userImage}></img>
-                            <div className ="timeStamp">{post.postTime}</div>
+                        <img className ="profilePic" src={userImage} alt="Profile Pic"></img>
+                            <div className ="timeStamp">{post.creation_Time}</div>
                         </div>
-                        <div className="userName"> {post.UserName} </div>
+                        <div className="userName"> {/*post.UserName*/} </div>
                         <div>
                             <button className ="editButton">Edit/Del</button>
                         </div>
-                        <div className="userInput">{post.postContent}</div>
+                        <div className="userInput">{post.message}</div>
                         <hr></hr>
-                        <div><BottomBar /></div>
+                       <div>{/*<BottomBar />*/}</div>
                         
                         <div>{
                             (typeof(post.comments)=='object')? 
@@ -60,7 +65,7 @@ class PostContainer extends Component {
                                     post.comments.map((commentBox,indexb)=>
                                     <div>
                                         <hr></hr>
-                                        <div><CommentBox commentbox={commentBox}/></div>
+                                <div>{/*<CommentBox commentbox={commentBox}/>*/}</div>
                                     </div>)
                                 }
                             </div>: null
