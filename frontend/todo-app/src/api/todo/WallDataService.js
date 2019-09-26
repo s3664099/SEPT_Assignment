@@ -5,7 +5,7 @@ class WallDataService {
    
     retrieveAllVisiblePosts(name) {
         //console.log('executed service')
-        return axios.get(`${JPA_API_URL}/jpa/users/${name}/wall`);
+        return axios.get(`${JPA_API_URL}/users/${name}/wall`);
     }
 
     //If the request is successful, a message advising the success is sent

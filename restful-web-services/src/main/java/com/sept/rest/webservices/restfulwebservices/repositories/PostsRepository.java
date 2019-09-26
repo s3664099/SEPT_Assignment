@@ -10,8 +10,8 @@ import com.sept.rest.webservices.restfulwebservices.entities.Posts;
 @Repository
 public interface PostsRepository extends CrudRepository<Posts, Long> {
 
-	List<Posts> findByOwner_idAndDeletedFalse(int studentID);
+	List<Posts> findByOwnerIdAndDeletedFalse(int studentID);
 
-	Posts findByIdAndDeletedFalse(int id);
+	Posts findBypostIdAndDeletedFalse(int id);
 	
 }

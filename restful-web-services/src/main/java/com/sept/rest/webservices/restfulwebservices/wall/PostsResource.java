@@ -34,14 +34,14 @@ public class PostsResource {
 	//		When specific id can be determined rework to fetch appropriate wall
 	@GetMapping(path = "/jpa/users/{username}/wall")
 	public List<Posts> sendVisiblePostList(@PathVariable String username) {
-		int studentId = studentsRepository.findByDisplay_name(username).getStudentID();
-		return postsRepository.findByOwner_idAndDeletedFalse(studentId);
+		int studentId = studentsRepository.findBydisplayName(username).getStudentID();
+		return postsRepository.findByOwnerIdAndDeletedFalse(studentId);
 	}
 	
 	// Mapping to get a specific post if undeleted
 	@GetMapping(path = "/jpa/users/{username}/post/{postId}")
 	public Posts getPost(@PathVariable String username, @PathVariable int postId) {
-		return postsRepository.findByIdAndDeletedFalse(postId);
+		return postsRepository.findBypostIdAndDeletedFalse(postId);
 	}
 	
 	// Mapping to add a new post to the wall
@@ -49,7 +49,7 @@ public class PostsResource {
 	public ResponseEntity<Void> newPost(@PathVariable String username, @PathVariable int wallId, @RequestBody Posts post) {
 		
 		// Ensure new post will be appended to users wall and not someone else's
-		post.setOwnerID(studentsRepository.findByDisplay_name(username).getStudentID());
+		post.setOwnerID(studentsRepository.findBydisplayName(username).getStudentID());
 			
 		// Store new post in database
 		Posts newPost = postsRepository.save(post);
@@ -68,7 +68,7 @@ public class PostsResource {
 			@PathVariable int postId, @RequestBody Posts post) {
 		
 		// Check that this is post by the user
-		if (studentsRepository.findByDisplay_name(username).getStudentID() == post.getOwnerID()) {
+		if (studentsRepository.findBydisplayName(username).getStudentID() == post.getOwnerID()) {
 
 			// Store edited post in database
 			Posts editedPost = postsRepository.save(post);
@@ -87,10 +87,10 @@ public class PostsResource {
 			@PathVariable String username, @PathVariable int postId) {
 
 		// Retrieve post to be removed from the wall
-		Posts post = postsRepository.findByIdAndDeletedFalse(postId);
+		Posts post = postsRepository.findBypostIdAndDeletedFalse(postId);
 		
 		// Check that user has permission to delete post
-		if (studentsRepository.findByDisplay_name(username).getStudentID() == post.getOwnerID()) {
+		if (studentsRepository.findBydisplayName(username).getStudentID() == post.getOwnerID()) {
 			
 			// Set post to not be displayed
 			post.setDeleted(true);

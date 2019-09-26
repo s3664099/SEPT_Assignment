@@ -8,5 +8,5 @@ import com.sept.rest.webservices.restfulwebservices.entities.Students;
 @Repository
 public interface StudentsRepository extends CrudRepository<Students, Long> {
 
-	Students findByDisplay_name(String username);
+	Students findBydisplayName(String username);
 }
