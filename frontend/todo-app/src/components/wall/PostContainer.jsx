@@ -12,16 +12,15 @@ class PostContainer extends Component {
     constructor(props){
         super(props);
         this.state ={
-            //error : null,
+            error : null,
             isLoaded: false,
-            posts:[],
-            user:'sept'
+            posts:[]
         };
     }
     
     componentDidMount(){
-       //let username = AuthenticationService.getLoggedInUserName()
-       WallDataService.retrieveAllVisiblePosts('sept')
+       let username = AuthenticationService.getLoggedInUserName()
+       WallDataService.retrieveAllVisiblePosts(username)
         .then(res=>res.json())
         .then(
             (result)=>{

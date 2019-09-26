@@ -32,7 +32,7 @@ public class Posts {
 	
 	//basic post variables
 	@Id
-	@GeneratedValue //(strategy = GenerationType.AUTO)
+	@GeneratedValue (strategy = GenerationType.AUTO)
 	private Long postId;
 	private int ownerId;
 	private String message;
