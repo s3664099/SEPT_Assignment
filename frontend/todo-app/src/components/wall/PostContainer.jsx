@@ -48,7 +48,7 @@ class PostContainer extends Component {
                         <div className="postContainer">
                         <div className="userImage">
                         <img className ="profilePic" src={userImage} alt="Profile Pic"></img>
-                            <div className ="timeStamp">{post.creation_Time}</div>
+                            <div className ="timeStamp">{post.creationTime}</div>
                         </div>
                         <div className="userName"> {/*post.UserName*/} </div>
                         <div>

@@ -26,8 +26,9 @@ import com.sept.rest.webservices.restfulwebservices.repositories.StudentsReposit
 public class PostsResource {
 	
 	@Autowired
-	
 	private PostsRepository postsRepository;
+	
+	@Autowired
 	private StudentsRepository studentsRepository;
 	
 	// Mapping to get a list of all undeleted posts for a given wall
