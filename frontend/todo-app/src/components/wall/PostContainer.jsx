@@ -12,15 +12,16 @@ class PostContainer extends Component {
     constructor(props){
         super(props);
         this.state ={
-            error : null,
+            //error : null,
             isLoaded: false,
-            posts:[]
+            posts:[],
+            user:'sept'
         };
     }
     
     componentDidMount(){
-       let username = AuthenticationService.getLoggedInUserName()
-       WallDataService.retrieveAllVisiblePosts(username)
+       //let username = AuthenticationService.getLoggedInUserName()
+       WallDataService.retrieveAllVisiblePosts('sept')
         .then(res=>res.json())
         .then(
             (result)=>{
@@ -48,7 +49,7 @@ class PostContainer extends Component {
                         <div className="postContainer">
                         <div className="userImage">
                         <img className ="profilePic" src={userImage} alt="Profile Pic"></img>
-                            <div className ="timeStamp">{post.creation_Time}</div>
+                            <div className ="timeStamp">{post.creationTime}</div>
                         </div>
                         <div className="userName"> {/*post.UserName*/} </div>
                         <div>
