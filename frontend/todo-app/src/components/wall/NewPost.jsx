@@ -3,6 +3,7 @@ import { Formik, Form, Field} from 'formik';
 import WallDataService from '../../api/todo/WallDataService';
 import AuthenticationService from './AuthenticationService.js'
 import moment from 'moment'
+import {withRouter} from 'react-router-dom'
 
 class NewPost extends Component{
 
@@ -49,14 +50,18 @@ class NewPost extends Component{
             creationTime: this.state.postTime
         }
         console.log(this.state.postId)
-        if(id == -1){
+        if(id === -1){
             console.log("create new post")
             WallDataService.createPost(username, post)
             .then(()=>this.props.history.push('/wall'))
         }else{
             console.log("update new post")
-            WallDataService.updatePost(username, this.state.postId, post)
-            .then(()=>this.props.history.push('/wall'))
+            WallDataService.toUpdatePost(username, this.state.postId, post)
+            .then(
+                console.log(this.props.history),
+                () => this.props.history.push('/wall')
+                )
+            
         }
         console.log(event)
     }
@@ -96,4 +101,4 @@ class NewPost extends Component{
     }
 }
 
-export default NewPost
+export default withRouter(NewPost)

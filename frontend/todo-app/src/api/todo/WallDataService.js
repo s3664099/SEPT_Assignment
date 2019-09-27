@@ -23,7 +23,7 @@ class WallDataService {
         return axios.get(`${JPA_API_URL}/users/${studentId}/Posts/${id}`, result);
     }*/
 
-    updatePost(username, postId, post){
+    toUpdatePost(username, postId, post){
         console.log('update post axios')
         return axios.put(`${JPA_API_URL}/users/${username}/post/${postId}`, post)
     }

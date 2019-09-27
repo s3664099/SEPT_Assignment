@@ -25,7 +25,6 @@ class TodoDataService {
 
     createTodo(name, todo) {
         console.log('create todo')
-
         return axios.post(`${JPA_API_URL}/users/${name}/todos/`, todo);
     }
 
