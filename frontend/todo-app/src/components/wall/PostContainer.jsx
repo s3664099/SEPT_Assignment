@@ -19,6 +19,7 @@ class PostContainer extends Component {
         this.refreshPosts=this.refreshPosts.bind(this)
         this.addPostClicked = this.addPostClicked.bind(this)
         this.editPostButton = this.editPostButton.bind(this)
+        this.deletePostButton = this.deletePostButton.bind(this)
     }
     
     componentWillUnmount() {
@@ -51,15 +52,23 @@ class PostContainer extends Component {
         this.props.history.push(`wall/${postID}`)
     }
 
+
+    deletePostButton(postID){
+        console.log('delete post' + postID)
+        let username = AuthenticationService.getLoggedInUserName()
+        WallDataService.deletePost(username, postID)
+    }
+
     addPostClicked(){
         console.log("new post button clicked")
         this.props.history.push(`/wall/-1`)
     }
 
     render(){
-       
+       let username = AuthenticationService.getLoggedInUserName()
         const userImage = "http://placekitten.com/300/200"
         return (
+            
             
                    <div>
                        <div><button className="newPostButton" onClick={this.addPostClicked}> Create New Post :)</button></div>
@@ -73,7 +82,7 @@ class PostContainer extends Component {
                         </div>
                         <div className="id"> {post.postId} </div>
                         <div>
-                            <button className ="deleteButton">Delete</button>
+                            <button className ="deleteButton" onClick ={()=>this.deletePostButton(username,post.postID)}>Delete</button>
                         </div>
                         <div>
                             <button className ="editButton" onClick ={()=>this.editPostButton(post.postID)}>Edit</button>

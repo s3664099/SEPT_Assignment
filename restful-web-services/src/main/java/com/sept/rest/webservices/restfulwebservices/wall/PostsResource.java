@@ -19,6 +19,7 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 import com.sept.rest.webservices.restfulwebservices.entities.Posts;
 import com.sept.rest.webservices.restfulwebservices.repositories.PostsRepository;
 import com.sept.rest.webservices.restfulwebservices.repositories.StudentsRepository;
+import com.sept.rest.webservices.restfulwebservices.todo.Todo;
 
 // Class containing all mappings related to posts on a wall
 @RestController
@@ -85,10 +86,10 @@ public class PostsResource {
 	
 	// Mapping to remove a post from the wall
 	@DeleteMapping("/jpa/users/{username}/post/{postId}")
-	public ResponseEntity<Void> deletePost(
-			@PathVariable String username, @PathVariable int postId) {
+	public ResponseEntity<Void> deletePost(@PathVariable String username, @PathVariable int postId) {
 
 		// Retrieve post to be removed from the wall
+		
 		Posts post = postsRepository.findBypostIdAndDeletedFalse(postId);
 		
 		// Check that user has permission to delete post
@@ -99,11 +100,9 @@ public class PostsResource {
 			
 			// Update database
 			postsRepository.save(post);
-			
 			// Construct an entity to return
 			return ResponseEntity.noContent().build();
 		}
-		
 		// User not authorized to delete post. Respond with appropriate status
 		return new ResponseEntity<Void>(HttpStatus.UNAUTHORIZED);
 	}
