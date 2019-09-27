@@ -46,9 +46,9 @@ public class PostsResource {
 	}
 	
 	// Mapping to add a new post to the wall
-	@PostMapping(path = "/jpa/users/{username}/wall/{wallId}")
-	public ResponseEntity<Void> newPost(@PathVariable String username, @PathVariable int wallId, @RequestBody Posts post) {
-		
+	@PostMapping(path = "/jpa/users/{username}/wall")
+	public ResponseEntity<Void> newPost(@PathVariable String username, @RequestBody Posts post) {
+
 		// Ensure new post will be appended to users wall and not someone else's
 		post.setOwnerID(studentsRepository.findBydisplayName(username).getStudentID());
 			
@@ -64,7 +64,7 @@ public class PostsResource {
 	
 	// Mapping to edit a post. Returns unedited post with unauthorized status if user is not posts owner
 	@PutMapping("/jpa/users/{username}/post/{postId}")
-	public ResponseEntity<Posts> updateTodo(
+	public ResponseEntity<Posts> updatePost(
 			@PathVariable String username,
 			@PathVariable int postId, @RequestBody Posts post) {
 		

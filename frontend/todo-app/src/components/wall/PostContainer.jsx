@@ -1,31 +1,55 @@
 import React, {Component} from 'react'
-
 //import BottomBar from './BottomBar'
 import './PostContainer.css'
 //import CommentBox from './CommentBox'
 import WallDataService from '../../api/todo/WallDataService.js'
 import AuthenticationService from './AuthenticationService.js'
+import {withRouter} from 'react-router-dom'
+import moment from 'moment'
+
 
 class PostContainer extends Component {
-
     
     constructor(props){
-        super(props);
+        console.log(" post constructor")
+        super(props)
         this.state ={
-            error : null,
-            isLoaded: false,
             posts:[]
-        };
+        }
+        this.refreshPosts=this.refreshPosts.bind(this)
+        this.addPostClicked = this.addPostClicked.bind(this)
     }
     
-    componentDidMount(){
-       let username = AuthenticationService.getLoggedInUserName()
-       WallDataService.retrieveAllVisiblePosts(username)
-       .then(response=>this.setState({
-           posts:response.data
-       }))
-         console.log(this.state.post)
+    componentWillUnmount() {
+        console.log('componentWillUnmount on wall')
+    }
 
+    shouldComponentUpdate(nextProps, nextState) {
+        console.log('shouldComponentUpdate on wall')
+        console.log(nextProps)
+        console.log(nextState)
+        return true
+    }
+
+    componentDidMount()
+    {
+        this.refreshPosts();
+    }
+
+    refreshPosts(){
+        let username = AuthenticationService.getLoggedInUserName()
+        WallDataService.retrieveAllVisiblePosts(username)
+        .then(response=>this.setState({
+            posts:response.data
+        }))
+          console.log(this.state)
+    }
+    
+
+
+    addPostClicked(){
+        console.log("new post button clicked")
+        this.props.history.push(`/wall/-1`)
     }
 
     render(){
@@ -34,17 +58,21 @@ class PostContainer extends Component {
         return (
             
                    <div>
+                       <div><button className="newPostButton" onClick={this.addPostClicked}> Create New Post :)</button></div>
                    {
                        this.state.posts.map((post)=>(
                         <div className="postContainer">
                         <div className="userImage">
                         <img className ="profilePic" src={userImage} alt="Profile Pic"></img>
 
-                            <div className ="timeStamp">{post.creationTime}</div>
+                            <div className ="timeStamp">{moment(post.creationTime).format('DD-MM-YYYY HH:MM')}</div>
                         </div>
-                        <div className="userName"> {/*post.UserName*/} </div>
+                        <div className="creationTime"> {} </div>
                         <div>
-                            <button className ="editButton">Edit/Del</button>
+                            <button className ="deleteButton">Delete</button>
+                        </div>
+                        <div>
+                            <button className ="editButton">Edit</button>
                         </div>
                         <div className="userInput">{post.message}</div>
                         <hr></hr>
@@ -74,4 +102,4 @@ class PostContainer extends Component {
 }
 
 
-export default PostContainer 
+export default withRouter(PostContainer)

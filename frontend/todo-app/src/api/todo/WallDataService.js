@@ -4,13 +4,17 @@ import { JPA_API_URL } from '../../Constants'
 class WallDataService {
    
     retrieveAllVisiblePosts(name) {
-        console.log('executed service hahaha')
+        console.log('executed service view post1')
         return axios.get(`${JPA_API_URL}/users/${name}/wall`);
 
     }
 
     //If the request is successful, a message advising the success is sent
     //otherwise a bad requet is recieved and sent
+    retrievePost(username, postId){
+        console.log('retrieve one single post');
+        return axios.get(`${JPA_API_URL}/users/${username}/wall/${postId}`)
+    }
 
     /*
     deletePost(name, id) {
@@ -19,11 +23,16 @@ class WallDataService {
         return axios.get(`${JPA_API_URL}/users/${studentId}/Posts/${id}`, result);
     }*/
 
+    updatePost(username, wallId, post){
+        console.log('update post axios')
+        return axios.put(`${JPA_API_URL}/users/${username}/post/${wallId}`, post)
+    }
+
     //the new post is sent to the server. If the student Ids don't match
     //a bad request is returned
-    createPost(name, post) {
-        //console.log('executed service')
-        return axios.post(`users/${studentId}/Posts`);
+    createPost(username, post) {
+        console.log(username)
+        return axios.post(`${JPA_API_URL}/users/${username}/wall`,post);
     }
 
     createComment(name, post, parentPostId) {

@@ -5,9 +5,12 @@ import AuthenticationService from '../todo/AuthenticationService'
 import SideNavBar from './SideNavBar';
 import PostContainer from './PostContainer';
 import ActivityNavBar from './ActivityNavBar'
+import NewPost from './NewPost';
 
 class wallComponent extends Component {
-    
+
+
+
     render() {
         const userName = AuthenticationService.getLoggedInUserName();
       return (

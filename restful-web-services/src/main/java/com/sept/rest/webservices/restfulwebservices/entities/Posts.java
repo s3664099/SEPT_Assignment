@@ -18,8 +18,9 @@ public class Posts {
 		
 	}
 	
-	public Posts(Long postID, int ownerID, String message, Timestamp creation_Time, Timestamp modified_Time,
-			boolean deleted, boolean edited) {
+	public Posts(Long postID, int ownerID, String message, Timestamp creation_Time,
+			Timestamp modified_Time,  boolean deleted, boolean edited) 
+	{
 		super();
 		postId = postID;
 		ownerId = ownerID;
