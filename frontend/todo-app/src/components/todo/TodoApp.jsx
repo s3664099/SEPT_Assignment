@@ -9,6 +9,7 @@ import FooterComponent from './FooterComponent.jsx'
 import LogoutComponent from './LogoutComponent.jsx'
 import WelcomeComponent from './WelcomeComponent.jsx'
 import TodoComponent from './TodoComponent.jsx'
+import WallComponent from '../wall/WallComponent'
 
 class TodoApp extends Component {
     render() {
@@ -24,7 +25,10 @@ class TodoApp extends Component {
                             <AuthenticatedRoute path="/todos/:id" component={TodoComponent}/>
                             <AuthenticatedRoute path="/todos" component={ListTodosComponent}/>
                             <AuthenticatedRoute path="/logout" component={LogoutComponent}/>
-                            
+
+                            <AuthenticatedRoute path="/wall" component ={WallComponent}/>
+
+
                             <Route component={ErrorComponent}/>
                         </Switch>
                         <FooterComponent/>
