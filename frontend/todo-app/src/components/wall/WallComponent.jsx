@@ -7,7 +7,9 @@ import PostContainer from './PostContainer';
 import ActivityNavBar from './ActivityNavBar'
 
 class wallComponent extends Component {
-    
+
+
+
     render() {
         const userName = AuthenticationService.getLoggedInUserName();
       return (

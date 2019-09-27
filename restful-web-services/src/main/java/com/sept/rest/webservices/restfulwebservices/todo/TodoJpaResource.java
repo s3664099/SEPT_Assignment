@@ -66,10 +66,10 @@ public class TodoJpaResource {
 		return new ResponseEntity<Todo>(todo, HttpStatus.OK);
 	}
 	
+	
 	@PostMapping("/jpa/users/{username}/todos")
 	public ResponseEntity<Void> createTodo(
 			@PathVariable String username, @RequestBody Todo todo){
-		
 		todo.setUsername(username);
 		
 		Todo createdTodo = todoJpaRepository.save(todo);
