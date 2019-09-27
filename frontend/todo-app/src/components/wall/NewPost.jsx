@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
-import Popup from "reactjs-popup";
-import { Formik, Form, Field, ErrorMessage } from 'formik';
+import { Formik, Form, Field} from 'formik';
 import WallDataService from '../../api/todo/WallDataService';
 import AuthenticationService from './AuthenticationService.js'
 import moment from 'moment'
@@ -13,8 +12,7 @@ class NewPost extends Component{
         this.state ={
             postId: this.props.match.params.postId,
             postContent:'',
-            ownerId: 1,
-            username:'',
+            ownerId: '',
             postTime: moment(new Date()).format('DD-MM-YYYY HH:MM')
         };
         
@@ -26,7 +24,7 @@ class NewPost extends Component{
         
         console.log(this.state.postId)
         
-        if(this.state.postId ===-1){
+        if(this.state.postId === -1){
             return
         }
 
@@ -40,7 +38,6 @@ class NewPost extends Component{
             
         }))
 
-       this.setState={username: AuthenticationService.getLoggedInUserName}
 
     }
 
@@ -48,11 +45,11 @@ class NewPost extends Component{
         let username = AuthenticationService.getLoggedInUserName()
         let post={
             postId:this.state.postId,
-            ownerId: 1,
+            ownerId: this.state.ownerId,
             message:event.postContent,
             creationTime: this.state.postTime
         }
-        console.log(this.state)
+        console.log(this.state.postId)
         if(this.state.postId == -1){
             console.log("create new post")
             WallDataService.createPost(username, post)
