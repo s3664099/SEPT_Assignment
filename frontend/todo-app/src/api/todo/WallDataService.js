@@ -4,8 +4,9 @@ import { JPA_API_URL } from '../../Constants'
 class WallDataService {
    
     retrieveAllVisiblePosts(name) {
-        //console.log('executed service')
+        console.log('executed service hahaha')
         return axios.get(`${JPA_API_URL}/users/${name}/wall`);
+
     }
 
     //If the request is successful, a message advising the success is sent

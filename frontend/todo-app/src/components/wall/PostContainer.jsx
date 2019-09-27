@@ -21,33 +21,25 @@ class PostContainer extends Component {
     componentDidMount(){
        let username = AuthenticationService.getLoggedInUserName()
        WallDataService.retrieveAllVisiblePosts(username)
-        .then(res=>res.json())
-        .then(
-            (result)=>{
-                this.setState({
-                   isLoaded:true,
-                   posts:result
-                });
-            },
-            (error)=>{
-                this.setState({
-                    isLoaded:true,
-                    error
-                });
-            }
-        )
+       .then(response=>this.setState({
+           posts:response.data
+       }))
+         console.log(this.state.post)
+
     }
 
     render(){
-        
+       
         const userImage = "http://placekitten.com/300/200"
         return (
+            
                    <div>
                    {
-                       this.state.posts.map((post,index)=>(
+                       this.state.posts.map((post)=>(
                         <div className="postContainer">
                         <div className="userImage">
                         <img className ="profilePic" src={userImage} alt="Profile Pic"></img>
+
                             <div className ="timeStamp">{post.creationTime}</div>
                         </div>
                         <div className="userName"> {/*post.UserName*/} </div>
@@ -62,7 +54,7 @@ class PostContainer extends Component {
                             (typeof(post.comments)=='object')? 
                             <div>
                                 {
-                                    post.comments.map((commentBox,indexb)=>
+                                    post.comments.map((commentBox)=>
                                     <div>
                                         <hr></hr>
                                 <div>{/*<CommentBox commentbox={commentBox}/>*/}</div>
