@@ -22,8 +22,6 @@ class NewPost extends Component{
 
     componentDidMount(){
         
-        console.log(this.state.postId)
-        
         if(this.state.postId === -1){
             return
         }
@@ -43,6 +41,7 @@ class NewPost extends Component{
 
     handleSubmit(event){
         let username = AuthenticationService.getLoggedInUserName()
+        let id = this.state.postId;
         let post={
             postId:this.state.postId,
             ownerId: this.state.ownerId,
@@ -50,13 +49,13 @@ class NewPost extends Component{
             creationTime: this.state.postTime
         }
         console.log(this.state.postId)
-        if(this.state.postId == -1){
+        if(id == -1){
             console.log("create new post")
             WallDataService.createPost(username, post)
             .then(()=>this.props.history.push('/wall'))
         }else{
             console.log("update new post")
-            WallDataService.updatePost(username, this.state.ownerId, post)
+            WallDataService.updatePost(username, this.state.postId, post)
             .then(()=>this.props.history.push('/wall'))
         }
         console.log(event)

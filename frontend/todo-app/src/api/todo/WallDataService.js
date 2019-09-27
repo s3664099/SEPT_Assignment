@@ -23,9 +23,9 @@ class WallDataService {
         return axios.get(`${JPA_API_URL}/users/${studentId}/Posts/${id}`, result);
     }*/
 
-    updatePost(username, wallId, post){
+    updatePost(username, postId, post){
         console.log('update post axios')
-        return axios.put(`${JPA_API_URL}/users/${username}/post/${wallId}`, post)
+        return axios.put(`${JPA_API_URL}/users/${username}/post/${postId}`, post)
     }
 
     //the new post is sent to the server. If the student Ids don't match

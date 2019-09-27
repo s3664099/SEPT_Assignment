@@ -61,7 +61,7 @@ class PostContainer extends Component {
                        <div><button className="newPostButton" onClick={this.addPostClicked}> Create New Post :)</button></div>
                    {
                        this.state.posts.map((post)=>(
-                        <div className="postContainer">
+                        <div key={post.postId} className="postContainer">
                         <div className="userImage">
                         <img className ="profilePic" src={userImage} alt="Profile Pic"></img>
 
