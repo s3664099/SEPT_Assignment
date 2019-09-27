@@ -13,7 +13,7 @@ class WallDataService {
     //otherwise a bad requet is recieved and sent
     retrievePost(username, postId){
         console.log('retrieve one single post');
-        return axios.get(`${JPA_API_URL}/users/${username}/wall/${postId}`)
+        return axios.get(`${JPA_API_URL}/users/${username}/post/${postId}`)
     }
 
     /*

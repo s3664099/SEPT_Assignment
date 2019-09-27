@@ -18,6 +18,7 @@ class PostContainer extends Component {
         }
         this.refreshPosts=this.refreshPosts.bind(this)
         this.addPostClicked = this.addPostClicked.bind(this)
+        this.editPostButton = this.editPostButton.bind(this)
     }
     
     componentWillUnmount() {
@@ -44,8 +45,11 @@ class PostContainer extends Component {
         }))
           console.log(this.state)
     }
-    
 
+    editPostButton(postID){
+        console.log('update post' + postID)
+        this.props.history.push(`wall/${postID}`)
+    }
 
     addPostClicked(){
         console.log("new post button clicked")
@@ -61,18 +65,18 @@ class PostContainer extends Component {
                        <div><button className="newPostButton" onClick={this.addPostClicked}> Create New Post :)</button></div>
                    {
                        this.state.posts.map((post)=>(
-                        <div key={post.postId} className="postContainer">
+                        <div  className="postContainer">
                         <div className="userImage">
                         <img className ="profilePic" src={userImage} alt="Profile Pic"></img>
 
                             <div className ="timeStamp">{moment(post.creationTime).format('DD-MM-YYYY HH:MM')}</div>
                         </div>
-                        <div className="creationTime"> {} </div>
+                        <div className="id"> {post.postId} </div>
                         <div>
                             <button className ="deleteButton">Delete</button>
                         </div>
                         <div>
-                            <button className ="editButton">Edit</button>
+                            <button className ="editButton" onClick ={()=>this.editPostButton(post.postID)}>Edit</button>
                         </div>
                         <div className="userInput">{post.message}</div>
                         <hr></hr>

@@ -9,6 +9,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
+import com.sept.rest.webservices.restfulwebservices.todo.Todo;
+
 //import com.sept.rest.webservices.user.Students;
 
 @Entity
@@ -83,6 +85,28 @@ public class Posts {
 	}
 	public void setModified_Time(Timestamp modified_Time) {
 		modifiedTime = modified_Time;
+	}
+	
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + (int) (postId ^ (postId >>> 32));
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Posts other = (Posts) obj;
+		if (postId != other.postId)
+			return false;
+		return true;
 	}
 	
 	

@@ -36,7 +36,7 @@ class NewPost extends Component{
             postTime: moment(response.data.creationTime).format('DD-MM-YYYY HH:MM')
             
         }))
-
+        console.log(this.state)
 
     }
 
