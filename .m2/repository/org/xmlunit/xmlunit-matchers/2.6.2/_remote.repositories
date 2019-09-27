@@ -1,0 +1,5 @@
+#NOTE: This is a Maven Resolver internal implementation file, its format can be changed without prior notice.
+#Wed Sep 25 12:53:04 AEST 2019
+xmlunit-matchers-2.6.2.jar>central=
+xmlunit-matchers-2.6.2.pom>central=
+xmlunit-matchers-2.6.2-sources.jar>central=

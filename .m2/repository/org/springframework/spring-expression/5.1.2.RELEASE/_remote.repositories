@@ -1,0 +1,7 @@
+#NOTE: This is a Maven Resolver internal implementation file, its format can be changed without prior notice.
+#Wed Sep 25 12:51:45 AEST 2019
+spring-expression-5.1.2.RELEASE.pom>central=
+spring-expression-5.1.2.RELEASE.jar>central=
+spring-expression-5.1.2.RELEASE-sources.jar>spring-milestones=
+spring-expression-5.1.2.RELEASE.jar>spring-milestones=
+spring-expression-5.1.2.RELEASE.pom>spring-milestones=
