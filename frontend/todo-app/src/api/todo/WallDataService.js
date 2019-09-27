@@ -16,12 +16,12 @@ class WallDataService {
         return axios.get(`${JPA_API_URL}/users/${username}/post/${postId}`)
     }
 
-    /*
-    deletePost(name, id) {
+    
+    deletePost(username, postID) {
 
-    	//console.log('executed service')
-        return axios.get(`${JPA_API_URL}/users/${studentId}/Posts/${id}`, result);
-    }*/
+    	console.log('delete delete ...')
+        return axios.delete(`${JPA_API_URL}/users/${username}/post/${postID}`);
+    }
 
     toUpdatePost(username, postId, post){
         console.log('update post axios')
@@ -39,10 +39,10 @@ class WallDataService {
     //console.log('executed service')
         return axios.post(`${JPA_API_URL}/users/${studentId}/Posts/${parentPostId}`, post);
     }
-
+/*
     editPost(name, post) {
     	return axios.post(`${JPA_API_URL}/users/${studentId}/Posts`, post);
-    }
+    }*/
 }
 
 export default new WallDataService()
