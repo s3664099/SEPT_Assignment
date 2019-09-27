@@ -32,7 +32,7 @@ In this course, lets combine these awesome frameworks to create your first full 
 - Java 8+
 - Eclipse - Oxygen+ - (Embedded Maven From Eclipse)
 
-#### Installing Node Js (npm) & Visual Studio Code 
+#### Installing Node Js (npm) & Visual Studio Code
 
 
 - Steps
@@ -51,7 +51,7 @@ In this course, lets combine these awesome frameworks to create your first full 
 
 #### Troubleshooting Installations
 
-- Node JS and NPM 
+- Node JS and NPM
   - https://docs.npmjs.com/common-errors
   - https://docs.npmjs.com/getting-started/troubleshooting
 - Visual Studio Code
@@ -128,10 +128,10 @@ public class JwtTokenAuthorizationOncePerRequestFilter extends OncePerRequestFil
 
     @Autowired
     private UserDetailsService jwtInMemoryUserDetailsService;
-    
+
     @Autowired
     private JwtTokenUtil jwtTokenUtil;
-    
+
     @Value("${jwt.http.request.header}")
     private String tokenHeader;
 
@@ -384,7 +384,7 @@ public class JWTWebSecurityConfig extends WebSecurityConfigurerAdapter {
 
        httpSecurity
             .addFilterBefore(jwtAuthenticationTokenFilter, UsernamePasswordAuthenticationFilter.class);
-        
+
         httpSecurity
             .headers()
             .frameOptions().sameOrigin()  //H2 Console Needs this setting
@@ -482,7 +482,7 @@ public class AuthenticationException extends RuntimeException {
 }
 
 public class  JwtTokenRequest implements Serializable {
-  
+
   private static final long serialVersionUID = -5616176897013108345L;
 
   private String username;
@@ -571,7 +571,7 @@ npm install
   - Arrays - Filtering, Spread Operator and Functional Stuff
   - Custom Objects
 
-### React Basics 
+### React Basics
 - What is React Component?
 - What are the conventions for file extensions in React Projects?
 - How do you build forms in React? How do you do Form Validation?
@@ -581,7 +581,7 @@ npm install
 
 ### Running React Applications
 - What is Root Component? What are Bootstrap Components? How is the React Application Bootstrapped?  ```\src\index.html```, ```\src\main.ts```, ```AppModule```, ```AppComponent```
-- Do Browsers understand JSX? How does JSX code get converted to JavaScript code? 
+- Do Browsers understand JSX? How does JSX code get converted to JavaScript code?
 
 ## Automated Tests and Code Quality
 - What are unit tests? How are unit tests organized in React? How is different from Java?
@@ -599,13 +599,13 @@ npm install
 ```
 Origin - http://localhost:4200
 Content-Type - application/json
-Authorization 
+Authorization
 - Bearer *** or
 - Basic *****
 ```
 
 
-#### Retrieve all todos for a user 
+#### Retrieve all todos for a user
 
 - GET - http://localhost:8080/users/sept/todos
 
@@ -687,13 +687,13 @@ Authorization
 
 ```
 {
-  "username":"ranga",
-  "password":"password@!23@#!"
+  "username":"sept",
+  "password":"dummy"
 }
 ```
 
 Response
-
+(You should make your own token)
 ```
 {
 "token": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJyYW5nYSIsImV4cCI6MTU0MjQ3MjA3NCwiaWF0IjoxNTQxODY3Mjc0fQ.kD6UJQyxjSPMzAhoTJRr-Z5UL-FfgsyxbdseWQvk0fLi7eVXAKhBkWfj06SwH43sY_ZWBEeLuxaE09szTboefw"
@@ -704,7 +704,7 @@ Other URLS
 - Refresh - http://localhost:8080/authenticate
 
 
-  
+
 
 ## Connection to MySQL
 
@@ -712,11 +712,11 @@ Other URLS
 create sequence hibernate_sequence start with 1 increment by 1
 
 create table todo (
-    id bigint not null, 
-    description varchar(255), 
-    is_done boolean not null, 
-    target_date timestamp, 
-    username varchar(255), 
+    id bigint not null,
+    description varchar(255),
+    is_done boolean not null,
+    target_date timestamp,
+    username varchar(255),
     primary key (id))
 
 ```
@@ -758,7 +758,7 @@ Reducers -> Store
 }
 
 
-  
+
 graph architecture {
 node[style=filled,color="#59C8DE"]
 //node [style=filled,color="#D14D28", fontcolor=white];
@@ -887,7 +887,7 @@ Forms[label=<Forms and Validation>]
   - Download the zip or clone the Git repository.
   - Unzip the zip file (if you downloaded one)
   - Open Command Prompt and Change directory (cd) to folder containing pom.xml
-  - Open Eclipse 
+  - Open Eclipse
      - File -> Import -> Existing Maven Project -> Navigate to the folder where you unzipped the zip
      - Select the right project
   - Choose the Spring Boot Application file (search for file with @SpringBootApplication)
@@ -901,8 +901,8 @@ Forms[label=<Forms and Validation>]
     - https://medium.freecodecamp.org/this-is-why-we-need-to-bind-event-handlers-in-class-components-in-react-f7ea1a6f93eb
   - class vs className - A discussion
     - https://stackoverflow.com/questions/46989454/class-vs-classname-in-react-16
-  - 
-- Modern JavaScript 
+  -
+- Modern JavaScript
   - https://github.com/mbeaudru/modern-js-cheatsheet#tdz_sample
   - https://learnxinyminutes.com/docs/javascript/
   - https://github.com/mjavascript/mastering-modular-javascript/blob/master/chapters/ch01.asciidoc
@@ -913,3 +913,5 @@ Forms[label=<Forms and Validation>]
   - class vs className - https://stackoverflow.com/questions/46989454/class-vs-classname-in-react-16
   - https://engineering.musefind.com/react-lifecycle-methods-how-and-when-to-use-them-2111a1b692b1
   - https://reactjs.org/blog/2018/03/29/react-v-16-3.html#component-lifecycle-changes
+
+ Credit to Ranga Rao who made this code oroginally through 28 minutes Spring Boot course, modified by Amir Homayoon Ashrafzadeh for RMIT SEPT 2019
