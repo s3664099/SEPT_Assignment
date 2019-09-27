@@ -69,14 +69,15 @@ public class PostsResource {
 			@PathVariable int postId, @RequestBody Posts post) {
 		
 		// Check that this is post by the user
-		if (studentsRepository.findBydisplayName(username).getStudentID() == post.getOwnerID()) {
-
+		//if (studentsRepository.findBydisplayName(username).getStudentID() == post.getOwnerID()) {
+		   int ownerID = studentsRepository.findBydisplayName(username).getStudentID() ;
+			post.setOwnerID(ownerID);
 			// Store edited post in database
 			Posts editedPost = postsRepository.save(post);
 			
 			// Construct an entity to return
-			return new ResponseEntity<Posts>(editedPost, HttpStatus.OK);
-		}
+			//return new ResponseEntity<Posts>(editedPost, HttpStatus.OK);
+		//}
 		
 		// User not Authorized to edit post. Unchanged post returned with appropriate status
 		return new ResponseEntity<Posts>(post, HttpStatus.UNAUTHORIZED);
