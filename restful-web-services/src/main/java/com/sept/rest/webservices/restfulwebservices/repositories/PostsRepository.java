@@ -13,7 +13,7 @@ public interface PostsRepository extends JpaRepository<Posts, Long> {
 
 	List<Posts> findByOwnerIdAndDeletedFalse(int studentID);
 
-	Posts findBypostIdAndDeletedFalse(int id);
+	Posts findBypostIdAndDeletedFalse(long id);
 	
 	
 }

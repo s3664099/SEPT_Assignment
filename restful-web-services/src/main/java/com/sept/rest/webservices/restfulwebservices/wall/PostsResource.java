@@ -86,7 +86,7 @@ public class PostsResource {
 	
 	// Mapping to remove a post from the wall
 	@DeleteMapping("/jpa/users/{username}/post/{postId}")
-	public ResponseEntity<Void> deletePost(@PathVariable String username, @PathVariable int postId) {
+	public ResponseEntity<Void> deletePost(@PathVariable String username, @PathVariable long postId) {
 
 		// Retrieve post to be removed from the wall
 		

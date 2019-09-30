@@ -65,7 +65,7 @@ class PostContainer extends Component {
     }
 
     render(){
-       let username = AuthenticationService.getLoggedInUserName()
+      // let username = AuthenticationService.getLoggedInUserName()
         const userImage = "http://placekitten.com/300/200"
         return (
             
