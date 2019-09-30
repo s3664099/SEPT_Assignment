@@ -1,25 +1,14 @@
-matrix:
-  include:
-    - language: node_js
-      node_js: 
-        - "stable"
-      cache:
-        directories:
-         - node_modules
-      before_script:
-        - cd frontend/todo-app
-      script:
-        - npm test
-        - npm run-script build
+services:
+  - docker
 
-    - language: java
-      openjdk:
-        - openjdk8
-      before_script:
-        - cd restful-web-services/
-      script:
-        - mvn verify -Dmaven.test.skip=true
-  
+before_install:
+  - docker build -t high5app .
+  - docker run high5
+  - docker ps -a
 
+deploy:
+  provider: gae
+  keyfile: high5softwarept-2aa3c2c661d2.json
+  project: high5softwarept
 
 
