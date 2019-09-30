@@ -3,6 +3,7 @@ services:
 
 before_install:
   - docker build -t high5app .
+  - docker ps -a
   - docker run high5
   - docker ps -a
 
