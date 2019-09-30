@@ -19,7 +19,6 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 import com.sept.rest.webservices.restfulwebservices.entities.Posts;
 import com.sept.rest.webservices.restfulwebservices.repositories.PostsRepository;
 import com.sept.rest.webservices.restfulwebservices.repositories.StudentsRepository;
-import com.sept.rest.webservices.restfulwebservices.todo.Todo;
 
 // Class containing all mappings related to posts on a wall
 @RestController
@@ -37,12 +36,12 @@ public class PostsResource {
 	@GetMapping(path = "/jpa/users/{username}/wall")
 	public List<Posts> sendVisiblePostList(@PathVariable String username) {
 		int studentId = studentsRepository.findBydisplayName(username).getStudentID();
-		return postsRepository.findByOwnerIdAndDeletedFalse(studentId);
+		return postsRepository.findByOwnerIdAndDeletedFalseOrderByCreationTimeDesc(studentId);
 	}
 	
 	// Mapping to get a specific post if undeleted
 	@GetMapping(path = "/jpa/users/{username}/post/{postId}")
-	public Posts getPost(@PathVariable String username, @PathVariable int postId) {
+	public Posts getPost(@PathVariable String username, @PathVariable Integer postId) {
 		return postsRepository.findBypostIdAndDeletedFalse(postId);
 	}
 	
@@ -67,10 +66,10 @@ public class PostsResource {
 	@PutMapping("/jpa/users/{username}/post/{postId}")
 	public ResponseEntity<Posts> updatePost(
 			@PathVariable String username,
-			@PathVariable int postId, @RequestBody Posts post) {
+			@PathVariable Integer postId, @RequestBody Posts post) {
 		
 		// Check that this is post by the user
-		//if(studentsRepository.findBydisplayName(username).getStudentID()== post.getOwnerID()) {
+		//if(studentsRepository.findBydisplayName(username).getStudentID() == post.getOwnerID()) {
 		   int ownerID = studentsRepository.findBydisplayName(username).getStudentID() ;
 			post.setOwnerID(ownerID);
 			// Store edited post in database
@@ -81,12 +80,12 @@ public class PostsResource {
 		//}
 		
 		// User not Authorized to edit post. Unchanged post returned with appropriate status
-		return new ResponseEntity<Posts>(post, HttpStatus.UNAUTHORIZED);
+		return new ResponseEntity<Posts>(post, HttpStatus.FORBIDDEN);
 	}
 	
 	// Mapping to remove a post from the wall
 	@DeleteMapping("/jpa/users/{username}/post/{postId}")
-	public ResponseEntity<Void> deletePost(@PathVariable String username, @PathVariable long postId) {
+	public ResponseEntity<Void> deletePost(@PathVariable String username, @PathVariable Integer postId) {
 
 		// Retrieve post to be removed from the wall
 		
@@ -104,7 +103,7 @@ public class PostsResource {
 			return ResponseEntity.noContent().build();
 		}
 		// User not authorized to delete post. Respond with appropriate status
-		return new ResponseEntity<Void>(HttpStatus.UNAUTHORIZED);
+		return new ResponseEntity<Void>(HttpStatus.FORBIDDEN);
 	}
 
 }
