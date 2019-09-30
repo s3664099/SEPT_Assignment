@@ -2,9 +2,11 @@ import React, { Component } from 'react'
 
 import HeaderWall from './HeaderWall';
 import AuthenticationService from '../todo/AuthenticationService'
-import SideNavBar from './SideNavBar';
+// import SideNavBar from './SideNavBar';
 import PostContainer from './PostContainer';
-import ActivityNavBar from './ActivityNavBar'
+// import ActivityNavBar from './ActivityNavBar'
+// <!--<SideNavBar />
+// <ActivityNavBar/>-->
 
 class wallComponent extends Component {
 
@@ -15,8 +17,6 @@ class wallComponent extends Component {
       return (
         <div className="Wall">
         <HeaderWall name = {userName}/>
-        <SideNavBar />
-        <ActivityNavBar/>
         <PostContainer/>
         </div>
       );

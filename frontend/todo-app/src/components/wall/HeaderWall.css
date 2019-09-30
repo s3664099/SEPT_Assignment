@@ -1,21 +1,21 @@
 /*css needs to be fixed with adjustment of frame size*/
 
 .wallnav {
-    /*overflow:hidden;*/
-    display: inline-block;
-    width: 100%;
-    color: white;
-    border-bottom: 2px solid #bcbcd3;
+  /*overflow:hidden;*/
+  display: inline-block;
+  width: 100%;
+  color: white;
+  border-bottom: 2px solid #bcbcd3;
 }
 
 .wallLogo {
-    float: left;
-    font-size: 32px;
-    margin: 5px auto;
-    margin-left: 10%;
-    vertical-align: baseline;
-    display: inline-block;
-    color:black;
+  float: left;
+  font-size: 32px;
+  margin: 5px auto;
+  margin-left: 10%;
+  vertical-align: baseline;
+  display: inline-block;
+  color:black;
 }
 
 .wallLogo a {
@@ -23,29 +23,29 @@
 }
 
 .Greetings{
-    font-size: 20px;
-    text-align: right;
-    margin-right: 10%;
-    display: inline;
-    float: right;
-    color:black;
+  font-size: 20px;
+  text-align: right;
+  margin-right: 10%;
+  display: inline;
+  float: right;
+  color:black;
 }
 
 .profilePic{
-    border: 1px solid #ddd;
-    border-radius: 50%;
-    width: 40px;
-    height: 40px;
-    vertical-align: middle;
-    margin: 10px 10px;
-    display: inline;
+  border: 1px solid #ddd;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  vertical-align: middle;
+  margin: 10px 10px;
+  display: inline;
 }
 
 .search{
-    text-align: center;
-    display: inline-block;
-    width: 500px;
-    margin: 10px;
+  text-align: center;
+  display: inline-block;
+  width: 500px;
+  margin: 10px;
 }
 
 .search input {
@@ -66,12 +66,12 @@
   text-decoration:none;
   display:inline-block;
   color: #FFFFFF;
-  background-color: #3DD8FF; background-image: -webkit-gradient(linear, left top, left bottom, from(#3DD8FF), to(#1C51FF));
-  background-image: -webkit-linear-gradient(top, #3DD8FF, #1C51FF);
-  background-image: -moz-linear-gradient(top, #3DD8FF, #1C51FF);
-  background-image: -ms-linear-gradient(top, #3DD8FF, #1C51FF);
-  background-image: -o-linear-gradient(top, #3DD8FF, #1C51FF);
-  background-image: linear-gradient(to bottom, #3DD8FF, #1C51FF);filter:progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr=#3DD8FF, endColorstr=#1C51FF);
+  background-color: #12B8FF; background-image: -webkit-gradient(linear, left top, left bottom, from(#12B8FF), to(#0F77FF));
+  background-image: -webkit-linear-gradient(top, #12B8FF, #0F77FF);
+  background-image: -moz-linear-gradient(top, #12B8FF, #0F77FF);
+  background-image: -ms-linear-gradient(top, #12B8FF, #0F77FF);
+  background-image: -o-linear-gradient(top, #12B8FF, #0F77FF);
+  background-image: linear-gradient(to bottom, #12B8FF, #0F77FF);filter:progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr=#12B8FF, endColorstr=#0F77FF);
 }
 
 .search button:hover {
