@@ -86,12 +86,12 @@ public class PostsResource {
 	
 	// Mapping to remove a post from the wall
 	@DeleteMapping("/jpa/users/{username}/post/{postId}")
-	public ResponseEntity<Void> deletePost(@PathVariable String username, @PathVariable int postId) {
+	public ResponseEntity<Void> deletePost(@PathVariable String username, @PathVariable long postId) {
 
 		// Retrieve post to be removed from the wall
 		
 		Posts post = postsRepository.findBypostIdAndDeletedFalse(postId);
-		
+		System.out.println(postId);
 		// Check that user has permission to delete post
 		if (studentsRepository.findBydisplayName(username).getStudentID() == post.getOwnerID()) {
 			
