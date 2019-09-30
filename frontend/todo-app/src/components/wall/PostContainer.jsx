@@ -6,6 +6,8 @@ import WallDataService from '../../api/todo/WallDataService.js'
 import AuthenticationService from './AuthenticationService.js'
 import {withRouter} from 'react-router-dom'
 import moment from 'moment'
+// import Popup from "reactjs-popup"
+// import NewPost from './NewPost.jsx'
 
 
 class PostContainer extends Component {
@@ -75,6 +77,13 @@ class PostContainer extends Component {
 
       <div>
       <div><button className="newPostButton" onClick={this.addPostClicked}> Create New Post :)</button></div>
+
+      {// {{<Popup trigger={<button className="newPostButton"> POP UP BUTTON!!!!XD </button>}
+      // modal
+      // closeOnDocumentClick>
+      //   <NewPost/>
+      // </Popup>}}
+    }
       {
         this.state.posts.map((post)=>(
           <div  className="postContainer">
