@@ -80,9 +80,9 @@ class PostContainer extends Component {
 
                             <div className ="timeStamp">{moment(post.creationTime).format('DD-MM-YYYY HH:MM')}</div>
                         </div>
-                        <div className="id"> {post.postId} </div>
+                        <div className="id"> {console.log(post.postID)} </div>
                         <div>
-                            <button className ="deleteButton" onClick ={()=>this.deletePostButton(username,post.postID)}>Delete</button>
+                            <button className ="deleteButton" onClick ={()=>this.deletePostButton(post.postID)}>Delete</button>
                         </div>
                         <div>
                             <button className ="editButton" onClick ={()=>this.editPostButton(post.postID)}>Edit</button>

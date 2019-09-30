@@ -91,7 +91,7 @@ public class PostsResource {
 		// Retrieve post to be removed from the wall
 		
 		Posts post = postsRepository.findBypostIdAndDeletedFalse(postId);
-		
+		System.out.println(postId);
 		// Check that user has permission to delete post
 		if (studentsRepository.findBydisplayName(username).getStudentID() == post.getOwnerID()) {
 			
