@@ -57,6 +57,9 @@ class PostContainer extends Component {
         console.log('delete post' + postID)
         let username = AuthenticationService.getLoggedInUserName()
         WallDataService.deletePost(username, postID)
+        .then(response=>{
+            this.refreshPosts()
+        })
     }
 
     addPostClicked(){
@@ -80,7 +83,7 @@ class PostContainer extends Component {
 
                             <div className ="timeStamp">{moment(post.creationTime).format('DD-MM-YYYY HH:MM')}</div>
                         </div>
-                        <div className="id"> {console.log(post.postID)} </div>
+                        {/*<div className="id"> {console.log(post.postID)} </div>*/ }
                         <div>
                             <button className ="deleteButton" onClick ={()=>this.deletePostButton(post.postID)}>Delete</button>
                         </div>
