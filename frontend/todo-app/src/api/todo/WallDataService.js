@@ -39,10 +39,11 @@ class WallDataService {
     //console.log('executed service')
         return axios.post(`${JPA_API_URL}/users/${studentId}/Posts/${parentPostId}`, post);
     }
-/*
-    editPost(name, post) {
-    	return axios.post(`${JPA_API_URL}/users/${studentId}/Posts`, post);
-    }*/
+
+    viewComment(){
+        console.log("view comment")
+    }
+
 }
 
 export default new WallDataService()

@@ -1,7 +1,7 @@
 import React, {Component} from 'react'
-//import BottomBar from './BottomBar'
+import BottomBar from './BottomBar'
 import './PostContainer.css'
-//import CommentBox from './CommentBox'
+import CommentBox from './CommentBox'
 import WallDataService from '../../api/todo/WallDataService.js'
 import AuthenticationService from './AuthenticationService.js'
 import {withRouter} from 'react-router-dom'
@@ -57,7 +57,7 @@ class PostContainer extends Component {
         console.log('delete post' + postID)
         let username = AuthenticationService.getLoggedInUserName()
         WallDataService.deletePost(username, postID)
-        .then(response=>{
+        .then(()=>{
             this.refreshPosts()
         })
     }
@@ -92,8 +92,9 @@ class PostContainer extends Component {
                         </div>
                         <div className="userInput">{post.message}</div>
                         <hr></hr>
-                       <div>{/*<BottomBar />*/}</div>
-                        
+                       <div><BottomBar /></div>
+                       <div><CommentBox postID={post.postID}/></div>
+                        {/* 
                         <div>{
                             (typeof(post.comments)=='object')? 
                             <div>
@@ -101,11 +102,11 @@ class PostContainer extends Component {
                                     post.comments.map((commentBox)=>
                                     <div>
                                         <hr></hr>
-                                <div>{/*<CommentBox commentbox={commentBox}/>*/}</div>
+                                <div>{<CommentBox commentbox={commentBox}/>}</div>
                                     </div>)
                                 }
                             </div>: null
-                        }</div>
+                        }</div>*/}
                     </div>
                     ))
                    }
