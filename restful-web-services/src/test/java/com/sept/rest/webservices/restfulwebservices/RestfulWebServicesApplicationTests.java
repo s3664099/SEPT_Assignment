@@ -1,6 +1,7 @@
 package com.sept.rest.webservices.restfulwebservices;
 
 import static org.junit.Assert.assertEquals;
+
 import java.util.Optional;
 
 import org.junit.jupiter.api.Test;
@@ -25,7 +26,7 @@ public class RestfulWebServicesApplicationTests {
 	@Test
 	public void contextLoads() {
 		
-		Posts post = new Posts(new Long(10), 0, "Hello", null, null, true, true);
+		Posts post = new Posts(1, 0, "Hello", null, null, false, false);
 		entityManager.persist(post);
 		entityManager.flush();
 		
@@ -34,5 +35,7 @@ public class RestfulWebServicesApplicationTests {
 		assertEquals(found.isPresent(), true);
 
 	}
+	
+
 
 }
