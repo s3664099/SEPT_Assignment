@@ -24,9 +24,8 @@ RUN npm run test
 
 RUN npm prune --production
 
-EXPOSE 80
-EXPOSE 443
 EXPOSE 4200
+EXPOSE 8080
 
 USER node
 
