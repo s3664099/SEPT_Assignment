@@ -68,16 +68,23 @@ public class PostsResource {
 			@PathVariable String username,
 			@PathVariable Integer postId, @RequestBody Posts post) {
 		
+		System.out.println(username);
+	    System.out.println(postId);
+	    System.out.println(post.getOwnerID());
+	    System.out.println(studentsRepository.findBydisplayName(username).getStudentID());
+	    
 		// Check that this is post by the user
-		//if(studentsRepository.findBydisplayName(username).getStudentID() == post.getOwnerID()) {
-		   int ownerID = studentsRepository.findBydisplayName(username).getStudentID() ;
+		if(studentsRepository.findBydisplayName(username).getStudentID() == post.getOwnerID()) {
+		    int ownerID = studentsRepository.findBydisplayName(username).getStudentID();
+
 			post.setOwnerID(ownerID);
+			post.setPostID(postId);
 			// Store edited post in database
 			Posts editedPost = postsRepository.save(post);
 			
 			// Construct an entity to return
-			//return new ResponseEntity<Posts>(editedPost, HttpStatus.OK);
-		//}
+			return new ResponseEntity<Posts>(post, HttpStatus.OK);
+		}
 		
 		// User not Authorized to edit post. Unchanged post returned with appropriate status
 		return new ResponseEntity<Posts>(post, HttpStatus.FORBIDDEN);
@@ -90,7 +97,7 @@ public class PostsResource {
 		// Retrieve post to be removed from the wall
 		
 		Posts post = postsRepository.findBypostIdAndDeletedFalse(postId);
-		System.out.println(postId);
+
 		// Check that user has permission to delete post
 		if (studentsRepository.findBydisplayName(username).getStudentID() == post.getOwnerID()) {
 			

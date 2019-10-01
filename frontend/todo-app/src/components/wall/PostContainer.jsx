@@ -68,8 +68,9 @@ class PostContainer extends Component {
     }
 
     render(){
-      // let username = AuthenticationService.getLoggedInUserName()
+  
         const userImage = "http://placekitten.com/300/200"
+
         return (
             
             
@@ -80,8 +81,8 @@ class PostContainer extends Component {
                         <div  className="postContainer">
                         <div className="userImage">
                         <img className ="profilePic" src={userImage} alt="Profile Pic"></img>
-
-                            <div className ="timeStamp">{moment(post.creationTime).format('DD-MM-YYYY HH:MM')}</div>
+                        {/*to debug*/}
+                            <div className ="timeStamp">{/*Date.parse(post.modifiedTime).getTime()*/}</div>
                         </div>
                         {/*<div className="id"> {console.log(post.postID)} </div>*/ }
                         <div>

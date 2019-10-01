@@ -34,7 +34,7 @@ class TodoApp extends Component {
 
                             <Route component={ErrorComponent}/>
                         </Switch>
-                        <FooterComponent/>
+                        {/*<FooterComponent/>*/}
                     </>
                 </Router>
                 {/*<LoginComponent/>

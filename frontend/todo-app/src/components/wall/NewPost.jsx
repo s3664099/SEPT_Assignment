@@ -3,7 +3,7 @@ import { Formik, Form, Field} from 'formik';
 import WallDataService from '../../api/todo/WallDataService';
 import AuthenticationService from './AuthenticationService.js'
 import moment from 'moment'
-import {withRouter} from 'react-router-dom'
+//import {withRouter} from 'react-router-dom'
 
 class NewPost extends Component{
 
@@ -13,8 +13,9 @@ class NewPost extends Component{
         this.state ={
             postId: this.props.match.params.postId,
             postContent:'',
-            ownerId: '',
-            postTime: moment(new Date()).format('DD-MM-YYYY HH:MM')
+            ownerId: 0,
+            createTime: '',
+            modifiedTime: moment(new Date()).format('DD-MM-YYYY HH:MM')
         };
         
         this.handleSubmit = this.handleSubmit.bind(this)
@@ -32,25 +33,25 @@ class NewPost extends Component{
         WallDataService.retrievePost(username, this.state.postId)
         .then(response=>this.setState({
             postContent:response.data.message,
-            ownerId:response.data.ownerId,
-            postTime: moment(response.data.creationTime).format('DD-MM-YYYY HH:MM')
+            ownerId:response.data.ownerID,
+            createTime:  moment(response.data.creationTime).format('DD-MM-YYYY HH:MM'),
+            modifiedTime: moment(response.data.modifiedTime).format('DD-MM-YYYY HH:MM')
             
         }))
-        console.log(this.state)
+        
 
     }
 
     handleSubmit(event){
         let username = AuthenticationService.getLoggedInUserName()
-        let id = this.state.postId;
         let post={
             postId:this.state.postId,
-            ownerId: this.state.ownerId,
-            message:event.postContent,
-            creationTime: this.state.postTime
+            creationTime: this.state.createTime,
+            ownerID:this.state.ownerId,
+            modifiedTime:this.state.modifiedTime,
+            message:event.postContent
         }
-        console.log(this.state.postId)
-        if(id === -1){
+        if(this.state.postId === -1){
             console.log("create new post")
             WallDataService.createPost(username, post)
             .then(()=>this.props.history.push('/wall'))
@@ -58,9 +59,7 @@ class NewPost extends Component{
             console.log("update new post")
             WallDataService.toUpdatePost(username, this.state.postId, post)
             .then(
-                console.log(this.props.history),
-                () => this.props.history.push('/wall')
-                )
+                () => this.props.history.push('/wall'))
             
         }
         console.log(event)
@@ -68,7 +67,8 @@ class NewPost extends Component{
 
 
     render() {
-      const {postContent, postTime} = this.state
+      let {postContent, createTime, modifiedTime} = this.state
+      console.log(this.state)
         let username = AuthenticationService.getLoggedInUserName()
         return (
             <div>
@@ -76,7 +76,9 @@ class NewPost extends Component{
                 <h3>{username}</h3>
                 <div className="newPost">
                     <Formik
-                        initialValues={{ postContent, postTime }}
+                        initialValues={{postContent, createTime,modifiedTime}}
+                        validateOnChange={false}
+                        validateOnBlur={false}
                         onSubmit={this.handleSubmit}
                         enableReinitialize={true}
                     >
@@ -101,4 +103,4 @@ class NewPost extends Component{
     }
 }
 
-export default withRouter(NewPost)
+export default NewPost
