@@ -5,7 +5,6 @@ import './PostContainer.css'
 import WallDataService from '../../api/todo/WallDataService.js'
 import AuthenticationService from './AuthenticationService.js'
 import {withRouter} from 'react-router-dom'
-
 //import moment from 'moment'
 
 
@@ -118,7 +117,6 @@ class PostContainer extends Component {
                     </div>
                     ))
                    }
-
                     </div>
                
         );

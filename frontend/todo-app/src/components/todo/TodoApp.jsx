@@ -10,7 +10,7 @@ import WelcomeComponent from './WelcomeComponent.jsx'
 import TodoComponent from './TodoComponent.jsx'
 import WallComponent from '../wall/WallComponent'
 import NewPost from '../wall/NewPost.jsx'
-import FooterComponent from '../todo/FooterComponent'
+//import FooterComponent from '../todo/FooterComponent'
 
 class TodoApp extends Component {
     render() {
@@ -34,7 +34,7 @@ class TodoApp extends Component {
 
                             <Route component={ErrorComponent}/>
                         </Switch>
-                          <FooterComponent/>
+                         
 
                     </>
                 </Router>
