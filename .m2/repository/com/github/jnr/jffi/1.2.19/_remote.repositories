@@ -1,0 +1,6 @@
+#NOTE: This is a Maven Resolver internal implementation file, its format can be changed without prior notice.
+#Fri Sep 27 13:57:30 AEST 2019
+jffi-1.2.19-sources.jar>central=
+jffi-1.2.19-native.jar>central=
+jffi-1.2.19.jar>central=
+jffi-1.2.19.pom>central=
