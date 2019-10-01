@@ -26,5 +26,8 @@ RUN npm prune --production
 
 EXPOSE 80
 EXPOSE 443
+EXPOSE 4200
 
 USER node
+
+ENTRYPOINT /bin/sh /High5/docker-entrypoint.sh
