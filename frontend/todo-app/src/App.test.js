@@ -55,4 +55,3 @@ it('post container test ', () => {
     .toJSON();
   expect(tree).toMatchSnapshot();
 });
-
