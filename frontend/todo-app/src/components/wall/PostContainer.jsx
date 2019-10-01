@@ -4,7 +4,7 @@ import './PostContainer.css'
 //import CommentBox from './CommentBox'
 import WallDataService from '../../api/todo/WallDataService.js'
 import AuthenticationService from './AuthenticationService.js'
-import {withRouter} from 'react-router-dom'
+//import {withRouter} from 'react-router-dom'
 //import moment from 'moment'
 
 
@@ -72,8 +72,6 @@ class PostContainer extends Component {
     this.props.history.push(`/wall/-1`)
   }
 
-
-
     render(){
       let username = AuthenticationService.getLoggedInUserName()
 
@@ -132,4 +130,5 @@ class PostContainer extends Component {
 }
 
 
-export default withRouter(PostContainer)
+export default PostContainer
+//withRouter(PostContainer)

@@ -1,6 +1,7 @@
 import axios from 'axios'
 import { JPA_API_URL } from '../../Constants'
  var studentId=1;
+ 
 class WallDataService {
    
     retrieveAllVisiblePosts(name) {
