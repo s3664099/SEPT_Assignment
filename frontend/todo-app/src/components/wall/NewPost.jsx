@@ -29,7 +29,7 @@ class NewPost extends Component{
         }
 
         let username = AuthenticationService.getLoggedInUserName()
-
+        
         WallDataService.retrievePost(username, this.state.postId)
         .then(response=>this.setState({
             postContent:response.data.message,

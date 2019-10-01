@@ -76,7 +76,6 @@ public class PostsResource {
 		// Check that this is post by the user
 		if(studentsRepository.findBydisplayName(username).getStudentID() == post.getOwnerID()) {
 		    int ownerID = studentsRepository.findBydisplayName(username).getStudentID();
-
 			post.setOwnerID(ownerID);
 			post.setPostID(postId);
 			// Store edited post in database
@@ -84,10 +83,15 @@ public class PostsResource {
 			
 			// Construct an entity to return
 			return new ResponseEntity<Posts>(post, HttpStatus.OK);
+		}else {
+			 int ownerID = studentsRepository.findBydisplayName(username).getStudentID();
+			 post.setOwnerID(ownerID);
+			 Posts editedPost = postsRepository.save(post);
+			 return new ResponseEntity<Posts>(post, HttpStatus.OK);
 		}
 		
 		// User not Authorized to edit post. Unchanged post returned with appropriate status
-		return new ResponseEntity<Posts>(post, HttpStatus.FORBIDDEN);
+		//return new ResponseEntity<Posts>(post, HttpStatus.FORBIDDEN);
 	}
 	
 	// Mapping to remove a post from the wall

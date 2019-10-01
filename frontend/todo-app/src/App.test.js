@@ -33,7 +33,6 @@ it('PostContainer renders without crashing', () => {
   ReactDOM.unmountComponentAtNode(div);
 });
 
-
 it('header wall snapshot compare', () => {
   const tree = renderer
     .create(<HeaderWall name={'sept'}/>)
