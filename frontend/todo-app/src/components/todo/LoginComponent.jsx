@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import AuthenticationService from './AuthenticationService.js'
+import FooterComponent from './FooterComponent.jsx'
 
 class LoginComponent extends Component {
 
@@ -90,6 +91,7 @@ class LoginComponent extends Component {
                     Password: <input type="password" name="password" value={this.state.password} onChange={this.handleChange} />
                     <button className="btn btn-success" onClick={this.loginClicked}>Login</button>
                 </div>
+                <FooterComponent/>
             </div>
         )
     }

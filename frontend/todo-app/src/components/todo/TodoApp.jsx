@@ -5,11 +5,12 @@ import LoginComponent from './LoginComponent.jsx'
 import ListTodosComponent from './ListTodosComponent.jsx'
 import ErrorComponent from './ErrorComponent.jsx'
 import HeaderComponent from './HeaderComponent.jsx'
-import FooterComponent from './FooterComponent.jsx'
 import LogoutComponent from './LogoutComponent.jsx'
 import WelcomeComponent from './WelcomeComponent.jsx'
 import TodoComponent from './TodoComponent.jsx'
 import WallComponent from '../wall/WallComponent'
+import NewPost from '../wall/NewPost.jsx'
+//import FooterComponent from '../todo/FooterComponent'
 
 class TodoApp extends Component {
     render() {
@@ -26,12 +27,15 @@ class TodoApp extends Component {
                             <AuthenticatedRoute path="/todos" component={ListTodosComponent}/>
                             <AuthenticatedRoute path="/logout" component={LogoutComponent}/>
 
+                            <AuthenticatedRoute path="/wall/:postId" component={NewPost}/>
                             <AuthenticatedRoute path="/wall" component ={WallComponent}/>
+
 
 
                             <Route component={ErrorComponent}/>
                         </Switch>
-                        <FooterComponent/>
+                         
+
                     </>
                 </Router>
                 {/*<LoginComponent/>

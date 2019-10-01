@@ -4,7 +4,7 @@ import { JPA_API_URL } from '../../Constants'
 class TodoDataService {
 
     retrieveAllTodos(name) {
-        console.log('executed service')
+       // console.log('executed service')
         return axios.get(`${JPA_API_URL}/users/${name}/todos`);
     }
 
@@ -19,12 +19,12 @@ class TodoDataService {
     }
 
     updateTodo(name, id, todo) {
-        //console.log('executed service')
+        console.log('update todo')
         return axios.put(`${JPA_API_URL}/users/${name}/todos/${id}`, todo);
     }
 
     createTodo(name, todo) {
-        //console.log('executed service')
+        console.log('create todo')
         return axios.post(`${JPA_API_URL}/users/${name}/todos/`, todo);
     }
 

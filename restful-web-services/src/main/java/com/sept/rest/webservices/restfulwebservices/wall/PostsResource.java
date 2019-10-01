@@ -36,19 +36,19 @@ public class PostsResource {
 	@GetMapping(path = "/jpa/users/{username}/wall")
 	public List<Posts> sendVisiblePostList(@PathVariable String username) {
 		int studentId = studentsRepository.findBydisplayName(username).getStudentID();
-		return postsRepository.findByOwnerIdAndDeletedFalse(studentId);
+		return postsRepository.findByOwnerIdAndDeletedFalseOrderByCreationTimeDesc(studentId);
 	}
 	
 	// Mapping to get a specific post if undeleted
 	@GetMapping(path = "/jpa/users/{username}/post/{postId}")
-	public Posts getPost(@PathVariable String username, @PathVariable int postId) {
+	public Posts getPost(@PathVariable String username, @PathVariable Integer postId) {
 		return postsRepository.findBypostIdAndDeletedFalse(postId);
 	}
 	
 	// Mapping to add a new post to the wall
-	@PostMapping(path = "/jpa/users/{username}/wall/{wallId}")
-	public ResponseEntity<Void> newPost(@PathVariable String username, @PathVariable int wallId, @RequestBody Posts post) {
-		
+	@PostMapping(path = "/jpa/users/{username}/wall")
+	public ResponseEntity<Void> newPost(@PathVariable String username, @RequestBody Posts post) {
+
 		// Ensure new post will be appended to users wall and not someone else's
 		post.setOwnerID(studentsRepository.findBydisplayName(username).getStudentID());
 			
@@ -64,32 +64,40 @@ public class PostsResource {
 	
 	// Mapping to edit a post. Returns unedited post with unauthorized status if user is not posts owner
 	@PutMapping("/jpa/users/{username}/post/{postId}")
-	public ResponseEntity<Posts> updateTodo(
+	public ResponseEntity<Posts> updatePost(
 			@PathVariable String username,
-			@PathVariable int postId, @RequestBody Posts post) {
+			@PathVariable Integer postId, @RequestBody Posts post) {
 		
+		System.out.println(username);
+	    System.out.println(postId);
+	    System.out.println(post.getOwnerID());
+	    System.out.println(studentsRepository.findBydisplayName(username).getStudentID());
+	    
 		// Check that this is post by the user
-		if (studentsRepository.findBydisplayName(username).getStudentID() == post.getOwnerID()) {
+		if(studentsRepository.findBydisplayName(username).getStudentID() == post.getOwnerID()) {
+		    int ownerID = studentsRepository.findBydisplayName(username).getStudentID();
 
+			post.setOwnerID(ownerID);
+			post.setPostID(postId);
 			// Store edited post in database
 			Posts editedPost = postsRepository.save(post);
 			
 			// Construct an entity to return
-			return new ResponseEntity<Posts>(editedPost, HttpStatus.OK);
+			return new ResponseEntity<Posts>(post, HttpStatus.OK);
 		}
 		
 		// User not Authorized to edit post. Unchanged post returned with appropriate status
-		return new ResponseEntity<Posts>(post, HttpStatus.UNAUTHORIZED);
+		return new ResponseEntity<Posts>(post, HttpStatus.FORBIDDEN);
 	}
 	
 	// Mapping to remove a post from the wall
 	@DeleteMapping("/jpa/users/{username}/post/{postId}")
-	public ResponseEntity<Void> deletePost(
-			@PathVariable String username, @PathVariable int postId) {
+	public ResponseEntity<Void> deletePost(@PathVariable String username, @PathVariable Integer postId) {
 
 		// Retrieve post to be removed from the wall
-		Posts post = postsRepository.findBypostIdAndDeletedFalse(postId);
 		
+		Posts post = postsRepository.findBypostIdAndDeletedFalse(postId);
+
 		// Check that user has permission to delete post
 		if (studentsRepository.findBydisplayName(username).getStudentID() == post.getOwnerID()) {
 			
@@ -98,13 +106,11 @@ public class PostsResource {
 			
 			// Update database
 			postsRepository.save(post);
-			
 			// Construct an entity to return
 			return ResponseEntity.noContent().build();
 		}
-		
 		// User not authorized to delete post. Respond with appropriate status
-		return new ResponseEntity<Void>(HttpStatus.UNAUTHORIZED);
+		return new ResponseEntity<Void>(HttpStatus.FORBIDDEN);
 	}
 
 }

@@ -4,10 +4,13 @@ import java.sql.Timestamp;
 //import java.util.ArrayList;
 //import java.util.List;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+
+import com.sept.rest.webservices.restfulwebservices.todo.Todo;
 
 //import com.sept.rest.webservices.user.Students;
 
@@ -18,8 +21,9 @@ public class Posts {
 		
 	}
 	
-	public Posts(Long postID, int ownerID, String message, Timestamp creation_Time, Timestamp modified_Time,
-			boolean deleted, boolean edited) {
+	public Posts(Integer postID, int ownerID, String message, Timestamp creation_Time,
+			Timestamp modified_Time,  boolean deleted, boolean edited) 
+	{
 		super();
 		postId = postID;
 		ownerId = ownerID;
@@ -33,7 +37,7 @@ public class Posts {
 	//basic post variables
 	@Id
 	@GeneratedValue (strategy = GenerationType.AUTO)
-	private Long postId;
+	private Integer postId;
 	private int ownerId;
 	private String message;
 	private Timestamp creationTime;
@@ -41,10 +45,10 @@ public class Posts {
 	private boolean deleted;
 	private boolean edited;
 	
-	public Long getPostID() {
+	public Integer getPostID() {
 		return postId;
 	}
-	public void setPostID(Long postID) {
+	public void setPostID(Integer postID) {
 		postId = postID;
 	}
 	public String getMessage() {
@@ -82,6 +86,28 @@ public class Posts {
 	}
 	public void setModified_Time(Timestamp modified_Time) {
 		modifiedTime = modified_Time;
+	}
+	
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + (int) (postId ^ (postId >>> 32));
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Posts other = (Posts) obj;
+		if (postId != other.postId)
+			return false;
+		return true;
 	}
 	
 	
