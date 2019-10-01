@@ -4,6 +4,7 @@ import java.sql.Timestamp;
 //import java.util.ArrayList;
 //import java.util.List;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -20,7 +21,7 @@ public class Posts {
 		
 	}
 	
-	public Posts(Long postID, int ownerID, String message, Timestamp creation_Time,
+	public Posts(Integer postID, int ownerID, String message, Timestamp creation_Time,
 			Timestamp modified_Time,  boolean deleted, boolean edited) 
 	{
 		super();
@@ -36,7 +37,7 @@ public class Posts {
 	//basic post variables
 	@Id
 	@GeneratedValue (strategy = GenerationType.AUTO)
-	private Long postId;
+	private Integer postId;
 	private int ownerId;
 	private String message;
 	private Timestamp creationTime;
@@ -44,10 +45,10 @@ public class Posts {
 	private boolean deleted;
 	private boolean edited;
 	
-	public Long getPostID() {
+	public Integer getPostID() {
 		return postId;
 	}
-	public void setPostID(Long postID) {
+	public void setPostID(Integer postID) {
 		postId = postID;
 	}
 	public String getMessage() {

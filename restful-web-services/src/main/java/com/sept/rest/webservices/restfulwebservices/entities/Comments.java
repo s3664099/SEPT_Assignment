@@ -18,12 +18,12 @@ public class Comments {
 		
 	}
 	
-	public Comments(Long postID, int ownerID, Long parentId, String message, Timestamp creation_Time, Timestamp modified_Time,
+	public Comments(Long commentID, int authorID, Integer parentID, String message, Timestamp creation_Time, Timestamp modified_Time,
 			boolean deleted, boolean edited) {
 		super();
-		commentId = postID;
-		authorId = ownerID;
-		this.parentId = parentId;
+		this.commentId = commentID;
+		this.authorId = authorID;
+		this.parentId = parentID;
 		this.message = message;
 		creationTime = creation_Time;
 		modifiedTime = modified_Time;
@@ -36,17 +36,17 @@ public class Comments {
 	@GeneratedValue (strategy = GenerationType.AUTO)
 	private Long commentId;
 	private int authorId;
-	private Long parentId;
+	private Integer parentId;
 	private String message;
 	private Timestamp creationTime;
 	private Timestamp modifiedTime;
 	private boolean deleted;
 	private boolean edited;
 	
-	public Long getPostID() {
+	public Long getCommentID() {
 		return commentId;
 	}
-	public void setPostID(Long postID) {
+	public void setCommentID(Long postID) {
 		commentId = postID;
 	}
 	public String getMessage() {
@@ -55,10 +55,10 @@ public class Comments {
 	public void setMessage(String message) {
 		this.message = message;
 	}
-	public int getOwnerID() {
+	public int getAuthorID() {
 		return authorId;
 	}
-	public void setOwnerID(int ownerID) {
+	public void setAuthorID(int ownerID) {
 		authorId = ownerID;
 	}
 	public boolean isDeleted() {
@@ -85,11 +85,10 @@ public class Comments {
 	public void setModified_Time(Timestamp modified_Time) {
 		modifiedTime = modified_Time;
 	}
-	public Long getParentId() {
+	public Integer getParentId() {
 		return parentId;
 	}
-	
-	public void setParentId(Long parentId) {
+	public void setParentId(Integer parentId) {
 		this.parentId = parentId;
 	}
 	

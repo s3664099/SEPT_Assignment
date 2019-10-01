@@ -5,9 +5,13 @@ import './PostContainer.css'
 import WallDataService from '../../api/todo/WallDataService.js'
 import AuthenticationService from './AuthenticationService.js'
 import {withRouter} from 'react-router-dom'
-import moment from 'moment'
+
+//import moment from 'moment'
+
+
 // import Popup from "reactjs-popup"
 // import NewPost from './NewPost.jsx'
+
 
 
 class PostContainer extends Component {
@@ -69,61 +73,60 @@ class PostContainer extends Component {
     this.props.history.push(`/wall/-1`)
   }
 
-  render(){
-    let username = AuthenticationService.getLoggedInUserName()
-    const userImage = "http://placekitten.com/300/200"
-    return (
+ 
 
+    render(){
+  
+        const userImage = "http://placekitten.com/300/200"
 
-      <div>
-      <div><button className="newPostButton" onClick={this.addPostClicked}> Create New Post :)</button></div>
+        return (
+            
+            
+                   <div>
+                       <div><button className="newPostButton" onClick={this.addPostClicked}> Create New Post :)</button></div>
+                   {
+                       this.state.posts.map((post)=>(
+                        <div  className="postContainer">
+                        <div className="userImage">
+                        <img className ="profilePic" src={userImage} alt="Profile Pic"></img>
+                        {/*to debug*/}
+                            <div className ="timeStamp">{/*Date.parse(post.modifiedTime).getTime()*/}</div>
+                        </div>
+                        {/*<div className="id"> {console.log(post.postID)} </div>*/ }
+                        <div>
+                            <button className ="deleteButton" onClick ={()=>this.deletePostButton(post.postID)}>Delete</button>
+                        </div>
+                        <div>
+                            <button className ="editButton" onClick ={()=>this.editPostButton(post.postID)}>Edit</button>
+                        </div>
+                        <div className="userInput">{post.message}</div>
+                        <hr></hr>
+                       <div>{/*<BottomBar />*/}</div>
+                        
+                        <div>{
+                            (typeof(post.comments)=='object')? 
+                            <div>
+                                {
+                                    post.comments.map((commentBox)=>
+                                    <div>
+                                        <hr></hr>
+                                <div>{/*<CommentBox commentbox={commentBox}/>*/}</div>
+                                    </div>)
+                                }
+                            </div>: null
+                        }</div>
+                    </div>
+                    ))
+                   }
 
-      {// {{<Popup trigger={<button className="newPostButton"> POP UP BUTTON!!!!XD </button>}
-      // modal
-      // closeOnDocumentClick>
-      //   <NewPost/>
-      // </Popup>}}
-    }
-      {
-        this.state.posts.map((post)=>(
-          <div  className="postContainer">
-          <div className="userImage">
-          <img className ="profilePic" src={userImage} alt="Profile Pic"></img>
-          <div className="userName">{username}</div>
-
-          </div>
-          {/*<div className="id"> {console.log(post.postID)} </div>*/ }
-
-          <div className="userInput">{post.message}</div>
-          <hr></hr>
-          <div className ="timeStamp">{moment(post.creationTime).format('DD-MM-YYYY HH:MM')}</div>
-          <div className="postSetting">
-          <button className ="editButton" onClick ={()=>this.editPostButton(post.postID)}>Edit</button>
-          <button className ="deleteButton" onClick ={()=>this.deletePostButton(post.postID)}>Delete</button>
-          </div>
-          <hr></hr>
-          <div>{/*<BottomBar />*/}</div>
-
-          <div>{
-            (typeof(post.comments)=='object')?
-            <div>
-            {
-              post.comments.map((commentBox)=>
-              <div>
-              <hr></hr>
-              <div>{/*<CommentBox commentbox={commentBox}/>*/}</div>
-              </div>)
-            }
-            </div>: null
-          }</div>
-          </div>
-        ))
-      }
-
-      </div>
-
+                    </div>
+               
+        );
+     }
+/*
     );
   }
+*/
 
 }
 
