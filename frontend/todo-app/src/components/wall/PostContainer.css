@@ -1,13 +1,74 @@
 .postContainer{
-    border: 2px solid gray;
-    border-radius: 5px;
-    width: 90%;
-    display: inline-block;
-    margin:3%;
+    border: 1px solid #111;
+    border-radius: 25px;
+    width: 800px;
+    display: block;
+    margin:20px auto;
     padding:5px;
     text-align: justify;
+    padding: 10px;
 }
 
-.userImage, .userName, .editButton{
+.userImage, .userName{
     display: inline-block;
+}
+
+.timeStamp {
+  text-align: left;
+  display: inline;
+  font-size: 12px;
+  padding-left: 20px;
+}
+
+.userInput {
+  padding: 20px;
+}
+
+.userName {
+  font-weight: bold;
+  font-size: 20px;
+  margin: auto 10px;
+}
+
+.editButton, .deleteButton{
+  border-radius: 20px;
+  padding: 0 10px;
+  margin: 0 3px;
+  border: 1px solid #111;
+  background-color: #fff;
+}
+
+.deleteButton {
+  color: red;
+  border: 1px solid red;
+}
+
+.postSetting {
+  position: relative;
+  left: 540px;
+  text-align: right;
+  display: inline;
+}
+
+.newPostButton {
+  height: 50px;
+  width: 200px;
+  margin: 20px;
+  border:0px solid #05cdff;
+  -webkit-border-radius: 50px;
+  -moz-border-radius: 50px;
+  border-radius: 50px;
+  text-decoration:none;
+  display:inline-block;
+  color: #FFFFFF;
+  background-color: #12B8FF; background-image: -webkit-gradient(linear, left top, left bottom, from(#12B8FF), to(#0F77FF));
+  background-image: -webkit-linear-gradient(top, #12B8FF, #0F77FF);
+  background-image: -moz-linear-gradient(top, #12B8FF, #0F77FF);
+  background-image: -ms-linear-gradient(top, #12B8FF, #0F77FF);
+  background-image: -o-linear-gradient(top, #12B8FF, #0F77FF);
+  background-image: linear-gradient(to bottom, #12B8FF, #0F77FF);filter:progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr=#12B8FF, endColorstr=#0F77FF);
+}
+
+.newPostButton:hover, .editButton:hover, .deleteButton:hover {
+  cursor: pointer;
 }

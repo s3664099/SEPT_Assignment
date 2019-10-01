@@ -5,67 +5,75 @@ import './PostContainer.css'
 import WallDataService from '../../api/todo/WallDataService.js'
 import AuthenticationService from './AuthenticationService.js'
 import {withRouter} from 'react-router-dom'
+
 //import moment from 'moment'
 
 
+// import Popup from "reactjs-popup"
+// import NewPost from './NewPost.jsx'
+
+
+
 class PostContainer extends Component {
-    
-    constructor(props){
-        console.log(" post constructor")
-        super(props)
-        this.state ={
-            posts:[]
-        }
-        this.refreshPosts=this.refreshPosts.bind(this)
-        this.addPostClicked = this.addPostClicked.bind(this)
-        this.editPostButton = this.editPostButton.bind(this)
-        this.deletePostButton = this.deletePostButton.bind(this)
-    }
-    
-    componentWillUnmount() {
-        console.log('componentWillUnmount on wall')
-    }
 
-    shouldComponentUpdate(nextProps, nextState) {
-        console.log('shouldComponentUpdate on wall')
-        console.log(nextProps)
-        console.log(nextState)
-        return true
+  constructor(props){
+    console.log(" post constructor")
+    super(props)
+    this.state ={
+      posts:[]
     }
+    this.refreshPosts=this.refreshPosts.bind(this)
+    this.addPostClicked = this.addPostClicked.bind(this)
+    this.editPostButton = this.editPostButton.bind(this)
+    this.deletePostButton = this.deletePostButton.bind(this)
+  }
 
-    componentDidMount()
-    {
-        this.refreshPosts();
-    }
+  componentWillUnmount() {
+    console.log('componentWillUnmount on wall')
+  }
 
-    refreshPosts(){
-        let username = AuthenticationService.getLoggedInUserName()
-        WallDataService.retrieveAllVisiblePosts(username)
-        .then(response=>this.setState({
-            posts:response.data
-        }))
-          console.log(this.state)
-    }
+  shouldComponentUpdate(nextProps, nextState) {
+    console.log('shouldComponentUpdate on wall')
+    console.log(nextProps)
+    console.log(nextState)
+    return true
+  }
 
-    editPostButton(postID){
-        console.log('update post' + postID)
-        this.props.history.push(`wall/${postID}`)
-    }
+  componentDidMount()
+  {
+    this.refreshPosts();
+  }
+
+  refreshPosts(){
+    let username = AuthenticationService.getLoggedInUserName()
+    WallDataService.retrieveAllVisiblePosts(username)
+    .then(response=>this.setState({
+      posts:response.data
+    }))
+    console.log(this.state)
+  }
+
+  editPostButton(postID){
+    console.log('update post' + postID)
+    this.props.history.push(`wall/${postID}`)
+  }
 
 
-    deletePostButton(postID){
-        console.log('delete post' + postID)
-        let username = AuthenticationService.getLoggedInUserName()
-        WallDataService.deletePost(username, postID)
-        .then(response=>{
-            this.refreshPosts()
-        })
-    }
+  deletePostButton(postID){
+    console.log('delete post' + postID)
+    let username = AuthenticationService.getLoggedInUserName()
+    WallDataService.deletePost(username, postID)
+    .then(response=>{
+      this.refreshPosts()
+    })
+  }
 
-    addPostClicked(){
-        console.log("new post button clicked")
-        this.props.history.push(`/wall/-1`)
-    }
+  addPostClicked(){
+    console.log("new post button clicked")
+    this.props.history.push(`/wall/-1`)
+  }
+
+ 
 
     render(){
   
@@ -115,6 +123,10 @@ class PostContainer extends Component {
                
         );
      }
+/*
+    );
+  }
+*/
 
 }
 
