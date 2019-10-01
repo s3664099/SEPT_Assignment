@@ -20,7 +20,7 @@ class WallDataService {
     
     deletePost(username, postID) {
 
-    	console.log('delete delete ...')
+    	console.log('delete axios for ')
         return axios.delete(`${JPA_API_URL}/users/${username}/post/${postID}`);
     }
 

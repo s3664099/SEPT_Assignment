@@ -24,6 +24,11 @@
 		<java.version>1.8</java.version>
 		<maven.test.skip>true</maven.test.skip>
 		
+		<!-- trial deploy -->
+		  <maven.compiler.source>1.8</maven.compiler.source>
+       <maven.compiler.target>1.8</maven.compiler.target>
+		
+		
 	</properties>
 	
 
@@ -109,7 +114,20 @@
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
+			
+			<!-- trial google deploy -->
+			<plugin>
+           <groupId>com.google.appengine</groupId>
+            <artifactId>appengine-maven-plugin</artifactId>
+              <version>1.9.76</version>
+         </plugin>
+			
+			
+			
 		</plugins>
+		
+		
+		
 	</build>
 
 	<repositories>

@@ -19,7 +19,11 @@ matrix:
         - cd restful-web-services/
       script:
         - mvn verify -Dmaven.test.skip=true
-  
 
+  deploy:
+     provider: gae
+     keyfile: high5softwarept-2aa3c2c661d2.json
+     project: high5softwarept
+     on: trial-deploy
 
 
