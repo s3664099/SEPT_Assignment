@@ -72,7 +72,6 @@ class PostContainer extends Component {
     this.props.history.push(`/wall/-1`)
   }
 
- 
 
     render(){
   
@@ -129,4 +128,5 @@ class PostContainer extends Component {
 }
 
 
-export default withRouter(PostContainer)
+export default PostContainer
+//withRouter(PostContainer)

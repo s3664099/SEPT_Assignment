@@ -1,0 +1,123 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`header wall snapshot compare 1`] = `
+<header>
+  <nav
+    className="wallnav"
+  >
+    <div
+      className="wallLogo"
+    >
+      <a
+        className="RMITWall"
+        href="http://www.rmit.edu.au"
+      >
+        RMITWall
+      </a>
+    </div>
+    <div
+      className="search"
+    >
+      <form>
+        <input
+          onChange={[Function]}
+          placeholder="Search for..."
+          type="text"
+          value=""
+        />
+        <button
+          type="submit"
+        >
+          Search
+        </button>
+        <ul />
+      </form>
+    </div>
+    <div
+      className="Greetings"
+    >
+      Welcome, 
+      sept
+      <img
+        alt="Putty Tat"
+        className="profilePic"
+        src="http://placekitten.com/300/200"
+      />
+    </div>
+  </nav>
+</header>
+`;
+
+exports[`header wall snapshot compare 2`] = `
+<header>
+  <nav
+    className="wallnav"
+  >
+    <div
+      className="wallLogo"
+    >
+      <a
+        className="RMITWall"
+        href="http://www.rmit.edu.au"
+      >
+        RMITWall
+      </a>
+    </div>
+    <div
+      className="search"
+    >
+      <form>
+        <input
+          onChange={[Function]}
+          placeholder="Search for..."
+          type="text"
+          value=""
+        />
+        <button
+          type="submit"
+        >
+          Search
+        </button>
+        <ul />
+      </form>
+    </div>
+    <div
+      className="Greetings"
+    >
+      Welcome, 
+      sept
+      <img
+        alt="Putty Tat"
+        className="profilePic"
+        src="http://placekitten.com/300/200"
+      />
+    </div>
+  </nav>
+</header>
+`;
+
+exports[`new post test  1`] = `
+<div>
+  <div>
+    <button
+      className="newPostButton"
+      onClick={[Function]}
+    >
+       Create New Post :)
+    </button>
+  </div>
+</div>
+`;
+
+exports[`post container test  1`] = `
+<div>
+  <div>
+    <button
+      className="newPostButton"
+      onClick={[Function]}
+    >
+       Create New Post :)
+    </button>
+  </div>
+</div>
+`;
