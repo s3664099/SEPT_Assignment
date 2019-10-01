@@ -5,7 +5,7 @@ import renderer from 'react-test-renderer'
 import HeaderWall from './components/wall/HeaderWall';
 import WallComponent from './components/wall/WallComponent'
 import PostContainer from './components/wall/PostContainer';
-import NewPost from './components/wall/NewPost';
+//import NewPost from './components/wall/NewPost';
 
 //jest.mock('./src/__mock__/WallDataService')//./WallDataService../
 
