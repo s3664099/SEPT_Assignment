@@ -20,18 +20,18 @@ it('HeaderWall renders without crashing', () => {
   ReactDOM.render(<HeaderWall />, div);
   ReactDOM.unmountComponentAtNode(div);
 });
-
+/*
 it('WallComponent renders without crashing', () => {
   const div = document.createElement('div');
   ReactDOM.render(<WallComponent />, div);
   ReactDOM.unmountComponentAtNode(div);
 });
-
+/*
 it('PostContainer renders without crashing', () => {
   const div = document.createElement('div');
   ReactDOM.render(<PostContainer />, div);
   ReactDOM.unmountComponentAtNode(div);
-});
+});*/
 
 it('header wall snapshot compare', () => {
   const tree = renderer
@@ -46,7 +46,7 @@ it('trial mock object', ()=>{
   let username ='one';
   return expect(WallDataService.retrievePost(username, 2)).then(post=>expect(post.userID).toEqual('2'))
 })
-*/
+
 
 it('post container test ', () => {
   const tree = renderer
@@ -54,3 +54,4 @@ it('post container test ', () => {
     .toJSON();
   expect(tree).toMatchSnapshot();
 });
+*/
