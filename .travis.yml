@@ -3,8 +3,10 @@ services:
 
 before_install:
   - docker build -t high5app .
-  - docker run high5app
-  - docker ps -a
+  - docker run -d high5app
+
+install:
+  - docker ps | grep -q high5app
 
 deploy:
   provider: gae
