@@ -47,16 +47,3 @@ exports[`header wall snapshot compare 1`] = `
   </nav>
 </header>
 `;
-
-exports[`post container test  1`] = `
-<div>
-  <div>
-    <button
-      className="newPostButton"
-      onClick={[Function]}
-    >
-       Create New Post :)
-    </button>
-  </div>
-</div>
-`;
