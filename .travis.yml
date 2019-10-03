@@ -17,6 +17,7 @@ deploy:
   provider: gae
   keyfile: client-secret.json
   project: high5softwarept
+  skip-cleanup: true
   on:
     branch: development
 
