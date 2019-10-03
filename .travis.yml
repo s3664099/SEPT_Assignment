@@ -15,7 +15,7 @@ install:
 
 deploy:
   provider: gae
-  keyfile: high5softwarept-2aa3c2c661d2.json
+  keyfile: client-secret.json
   project: high5softwarept
   on:
     branch: development
