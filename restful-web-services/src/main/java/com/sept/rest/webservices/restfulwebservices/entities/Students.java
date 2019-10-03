@@ -7,6 +7,10 @@ import javax.persistence.Id;
 @Entity
 public class Students {
 	
+	public Students() {
+		
+	}
+	
 	//basic student variables
 	@Id
 	private int studentId;
@@ -15,7 +19,7 @@ public class Students {
 	private String familyName;
 	
 	public Students(String displayName, int studentId, String giveName, String famName) {
-		
+		super();
 		this.displayName = displayName;
 		this.studentId = studentId;
 		this.givenName = giveName;

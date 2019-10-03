@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import AuthenticationService from './AuthenticationService.js'
+import FooterComponent from './FooterComponent.jsx'
 
 class LoginComponent extends Component {
 
@@ -83,13 +84,14 @@ class LoginComponent extends Component {
                 <h1>Login</h1>
                 <div className="container">
                     {/*<ShowInvalidCredentials hasLoginFailed={this.state.hasLoginFailed}/>*/}
-                    {this.state.hasLoginFailed && <div className="alert alert-warning">Invalid Credentials or something is wrong</div>}
+                    {this.state.hasLoginFailed && <div className="alert alert-warning">Invalid Credentials or something is wrong. Something is not right. </div>}
                     {this.state.showSuccessMessage && <div>Login Sucessful</div>}
                     {/*<ShowLoginSuccessMessage showSuccessMessage={this.state.showSuccessMessage}/>*/}
                     User Name: <input type="text" name="username" value={this.state.username} onChange={this.handleChange} />
                     Password: <input type="password" name="password" value={this.state.password} onChange={this.handleChange} />
                     <button className="btn btn-success" onClick={this.loginClicked}>Login</button>
                 </div>
+                <FooterComponent/>
             </div>
         )
     }

@@ -2,7 +2,6 @@ import React, {Component} from 'react'
 import './HeaderWall.css'
 import Search from './Search.jsx'
 
-
 class HeaderWall extends Component {
 
     /*constructor(props){
@@ -30,10 +29,8 @@ class HeaderWall extends Component {
                 </nav>
             </header>
         )
-        }
-       
     }
-
+}
 
 
 export default HeaderWall

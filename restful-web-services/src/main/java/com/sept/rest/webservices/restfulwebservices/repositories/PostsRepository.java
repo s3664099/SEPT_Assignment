@@ -8,10 +8,11 @@ import org.springframework.stereotype.Repository;
 import com.sept.rest.webservices.restfulwebservices.entities.Posts;
 
 @Repository
-public interface PostsRepository extends CrudRepository<Posts, Long> {
+public interface PostsRepository extends CrudRepository<Posts, Integer> {
 
-	List<Posts> findByOwner_idAndDeletedFalse(int studentID);
+	List<Posts> findByOwnerIdAndDeletedFalseOrderByCreationTimeDesc(Integer studentID);
 
-	Posts findByIdAndDeletedFalse(int id);
+	Posts findBypostIdAndDeletedFalse(Integer id);
+	
 	
 }
