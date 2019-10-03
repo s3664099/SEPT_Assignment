@@ -3,7 +3,6 @@ import { Formik, Form, Field} from 'formik';
 import WallDataService from '../../api/todo/WallDataService';
 import AuthenticationService from './AuthenticationService.js'
 import moment from 'moment'
-//import {withRouter} from 'react-router-dom'
 
 class NewPost extends Component{
 
@@ -76,7 +75,7 @@ class NewPost extends Component{
                 <h3>{username}</h3>
                 <div className="newPost">
                     <Formik
-                        initialValues={{postContent, createTime,modifiedTime}}
+                        initialValues={{postContent, createTime, modifiedTime}}
                         validateOnChange={false}
                         validateOnBlur={false}
                         onSubmit={this.handleSubmit}

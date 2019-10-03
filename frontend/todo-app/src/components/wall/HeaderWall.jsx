@@ -8,6 +8,7 @@ class HeaderWall extends Component {
         super(props);
     }*/
 
+    
 
     render(){
              return (

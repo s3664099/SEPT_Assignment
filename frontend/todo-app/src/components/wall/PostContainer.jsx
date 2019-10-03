@@ -80,7 +80,7 @@ class PostContainer extends Component {
         return (
 
 
-                   <div>
+                   <div className= 'container'>
                        <div><button className="newPostButton" onClick={this.addPostClicked}> Create New Post :)</button></div>
                    {
                        this.state.posts.map((post)=>(
