@@ -26,25 +26,33 @@ before_install:
      printf '\ny\n\ny\ny\n' | ./google-cloud-sdk/install.sh &&
      cd $TRAVIS_BUILD_DIR;
      fi
-  
+     
+  - gcloud components install beta  
   - if [ -a client_secrets.json ]; then
      gcloud -q auth activate-service-account --key-file client_secrets.json;
      fi
 
-  - docker build -t high5app .
+  - docker build -t gcr.io/high5softwarept/high5app .
   - docker run -d high5app
 
 install:
   # Set the correct project to deploy to
+  - gcloud auth configure-docker    # enable "docker push" to gcr
   - gcloud config set project high5softwarept 
   - docker ps | grep -q high5app
 
 deploy:
-  provider: gae
-  keyfile: credentials.tar.gz.enc
-  project: high5softwarept
-  skip-cleanup: true
-  on:
-    branch: development
+  - docker push gcr.io/high5softwarept/high5app
+  - gcloud config compute/zone australia-southeast1-c
+  - gcloud container clusters create high5-cluster --num-nodes=2
+  - gcloud compute instances list
+  - kubectl create deployment high5-web --image=gcr.io/high5softwarept/high5app
+  - kubectl get pods
+  - kubectl expose deployment hello-web --type=LoadBalancer --port 80 --target-port 8080
+
+
+
+
+
 
 
