@@ -36,7 +36,6 @@ before_install:
 
 install:
   # Set the correct project to deploy to
-  - gcloud auth configure-docker    # enable "docker push" to gcr
   - gcloud config set project high5softwarept 
   - docker ps | grep -q high5app
 
