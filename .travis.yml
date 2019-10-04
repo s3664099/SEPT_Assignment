@@ -24,7 +24,7 @@ before_install:
 
   # Here we use the decrypted service account credentials to authenticate the command line tool
   - gcloud auth activate-service-account --key-file client-secret.json
-
+  - gcloud auth login
   # [END auth]
 
   - docker build -t high5app .
