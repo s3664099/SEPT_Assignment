@@ -16,7 +16,7 @@ install:
 deploy:
   provider: gae
   keyfile: credentials.tar.gz.enc
-  project: high5softwarept
+  project: high5serviceaccount
   skip-cleanup: true
   on:
     branch: development
