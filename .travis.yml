@@ -15,7 +15,7 @@ install:
 
 deploy:
   provider: gae
-  keyfile: client-secret.json
+  keyfile: credentials.tar.gz.enc
   project: high5softwarept
   skip-cleanup: true
   on:
