@@ -7,6 +7,7 @@ services:
   - docker
 
 before_install:
+  - gcloud config set account high5serviceaccount@high5softwarept.iam.gserviceaccount.com
   - docker build -t high5app .
   - docker run -d high5app
 
@@ -16,7 +17,7 @@ install:
 deploy:
   provider: gae
   keyfile: credentials.tar.gz.enc
-  project: high5serviceaccount
+  project: high5softwarept
   skip-cleanup: true
   on:
     branch: development
