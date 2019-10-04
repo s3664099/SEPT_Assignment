@@ -21,7 +21,7 @@ class TodoComponent extends Component {
 
     componentDidMount() {
 
-        if (this.state.id === -1) {
+        if (this.state.id === "-1") {
             
             return
         }
@@ -60,7 +60,7 @@ class TodoComponent extends Component {
             targetDate: values.targetDate
         }
 
-        if (this.state.id === -1) {
+        if (this.state.id === "-1") {
             TodoDataService.createTodo(username, todo)
                 .then(() => this.props.history.push('/todos'))
         } else {

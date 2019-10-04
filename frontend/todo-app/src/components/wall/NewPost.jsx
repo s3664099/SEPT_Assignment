@@ -23,7 +23,7 @@ class NewPost extends Component{
 
     componentDidMount(){
         
-        if(this.state.postId === -1){
+        if(this.state.postId === "-1"){
             return
         }
 
@@ -50,7 +50,7 @@ class NewPost extends Component{
             modifiedTime:this.state.modifiedTime,
             message:event.postContent
         }
-        if(this.state.postId === -1){
+        if(this.state.postId === "-1"){
             console.log("create new post")
             WallDataService.createPost(username, post)
             .then(()=>this.props.history.push('/wall'))
