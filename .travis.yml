@@ -6,9 +6,9 @@ language:
 services:
   - docker
   
- cache:
+cache:
   directories:
-  - "$HOME/google-cloud-sdk/"
+    - "$HOME/google-cloud-sdk/"
   
 env:
   # Make sure gcloud command is on our PATH and the App Engine SDK is in the Python path
