@@ -41,7 +41,7 @@ install:
   - gcloud config set project high5softwarept 
   - docker ps | grep -q high5app
 
-deploy:
+script:
   - docker push gcr.io/high5softwarept/high5app
   - gcloud config compute/zone australia-southeast1-c
   - gcloud container clusters create high5-cluster --num-nodes=2
