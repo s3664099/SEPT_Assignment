@@ -37,6 +37,7 @@ public class TodoJpaResource {
 
 	@GetMapping("/jpa/users/{username}/todos/{id}")
 	public Todo getTodo(@PathVariable String username, @PathVariable long id){
+		System.out.println("get this to do");
 		return todoJpaRepository.findById(id).get();
 		//return todoService.findById(id);
 	}
@@ -58,7 +59,7 @@ public class TodoJpaResource {
 	public ResponseEntity<Todo> updateTodo(
 			@PathVariable String username,
 			@PathVariable long id, @RequestBody Todo todo){
-		
+		System.out.println("update this todo");
 		todo.setUsername(username);
 		
 		Todo todoUpdated = todoJpaRepository.save(todo);
@@ -66,10 +67,10 @@ public class TodoJpaResource {
 		return new ResponseEntity<Todo>(todo, HttpStatus.OK);
 	}
 	
+	
 	@PostMapping("/jpa/users/{username}/todos")
 	public ResponseEntity<Void> createTodo(
 			@PathVariable String username, @RequestBody Todo todo){
-		
 		todo.setUsername(username);
 		
 		Todo createdTodo = todoJpaRepository.save(todo);

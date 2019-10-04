@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 import './SideNavBar.css'
 import Popup from "reactjs-popup";
 
-
 class ActivityNavBar extends Component {
 
     render() {

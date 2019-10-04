@@ -18,18 +18,18 @@ class ListTodosComponent extends Component {
     }
 
     componentWillUnmount() {
-        console.log('componentWillUnmount')
+        console.log('componentWillUnmount in list page')
     }
 
     shouldComponentUpdate(nextProps, nextState) {
-        console.log('shouldComponentUpdate')
+        console.log('shouldComponentUpdate in list page')
         console.log(nextProps)
         console.log(nextState)
         return true
     }
 
     componentDidMount() {
-        console.log('componentDidMount')
+        console.log('componentDidMount in list page')
         this.refreshTodos();
         console.log(this.state)
     }

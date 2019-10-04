@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import HelloWorldService from '../../api/todo/HelloWorldService.js'
+import logo from './logo.png';
 
 class WelcomeComponent extends Component {
 
@@ -24,11 +25,20 @@ class WelcomeComponent extends Component {
                 </div>
                 <div className="container">
                     Click here to get a customized welcome message.
+                </div>
+                <div className="container">
                     <button onClick={this.retrieveWelcomeMessage}
                         className="btn btn-success">Get Welcome Message</button>
                 </div>
                 <div className="container">
+
+
+                </div>
+                <div className="container">
                     {this.state.welcomeMessage}
+                </div>
+                <div className="container">
+                    <img src={logo} className="App-logo" alt="logo" />
                 </div>
 
             </>

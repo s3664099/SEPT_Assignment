@@ -2,13 +2,13 @@ import React, {Component} from 'react'
 import './HeaderWall.css'
 import Search from './Search.jsx'
 
-
 class HeaderWall extends Component {
 
     /*constructor(props){
         super(props);
     }*/
 
+    
 
     render(){
              return (
@@ -30,10 +30,8 @@ class HeaderWall extends Component {
                 </nav>
             </header>
         )
-        }
-       
     }
-
+}
 
 
 export default HeaderWall
