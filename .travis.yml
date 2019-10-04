@@ -26,12 +26,6 @@ before_install:
      printf '\ny\n\ny\ny\n' | ./google-cloud-sdk/install.sh &&
      cd $TRAVIS_BUILD_DIR;
      fi
-
-  # Here we use the decrypted service account credentials to authenticate the command line tool
-  - gcloud -q components update
-  - gcloud auth activate-service-account --key-file client-secret.json
-  - gcloud auth login
-  # [END auth]
   
   - gcloud -q components update
   - if [ -a client_secrets.json ]; then
