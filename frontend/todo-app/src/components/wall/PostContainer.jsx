@@ -1,7 +1,7 @@
 import React, {Component} from 'react'
-//import BottomBar from './BottomBar'
+import BottomBar from './BottomBar'
 import './PostContainer.css'
-//import CommentBox from './CommentBox'
+import CommentBox from './CommentBox'
 import WallDataService from '../../api/todo/WallDataService.js'
 import AuthenticationService from './AuthenticationService.js'
 import {withRouter} from 'react-router-dom'
@@ -94,27 +94,29 @@ class PostContainer extends Component {
                         {/*<div className="id"> {console.log(post.postID)} </div>*/ }
 
                         <div className="userInput">{post.message}</div>
-                        <hr></hr>
                         <div className ="timeStamp">{/*moment(post.creationTime).format('DD-MM-YYYY HH:MM')*/}</div>
                         <div className="postSetting">
                         <button className ="editButton" onClick ={()=>this.editPostButton(post.postID)}>Edit</button>
                         <button className ="deleteButton" onClick ={()=>this.deletePostButton(post.postID)}>Delete</button>
                         </div>
                         <hr></hr>
-                        <div>{/*<BottomBar />*/}</div>
+                        <div>{<BottomBar />}</div>
 
-                        <div>{
+                        <div>
+                        <CommentBox postID={post.postID} username={username}/>
+                        
+                        {/*
                             (typeof(post.comments)=='object')?
                             <div>
                                 {
                                     post.comments.map((commentBox)=>
                                     <div>
                                         <hr></hr>
-                                <div>{/*<CommentBox commentbox={commentBox}/>*/}</div>
+                                <div>{<CommentBox postID={post.postID} username={username}/>}</div>
                                     </div>)
                                 }
                             </div>: null
-                        }</div>
+                              */}</div>
                     </div>
                     ))
                    }
