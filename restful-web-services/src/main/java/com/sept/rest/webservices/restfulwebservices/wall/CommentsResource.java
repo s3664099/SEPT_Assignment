@@ -35,7 +35,7 @@ public class CommentsResource {
 	//		When specific id can be determined rework to fetch appropriate wall
 	@GetMapping(path = "/jpa/users/{username}/post/{postId}/comment")
 	public List<Comments> sendVisibleCommentsList(@PathVariable String username, @PathVariable Integer postId) {
-		System.out.println(postId);
+
 		return commentsRepository.findByParentIdAndDeletedFalseOrderByCreationTimeDesc(postId);
 	}
 	
