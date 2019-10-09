@@ -5,7 +5,7 @@ class BottomBar extends Component {
         return (
             <div className="bottomBar">
                 
-                <button className="commentButton">Comment</button>
+                
                 
             </div>
         )
