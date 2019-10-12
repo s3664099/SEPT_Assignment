@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import CommentDataServcie from '../../api/todo/CommentDataServcie';
 import './CommentBox.css'
 import { Formik, Form, Field} from 'formik';
-
+import moment from 'moment'
 
 
 class CommentBox extends Component {
@@ -113,7 +113,7 @@ render() {
           <div className ="authorID">author:{comment.authorID}</div>
           <div className ="message">{comment.message}</div>
           <div className = "commentFooter">
-            <div className ="timeStamp">{comment.modified_Time}</div>
+            <div className ="timeStamp">{moment(comment.modified_Time).format('DD-MM-YYYY HH:MM')}</div>
             <button className="deleteButton2" onClick = {()=>this.deleteComments(comment.commentID)}>Delete</button>
           </div>
         </div>

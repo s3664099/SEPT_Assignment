@@ -5,7 +5,7 @@ import CommentBox from './CommentBox'
 import WallDataService from '../../api/todo/WallDataService.js'
 import AuthenticationService from './AuthenticationService.js'
 import {withRouter} from 'react-router-dom'
-//import moment from 'moment'
+import moment from 'moment'
 
 
 // import Popup from "reactjs-popup"
@@ -72,6 +72,15 @@ class PostContainer extends Component {
     this.props.history.push(`/wall/-1`)
   }
 
+  showHideComments() {
+    var comment = document.getElementById("commentSection")
+    if(comment.style.display ==="none"){
+    comment.style.display ="block"
+    }else{
+    comment.style.display = "none"
+    }
+  }
+
     render(){
       let username = AuthenticationService.getLoggedInUserName()
 
@@ -94,8 +103,9 @@ class PostContainer extends Component {
                         {/*<div className="id"> {console.log(post.postID)} </div>*/ }
 
                         <div className="userInput">{post.message}</div>
-                        <div className ="timeStamp">{/*moment(post.creationTime).format('DD-MM-YYYY HH:MM')*/}</div>
+                        <div className ="timeStamp">{moment(post.creationTime).format('DD-MM-YYYY HH:MM')}</div>
                         <div className="postSetting">
+                        {/*<button className ="commentButton" onClick ={()=>this.showHideComments()}>Comments</button>*/}
                         <button className ="editButton" onClick ={()=>this.editPostButton(post.postID)}>Edit</button>
                         <button className ="deleteButton" onClick ={()=>this.deletePostButton(post.postID)}>Delete</button>
                         </div>
@@ -103,7 +113,8 @@ class PostContainer extends Component {
                         <div>{<BottomBar />}</div>
 
                         <div>
-                        <CommentBox postID={post.postID} username={username}/>
+
+                        <CommentBox id="commentSection" postID={post.postID} username={username}/>
 
                         {/*
                             (typeof(post.comments)=='object')?
