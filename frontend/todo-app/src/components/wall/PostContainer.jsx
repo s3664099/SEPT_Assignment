@@ -104,7 +104,7 @@ class PostContainer extends Component {
 
                         <div>
                         <CommentBox postID={post.postID} username={username}/>
-                        
+
                         {/*
                             (typeof(post.comments)=='object')?
                             <div>
