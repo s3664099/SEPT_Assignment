@@ -3,7 +3,7 @@
 
 /*.json
 debug.log
-
+credentials.tar.gz
 
 .cache
 /restful-web-servicesinitial/target/classes/*
