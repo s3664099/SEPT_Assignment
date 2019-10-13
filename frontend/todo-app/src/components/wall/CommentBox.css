@@ -31,7 +31,7 @@
   font-size: 14px;
 }
 
-.deleteButton2:hover, .postCommentButton:hover {
+.deleteButton2:hover, .postCommentButton:hover, .commentButton:hover {
   cursor: pointer;
 }
 
@@ -65,6 +65,17 @@
   border: none;
   background-color: #0F77FF;
   color: white;
+  padding: auto;
+  height: 30px;
+}
+
+.commentButton {
+  border-radius: 20px;
+  width: 100%;
+  border: none;
+  background-color: rgb(153, 224, 255, 0.2);;
+  color: rgb(0, 89, 128);
+  font-weight: 600;
   padding: auto;
   height: 30px;
 }
