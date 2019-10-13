@@ -27,7 +27,7 @@ branches:
 script:
   - docker build -t gcr.io/high5softwarept/high5app .
   - docker run -d gcr.io/high5softwarept/high5app
-  - kubectl scale deployment 
+  - kubectl scale deployment gcr.io/high5softwarept/high5app --replicas=2 -n default
   
 before_install:
   # [START auth]
@@ -38,7 +38,6 @@ before_install:
     curl https://sdk.cloud.google.com | bash > /dev/null;
     fi
      
-  - gcloud auth configure-docker gcr.io/high5softwarept/high5app --replicas=2 -n default
   - gcloud components update kubectl
 
   - openssl aes-256-cbc -K $encrypted_988292aa886d_key -iv $encrypted_988292aa886d_iv -in credentials.tar.gz.enc -out credentials.tar.gz -d
