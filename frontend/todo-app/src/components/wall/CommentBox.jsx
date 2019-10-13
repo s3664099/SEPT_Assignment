@@ -13,11 +13,13 @@ class CommentBox extends Component {
     this.state ={
       comments:[],
       username: this.props.username,
-      postID:this.props.postID
+      postID:this.props.postID,
+      showTheThing: false
     }
     this.getComments = this.getComments.bind(this)
     this.handleSubmit = this.handleSubmit.bind(this)
     this.deleteComments = this.deleteComments.bind(this)
+    this.toggleHideButton = this.toggleHideButton.bind(this)
   }
 
   componentDidMount(){
@@ -83,6 +85,12 @@ handleSubmit(event){
   console.log(comment)
 }
 
+toggleHideButton() {
+  this.setState({
+    showTheThing: !this.state.showTheThing
+  })  // to show it
+}
+
 render() {
 
   console.log(this.state);
@@ -91,34 +99,39 @@ render() {
   const userImage2 = "https://i.redd.it/i8t6f16vdd421.jpg"
 
   return (
-    <div className="commentSection">
-    <img className ="profilePic" src={userImage} alt="Profile Pic"></img>
-    <Formik
+    <div>
+    { this.state.showTheThing &&
+      <div className="commentSection">
+      <img className ="profilePic" src={userImage} alt="Profile Pic"></img>
+      <Formik
 
-    validateOnChange={false}
-    validateOnBlur={false}
-    onSubmit={this.handleSubmit}
-    enableReinitialize={true}
-    >
-    <Form className = "commentForm">
-    <Field type="text" name="postComment" placeholder="Say something..." className="postComment"/>
-    <input type="submit" value = "Submit" className="postCommentButton" />
-    </Form>
-    </Formik>
+      validateOnChange={false}
+      validateOnBlur={false}
+      onSubmit={this.handleSubmit}
+      enableReinitialize={true}
+      >
+      <Form className = "commentForm">
+      <Field type="text" name="postComment" placeholder="Say something..." className="postComment"/>
+      <input type="submit" value = "Submit" className="postCommentButton" />
+      </Form>
+      </Formik>
 
-    {
-      this.state.comments.map((comment)=>(
-        <div className = "commentArea">
-          <img className ="profilePic2" src={userImage2} alt="Profile Pic"></img>
-          <div className ="authorID">author:{comment.authorID}</div>
-          <div className ="message">{comment.message}</div>
-          <div className = "commentFooter">
-            <div className ="timeStamp">{moment(comment.modified_Time).format('DD-MM-YYYY HH:MM')}</div>
-            <button className="deleteButton2" onClick = {()=>this.deleteComments(comment.commentID)}>Delete</button>
+      {
+        this.state.comments.map((comment)=>(
+          <div className = "commentArea">
+            <img className ="profilePic2" src={userImage2} alt="Profile Pic"></img>
+            <div className ="authorID">author:{comment.authorID}</div>
+            <div className ="message">{comment.message}</div>
+            <div className = "commentFooter">
+              <div className ="timeStamp">{moment(comment.modified_Time).format('DD-MM-YYYY HH:MM')}</div>
+              <button className="deleteButton2" onClick = {()=>this.deleteComments(comment.commentID)}>Delete</button>
+            </div>
           </div>
-        </div>
-      ))
+        ))
+      }
+      </div>
     }
+    <button onClick={this.toggleHideButton}>Comments {this.state.comments.size}</button>
     </div>
   )
 }
