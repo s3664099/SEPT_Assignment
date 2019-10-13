@@ -46,6 +46,7 @@ before_install:
   - tar -xzf credentials.tar.gz
  
   - gcloud auth activate-service-account --key-file client-secret.json
+  - gcloud config list
   - gcloud config set "high5softwarept"
 
 
