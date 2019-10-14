@@ -59,7 +59,7 @@ script:
   - gcloud compute instances list
   - kubectl create deployment high5-web --image=gcr.io/high5softwarept/high5app
   - kubectl get pods
-  - kubectl expose deployment hello-web --type=LoadBalancer --port 80 --target-port 8080 --target-port 4200
+  - kubectl expose deployment high5-web --type=LoadBalancer --port 80 --target-port 8080 --target-port 4200
 
 notifications:
   email: false
