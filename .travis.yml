@@ -23,6 +23,7 @@ branches:
   only:
     - master
     - development
+    - moreYaml
     
 before_install:
   - docker build -t gcr.io/high5softwarept/high5app .
