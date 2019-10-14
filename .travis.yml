@@ -23,9 +23,7 @@ branches:
   only:
     - master
     - development
-
-
-#Script Class
+    
 script:
   - docker build -t gcr.io/high5softwarept/high5app .
   - docker run -d gcr.io/high5softwarept/high5app
@@ -53,7 +51,7 @@ before_install:
 install:
   # Set the correct project to deploy to
   - gcloud config set project high5softwarept 
-  - docker ps | grep -q high5app
+  - docker ps
 
 script:
   - docker push gcr.io/high5softwarept/high5app
