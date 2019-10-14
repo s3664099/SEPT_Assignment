@@ -45,14 +45,12 @@ before_install:
   - tar -xzf credentials.tar.gz
  
   - gcloud auth activate-service-account --key-file client-secret.json
-  - gcloud config list
   - gcloud auth configure-docker
 
   
 install:
   # Set the correct project to deploy to
   - gcloud config set project high5softwarept 
-  - docker ps
 
 script:
   - docker push gcr.io/high5softwarept/high5app
