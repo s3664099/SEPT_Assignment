@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import com.sept.rest.webservices.restfulwebservices.entities.Comments;
+import com.sept.rest.webservices.restfulwebservices.entities.Students;
 import com.sept.rest.webservices.restfulwebservices.repositories.CommentsRepository;
 import com.sept.rest.webservices.restfulwebservices.repositories.StudentsRepository;
 
@@ -35,8 +36,15 @@ public class CommentsResource {
 	//		When specific id can be determined rework to fetch appropriate wall
 	@GetMapping(path = "/jpa/users/{username}/post/{postId}/comment")
 	public List<Comments> sendVisibleCommentsList(@PathVariable String username, @PathVariable Integer postId) {
-
-		return commentsRepository.findByParentIdAndDeletedFalseOrderByCreationTimeDesc(postId);
+		
+		List<Comments> list = commentsRepository.findByParentIdAndDeletedFalseOrderByCreationTimeDesc(postId);
+		
+		for (Comments comment : list) {
+			Students author = studentsRepository.findByStudentId(comment.getAuthorID());
+			comment.setAuthorName(author.getDisplay_Name());
+		}
+		
+		return list;
 	}
 	
 	// Mapping to get a specific post if undeleted

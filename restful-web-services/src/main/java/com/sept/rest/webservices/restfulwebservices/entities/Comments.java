@@ -42,6 +42,7 @@ public class Comments {
 	private Timestamp modifiedTime;
 	private boolean deleted;
 	private boolean edited;
+	private String authorName = null;
 	
 	public Long getCommentID() {
 		return commentId;
@@ -90,6 +91,14 @@ public class Comments {
 	}
 	public void setParentId(Integer parentId) {
 		this.parentId = parentId;
+	}
+
+	public String getAuthorName() {
+		return authorName;
+	}
+
+	public void setAuthorName(String authorName) {
+		this.authorName = authorName;
 	}
 	
 	

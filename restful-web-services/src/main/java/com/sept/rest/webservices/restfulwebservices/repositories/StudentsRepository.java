@@ -7,7 +7,9 @@ import org.springframework.stereotype.Repository;
 import com.sept.rest.webservices.restfulwebservices.entities.Students;
 
 @Repository
-public interface StudentsRepository extends JpaRepository<Students, Long> {
+public interface StudentsRepository extends JpaRepository<Students, Integer> {
 
 	Students findBydisplayName(String username);
+
+	Students findByStudentId(int authorID);
 }
