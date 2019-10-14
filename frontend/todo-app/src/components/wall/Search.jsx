@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import axios from 'axios'
 import Suggestions from './Suggestions.jsx'
+import SearchResultService from '../../api/todo/SearchResultService'
 
 //const { API_KEY } = process.env
 //const API_URL = 'http://jsonplaceholder.typicode.com/posts'
@@ -16,7 +17,7 @@ class Search extends Component {
       name: this.state.query
     }
 
-    axios.get(`https://jsonplaceholder.typicode.com/users`, {user})
+    axios.get('', {user})
     .then(res => {
       //const persons = res.data;
       this.setState({results : res.data})
@@ -33,6 +34,10 @@ class Search extends Component {
         }
       }
     })
+  }
+
+  buttonClicked = () => {
+    this.props.history.push(`/search/${this.state.query}`)
   }
 
   render() {

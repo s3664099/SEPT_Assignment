@@ -105,7 +105,7 @@ class PostContainer extends Component {
                         <div className="userInput">{post.message}</div>
                         <div className ="timeStamp">{moment(post.creationTime).format('DD-MM-YYYY HH:MM')}</div>
                         <div className="postSetting">
-                        {/*<button className ="commentButton" onClick ={()=>this.showHideComments()}>Comments</button>*/}
+                        {/*<button className =f"commentButton" onClick ={()=>this.showHideComments()}>Comments</button>*/}
                         <button className ="editButton" onClick ={()=>this.editPostButton(post.postID)}>Edit</button>
                         <button className ="deleteButton" onClick ={()=>this.deletePostButton(post.postID)}>Delete</button>
                         </div>
