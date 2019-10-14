@@ -57,6 +57,10 @@
   padding: 10px;
 }
 
+.search input:focus {
+  border: 1px solid rgb(153, 224, 255);
+}
+
 .search button {
   height: 30px;
   border:0px solid #05cdff;

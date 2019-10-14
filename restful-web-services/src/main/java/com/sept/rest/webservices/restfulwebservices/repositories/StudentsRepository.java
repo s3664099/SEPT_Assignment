@@ -9,4 +9,6 @@ import com.sept.rest.webservices.restfulwebservices.entities.Students;
 public interface StudentsRepository extends JpaRepository<Students, Integer> {
 
 	Students findBydisplayName(String username);
+
+	Students findByStudentId(int authorID);
 }

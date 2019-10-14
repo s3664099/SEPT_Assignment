@@ -5,20 +5,53 @@ language:
 
 services:
   - docker
-
+  
+cache:
+  directories:
+    - "$HOME/gcloud/"
+env:
+  - PATH=$PATH:$HOME/gcloud/google-cloud-sdk/bin GOOGLE_APPLICATION_CREDENTIALS=$TRAVIS_BUILD_DIR/client_secrets.json
+  
 before_install:
-  - docker build -t high5app .
-  - docker run -d high5app
+  # [START auth]
+  # Decrypt the credentials we added to the repo using the key we added with the Travis command line tool
+
+  - openssl aes-256-cbc -K $encrypted_988292aa886d_key -iv $encrypted_988292aa886d_iv -in credentials.tar.gz.enc -out credentials.tar.gz -d
+  
+  - if [ ! -d $HOME/gcloud/google-cloud-sdk ]; then
+     mkdir -p $HOME/gcloud &&
+     wget https://dl.google.com/dl/cloudsdk/release/google-cloud-sdk.tar.gz --directory-prefix=$HOME/gcloud &&
+     cd $HOME/gcloud &&
+     tar xzf google-cloud-sdk.tar.gz &&
+     printf '\ny\n\ny\ny\n' | ./google-cloud-sdk/install.sh &&
+     cd $TRAVIS_BUILD_DIR;
+     fi
+     
+  - if [ -a client_secrets.json ]; then
+     gcloud -q auth activate-service-account --key-file client_secrets.json;
+     fi
+
+  - docker build -t gcr.io/high5softwarept/high5app .
+  - docker run -d gcr.io/high5softwarept/high5app
+  - gcloud auth configure-docker
 
 install:
+  # Set the correct project to deploy to
+  - gcloud config set project high5softwarept 
   - docker ps | grep -q high5app
 
-deploy:
-  provider: gae
-  keyfile: client-secret.json
-  project: high5softwarept
-  skip-cleanup: true
-  on:
-    branch: development
+script:
+  - docker push gcr.io/high5softwarept/high5app
+  - gcloud config compute/zone australia-southeast1-c
+  - gcloud container clusters create high5-cluster --num-nodes=2
+  - gcloud compute instances list
+  - kubectl create deployment high5-web --image=gcr.io/high5softwarept/high5app
+  - kubectl get pods
+  - kubectl expose deployment hello-web --type=LoadBalancer --port 80 --target-port 8080
+
+
+
+
+
 
 
