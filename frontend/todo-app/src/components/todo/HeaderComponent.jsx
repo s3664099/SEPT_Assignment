@@ -16,7 +16,7 @@ class HeaderComponent extends Component {
                         {isUserLoggedIn && <li><Link className="nav-link" to="/welcome/SEPT">Home</Link></li>}
                         {isUserLoggedIn && <li><Link className="nav-link" to="/todos">Todos</Link></li>}
 
-                        {isUserLoggedIn && <li><Link className="nav-link" to="/wall"> Wall</Link></li>}
+                        {isUserLoggedIn && <li><Link className="nav-link" to="/wall"> My Wall</Link></li>}
 
                     </ul>
                     <ul className="navbar-nav navbar-collapse justify-content-end">

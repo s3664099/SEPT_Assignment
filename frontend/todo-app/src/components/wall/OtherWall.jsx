@@ -16,7 +16,7 @@ class OtherWall extends Component {
       return (
         <div className="Wall">
         <HeaderWall name = {userName}/>
-        <StudentList/>
+        {/*<StudentList/>*/}
         <OtherPost />
         </div>
       );

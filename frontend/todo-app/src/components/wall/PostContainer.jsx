@@ -125,18 +125,7 @@ class PostContainer extends Component {
 
                         <CommentBox id="commentSection" postID={post.postID} username={username}/>
 
-                        {/*
-                            (typeof(post.comments)=='object')?
-                            <div>
-                                {
-                                    post.comments.map((commentBox)=>
-                                    <div>
-                                        <hr></hr>
-                                <div>{<CommentBox postID={post.postID} username={username}/>}</div>
-                                    </div>)
-                                }
-                            </div>: null
-                              */}</div>
+                        </div>
                     </div>
                     ))
                    }
