@@ -24,6 +24,8 @@ branches:
     - master
     - development
 
+
+#Script Class
 script:
   - docker build -t gcr.io/high5softwarept/high5app .
   - docker run -d gcr.io/high5softwarept/high5app
