@@ -6,6 +6,9 @@ language:
 
 services:
   - docker
+
+notifications:
+  email: false
   
 cache:
   directories:
@@ -56,13 +59,10 @@ script:
   - docker push gcr.io/high5softwarept/high5app
   - gcloud config set compute/zone australia-southeast1-c
   - gcloud container clusters create high5-cluster --num-nodes=2
-  - gcloud compute instances list
   - kubectl create deployment high5-web --image=gcr.io/high5softwarept/high5app
   - kubectl get pods
   - kubectl expose deployment high5-web --type=LoadBalancer --port 80 --target-port 8080 --target-port 4200
-
-notifications:
-  email: false
+  - gcloud compute instances list
 
 dd:
   - openssl aes-256-cbc -K $encrypted_988292aa886d_key -iv $encrypted_988292aa886d_iv -in credentials.tar.gz.enc -out credentials.tar.gz -d
