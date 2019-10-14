@@ -44,7 +44,7 @@ before_install:
   - tar -xzf credentials.tar.gz
  
   - gcloud auth activate-service-account --key-file client-secret.json
-  - gcloud config list'
+  - gcloud config list
   - kubectl scale deployment gcr.io/high5softwarept/high5app --replicas=2 -n default
   
 install:
