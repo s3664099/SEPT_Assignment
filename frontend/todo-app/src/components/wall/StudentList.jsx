@@ -35,19 +35,23 @@ class StudentList extends Component {
     }
 
     render(){
+      const userImage = "http://placekitten.com/32/32"
         console.log(this.state.studentList)
-        return(            
+        return(
+          <div className="studentListArea">
+          <h4>Student List</h4>
             <ul className="studentList">{
                 this.state.studentList.map(
                     (student) =>
                     <li key={student.studentId}>
+                        <img className ="profilePic" src={userImage} alt="Profile Pic"></img>
                         <button className ="wallButton" onClick ={()=>this.gotoWallButton(student.display_Name)}>
                             {student.display_Name}
                         </button>
                     </li>
                 )
             }</ul>
-                
+          </div>
         )
     }
 
@@ -60,8 +64,8 @@ export default withRouter(StudentList);
             this.state.studentList.map(
                 (student) =>
                 <tr key={student.studentId}>
-                <td>student id:     name:   </td>    
-                </td> 
+                <td>student id:     name:   </td>
+                </td>
             )
 
 

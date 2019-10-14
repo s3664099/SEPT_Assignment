@@ -93,7 +93,6 @@ toggleHideButton() {
 
 countComments() {
   var number = this.state.comments.length
-  var theString = "Show comments (" + number + ")"
   return <text>Show comments ( + {number} + )</text>
 }
 
