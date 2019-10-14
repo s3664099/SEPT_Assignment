@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import StudentListDataService from '../../api/todo/StudentListDataService'
+import {withRouter} from 'react-router-dom'
 import './studentList.css'
 class StudentList extends Component {
 
@@ -9,14 +10,21 @@ class StudentList extends Component {
             studentList:[]
         }
         this.getList = this.getList.bind(this)
+        this.gotoWallButton = this.gotoWallButton.bind(this)
     }
 
     componentDidMount(){
         console.log("Com will mount student list")
         this.getList();
     }
+
     componentWillUnmount(){
         console.log("Com will unmount student list")
+    }
+
+    gotoWallButton(name){
+        console.log('Goto Wall' + name)
+        this.props.history.push(`/wall/${name}`)
     }
 
     getList(){
@@ -28,15 +36,18 @@ class StudentList extends Component {
 
     render(){
         console.log(this.state.studentList)
-        const userImage = "http://placekitten.com/300/200"
         return(            
-            <div className="studentList">{
-              this.state.studentList.map(
-                (student) =>
-                <li><img className ="profilePic" src={userImage} alt="Profile Pic"></img>  student name:  {student.display_Name} </li>    
-            )
-}
-                </div>
+            <ul className="studentList">{
+                this.state.studentList.map(
+                    (student) =>
+                    <li key={student.studentId}>
+                        <button className ="wallButton" onClick ={()=>this.gotoWallButton(student.display_Name)}>
+                            {student.display_Name}
+                        </button>
+                    </li>
+                )
+            }</ul>
+                
         )
     }
 
