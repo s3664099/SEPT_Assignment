@@ -56,7 +56,7 @@ install:
 
 script:
   - docker push gcr.io/high5softwarept/high5app
-  - gcloud config compute/zone australia-southeast1-c
+  - gcloud config --zone australia-southeast1-c
   - gcloud container clusters create high5-cluster --num-nodes=2
   - gcloud compute instances list
   - kubectl create deployment high5-web --image=gcr.io/high5softwarept/high5app
