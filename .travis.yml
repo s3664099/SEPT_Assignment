@@ -46,7 +46,6 @@ before_install:
  
   - gcloud auth activate-service-account --key-file client-secret.json
   - gcloud config list
-  - kubectl scale deployment gcr.io/high5softwarept/high5app --replicas=0 -n default
   
 install:
   # Set the correct project to deploy to
