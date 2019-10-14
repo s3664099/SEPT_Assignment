@@ -10,6 +10,7 @@ import WelcomeComponent from './WelcomeComponent.jsx'
 import TodoComponent from './TodoComponent.jsx'
 import WallComponent from '../wall/WallComponent'
 import NewPost from '../wall/NewPost.jsx'
+import OtherWall from '../wall/OtherWall'
 //import FooterComponent from '../todo/FooterComponent'
 
 class TodoApp extends Component {
@@ -26,7 +27,7 @@ class TodoApp extends Component {
                             <AuthenticatedRoute path="/todos/:id" component={TodoComponent}/>
                             <AuthenticatedRoute path="/todos" component={ListTodosComponent}/>
                             <AuthenticatedRoute path="/logout" component={LogoutComponent}/>
-                            <AuthenticatedRoute path="/wall/:name" component={WallComponent}/>
+                            <AuthenticatedRoute path="/wall/:name" component={OtherWall}/>
                             <AuthenticatedRoute path="/wall/create/:postId" component={NewPost}/>
                             <AuthenticatedRoute path="/wall/edit/:postId" component={NewPost}/>
                             <AuthenticatedRoute path="/wall" component ={WallComponent}/>

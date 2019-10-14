@@ -17,7 +17,7 @@ class wallComponent extends Component {
         <div className="Wall">
         <HeaderWall name = {userName}/>
         <StudentList/>
-        <PostContainer/>
+        <PostContainer />
         </div>
       );
     }

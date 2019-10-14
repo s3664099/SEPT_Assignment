@@ -17,11 +17,11 @@ class StudentList extends Component {
         console.log("Com will mount student list")
         this.getList();
     }
-
+/*
     componentWillUnmount(){
         console.log("Com will unmount student list")
     }
-
+*/
     gotoWallButton(name){
         console.log('Goto Wall' + name)
         this.props.history.push(`/wall/${name}`)
@@ -53,7 +53,7 @@ class StudentList extends Component {
 
 
   }
-export default StudentList;
+export default withRouter(StudentList);
 
 
             /*
