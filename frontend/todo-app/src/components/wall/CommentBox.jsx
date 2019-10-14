@@ -125,7 +125,7 @@ render() {
         this.state.comments.map((comment)=>(
           <div className = "commentArea">
             <img className ="profilePic2" src={userImage2} alt="Profile Pic"></img>
-            <div className ="authorID">author:{comment.authorName}</div>
+            <div className ="authorID">{comment.authorName}</div>
             <div className ="message">{comment.message}</div>
             <div className = "commentFooter">
               <div className ="timeStamp">{moment(comment.modified_Time).format('DD-MM-YYYY HH:MM')}</div>
