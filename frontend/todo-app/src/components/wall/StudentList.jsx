@@ -17,11 +17,18 @@ class StudentList extends Component {
         console.log("Com will mount student list")
         this.getList();
     }
-/*
+
     componentWillUnmount(){
         console.log("Com will unmount student list")
     }
-*/
+
+    shouldComponentUpdate(nextProps, nextState) {
+        console.log('shouldComponentUpdate on wall')
+        console.log(nextProps)
+        console.log(nextState)
+        return true
+      }
+
     gotoWallButton(name){
         console.log('Goto Wall' + name)
         this.props.history.push(`/wall/${name}`)
@@ -35,7 +42,8 @@ class StudentList extends Component {
     }
 
     render(){
-        console.log(this.state.studentList)
+        //console.log(this.state.studentList)
+        console.log(this.props.history)
         return(            
             <ul className="studentList">{
                 this.state.studentList.map(
@@ -56,17 +64,3 @@ class StudentList extends Component {
 export default withRouter(StudentList);
 
 
-            /*
-            this.state.studentList.map(
-                (student) =>
-                <tr key={student.studentId}>
-                <td>student id:     name:   </td>    
-                </td> 
-            )
-
-
-
-                    <div className="Students">
-        <h1>Students</h1>
-        </div>
-            */
