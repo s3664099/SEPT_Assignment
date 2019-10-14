@@ -46,7 +46,7 @@ class Search extends Component {
           value={this.state.query}
         />
         <button type="submit" onClick={this.buttonClicked}>Search</button>
-        <Suggestions results={this.state.results} />
+        {/*<Suggestions results={this.state.results} />*/}
       </form>
     )
   }
