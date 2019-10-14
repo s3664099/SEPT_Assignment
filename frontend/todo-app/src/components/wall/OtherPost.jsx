@@ -113,7 +113,7 @@ class OtherPost extends Component {
 
              <div>
 
-             <CommentBox id="commentSection" postID={post.postID} username={username}/>
+             <CommentBox id="commentSection" postID={post.postID} username={this.state.name}/>
 
              </div>
          </div>

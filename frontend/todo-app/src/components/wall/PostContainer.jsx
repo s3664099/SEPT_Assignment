@@ -63,7 +63,7 @@ class PostContainer extends Component {
 
   editPostButton(postID){
     console.log('update post' + postID)
-    this.props.history.push(`wall/edit/${postID}`)
+    this.props.history.push(`/wall/${postID}`)
   }
 
 
@@ -78,7 +78,7 @@ class PostContainer extends Component {
 
   addPostClicked(){
     console.log("new post button clicked")
-    this.props.history.push(`/wall/create/-1`)
+    this.props.history.push(`/wall/-1`)
   }
 
   showHideComments() {

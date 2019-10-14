@@ -31,7 +31,7 @@ class StudentList extends Component {
 
     gotoWallButton(name){
         console.log('Goto Wall' + name)
-        this.props.history.push(`/wall/${name}`)
+        this.props.history.push(`/otherWall/${name}`)
     }
 
     getList(){
