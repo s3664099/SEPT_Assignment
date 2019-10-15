@@ -7,6 +7,7 @@ class StudentList extends Component {
     constructor(props){
         super(props)
         this.state = {
+            filteredList:[],
             studentList:[]
         }
         this.getList = this.getList.bind(this)
@@ -41,12 +42,32 @@ class StudentList extends Component {
         }))
     }
 
+    filterList = (event) =>{
+        let items = this.state.studentList;
+        items = items.filterList((item) =>{
+            return item.toLowerCase().search(event.target.value.toLowerCase())
+        })
+    }
+
+
     render(){
       const userImage = "http://placekitten.com/32/32"
         console.log(this.props.history)
         return(
+
           <div className="studentListArea">
           <h4>Student List</h4>
+          <form>
+        <input
+          type="text"
+          placeholder="Search for student..."
+          ref={input => this.search = input}
+          onChange={this.handleInputChange}
+          value={this.state.query}
+        />
+        <button type="submit" onClick={this.buttonClicked}>Search</button>
+        {/*<Suggestions results={this.state.results} />*/}
+      </form>
             <ul className="studentList">{
                 this.state.studentList.map(
                     (student) =>
