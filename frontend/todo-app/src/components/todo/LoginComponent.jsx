@@ -13,8 +13,6 @@ class LoginComponent extends Component {
             hasLoginFailed: false,
             showSuccessMessage: false
         }
-        // this.handleUsernameChange = this.handleUsernameChange.bind(this)
-        // this.handlePasswordChange = this.handlePasswordChange.bind(this)
         this.handleChange = this.handleChange.bind(this)
         this.loginClicked = this.loginClicked.bind(this)
     }
@@ -29,43 +27,8 @@ class LoginComponent extends Component {
         )
     }
 
-    // handleUsernameChange(event) {
-    //     console.log(event.target.name);
-    //     this.setState(
-    //         {
-    //             [event.target.name]
-    //               :event.target.value
-    //         }
-    //     )
-    // }
-
-    // handlePasswordChange(event) {
-    //     console.log(event.target.value);
-    //     this.setState({password:event.target.value})
-    // }
-
     loginClicked() {
-        //sept,dummy
-        // if(this.state.username==='sept' && this.state.password==='dummy'){
-        //     AuthenticationService.registerSuccessfulLogin(this.state.username,this.state.password)
-        //     this.props.history.push(`/welcome/${this.state.username}`)
-        //     //this.setState({showSuccessMessage:true})
-        //     //this.setState({hasLoginFailed:false})
-        // }
-        // else {
-        //     this.setState({showSuccessMessage:false})
-        //     this.setState({hasLoginFailed:true})
-        // }
 
-        // AuthenticationService
-        // .executeBasicAuthenticationService(this.state.username, this.state.password)
-        // .then(() => {
-        //     AuthenticationService.registerSuccessfulLogin(this.state.username,this.state.password)
-        //     this.props.history.push(`/welcome/${this.state.username}`)
-        // }).catch( () =>{
-        //     this.setState({showSuccessMessage:false})
-        //     this.setState({hasLoginFailed:true})
-        // })
         AuthenticationService
             .executeJwtAuthenticationService(this.state.username, this.state.password)
             .then((response) => {
