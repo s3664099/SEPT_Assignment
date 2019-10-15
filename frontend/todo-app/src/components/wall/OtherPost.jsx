@@ -90,7 +90,7 @@ class OtherPost extends Component {
 
 
             <div className= 'container'>
-            <div><button className="newPostButton" onClick={this.addPostClicked}> Create New Post :)</button></div>
+           {/* <div><button className="newPostButton" onClick={this.addPostClicked}> Create New Post :)</button></div>*/}
         {
             this.state.posts.map((post)=>(
 

@@ -38,14 +38,18 @@ class StudentList extends Component {
     getList(){
         StudentListDataService.retrieveAllStudents()
         .then(response=>this.setState({
-            studentList:response.data
+            studentList:response.data,
+            filteredList: response.data
         }))
     }
 
     filterList = (event) =>{
         let items = this.state.studentList;
-        items = items.filterList((item) =>{
-            return item.toLowerCase().search(event.target.value.toLowerCase())
+        items = items.filter((item) =>{
+            return item.display_Name.toLowerCase().search(event.target.value.toLowerCase())!== -1
+        })
+        this.setState({
+            filteredList:items
         })
     }
 
@@ -56,20 +60,20 @@ class StudentList extends Component {
         return(
 
           <div className="studentListArea">
-          <h4>Student List</h4>
+          <h4>Students</h4>
           <form>
         <input
           type="text"
           placeholder="Search for student..."
           ref={input => this.search = input}
-          onChange={this.handleInputChange}
-          value={this.state.query}
+          onChange={this.filterList}
+          //value={this.state.query}
         />
-        <button type="submit" onClick={this.buttonClicked}>Search</button>
+        {/*<button type="submit" onClick={this.buttonClicked}>Search</button>*/}
         {/*<Suggestions results={this.state.results} />*/}
       </form>
             <ul className="studentList">{
-                this.state.studentList.map(
+                this.state.filteredList.map(
                     (student) =>
                     <li key={student.studentId}>
                         <img className ="profilePic" src={userImage} alt="Profile Pic"></img>
