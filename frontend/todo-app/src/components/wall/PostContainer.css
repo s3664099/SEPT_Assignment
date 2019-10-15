@@ -1,12 +1,13 @@
 .postContainer{
     border: 1px solid #111;
     border-radius: 25px;
-    width: 800px;
+    width: 95%;
     display: block;
-    margin:20px auto;
+    margin:20px;
     padding:5px;
-    text-align: justify;
+    text-align: left;
     padding: 10px;
+    float:right;
 }
 
 .userImage, .userName{
@@ -45,7 +46,7 @@
 
 .postSetting {
   position: relative;
-  left: 520px;
+  left: 75%;
   text-align: right;
   display: inline;
 }

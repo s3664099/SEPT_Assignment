@@ -20,7 +20,7 @@ class HeaderWall extends Component {
                     </div>
 
                     <div className="search">
-                      {<Search/>}
+                      {/*<Search/>*/}
                     </div>
 
                     <div className="Greetings">

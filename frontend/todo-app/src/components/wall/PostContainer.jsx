@@ -19,9 +19,11 @@ class PostContainer extends Component {
     console.log(" post constructor")
     super(props)
     this.state ={
+      name: this.props.match.params.name,
       posts:[]
     }
-    this.refreshPosts=this.refreshPosts.bind(this)
+    console.log(this.state)
+    this.refreshPosts = this.refreshPosts.bind(this)
     this.addPostClicked = this.addPostClicked.bind(this)
     this.editPostButton = this.editPostButton.bind(this)
     this.deletePostButton = this.deletePostButton.bind(this)
@@ -44,17 +46,24 @@ class PostContainer extends Component {
   }
 
   refreshPosts(){
-    let username = AuthenticationService.getLoggedInUserName()
-    WallDataService.retrieveAllVisiblePosts(username)
-    .then(response=>this.setState({
-      posts:response.data
-    }))
+    if (this.state.name === undefined) {
+      let username = AuthenticationService.getLoggedInUserName()
+      WallDataService.retrieveAllVisiblePosts(username)
+      .then(response=>this.setState({
+        posts:response.data
+      }))
+    } else {
+      WallDataService.retrieveAllVisiblePosts(this.state.name)
+      .then(response=>this.setState({
+        posts:response.data
+      }))
+    }
     console.log(this.state)
   }
 
   editPostButton(postID){
     console.log('update post' + postID)
-    this.props.history.push(`wall/${postID}`)
+    this.props.history.push(`/wall/${postID}`)
   }
 
 
@@ -90,7 +99,7 @@ class PostContainer extends Component {
 
 
                    <div className= 'container'>
-                       <div><button className="newPostButton" onClick={this.addPostClicked}> Create New Post :)</button></div>
+                       <div><button className="newPostButton" onClick={this.addPostClicked}> Create New Post</button></div>
                    {
                        this.state.posts.map((post)=>(
 
@@ -116,18 +125,7 @@ class PostContainer extends Component {
 
                         <CommentBox id="commentSection" postID={post.postID} username={username}/>
 
-                        {/*
-                            (typeof(post.comments)=='object')?
-                            <div>
-                                {
-                                    post.comments.map((commentBox)=>
-                                    <div>
-                                        <hr></hr>
-                                <div>{<CommentBox postID={post.postID} username={username}/>}</div>
-                                    </div>)
-                                }
-                            </div>: null
-                              */}</div>
+                        </div>
                     </div>
                     ))
                    }

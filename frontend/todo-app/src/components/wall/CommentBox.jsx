@@ -3,6 +3,7 @@ import CommentDataServcie from '../../api/todo/CommentDataServcie';
 import './CommentBox.css'
 import { Formik, Form, Field} from 'formik';
 import moment from 'moment'
+import AuthenticationService from '../wall/AuthenticationService'
 
 
 class CommentBox extends Component {
@@ -73,12 +74,14 @@ modified_Time: "2019-09-20T10:04:45.000+0000"
 parentId: 131
 */
 handleSubmit(event){
+  let author = AuthenticationService.getLoggedInUserName();
   let comment ={
     message:event.postComment,
-    parentId:this.state.postID
+    parentId:this.state.postID,
+    authorName:author
   }
 
-  CommentDataServcie.postComments(this.state.username, this.state.postID, comment)
+  CommentDataServcie.postComments(author, this.state.postID, comment)
   .then(()=>{
     this.getComments()
   })
@@ -125,7 +128,7 @@ render() {
         this.state.comments.map((comment)=>(
           <div className = "commentArea">
             <img className ="profilePic2" src={userImage2} alt="Profile Pic"></img>
-            <div className ="authorID">author:{comment.authorName}</div>
+            <div className ="authorID">{comment.authorName}</div>
             <div className ="message">{comment.message}</div>
             <div className = "commentFooter">
               <div className ="timeStamp">{moment(comment.modified_Time).format('DD-MM-YYYY HH:MM')}</div>
