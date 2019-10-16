@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import axios from 'axios'
-import Suggestions from './Suggestions.jsx'
-import SearchResultService from '../../api/todo/SearchResultService'
+//import Suggestions from './Suggestions.jsx'
+//import SearchResultService from '../../api/todo/SearchResultService'
 
 //const { API_KEY } = process.env
 //const API_URL = 'http://jsonplaceholder.typicode.com/posts'

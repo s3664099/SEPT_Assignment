@@ -43,6 +43,7 @@ public class Comments {
 	private boolean deleted;
 	private boolean edited;
 	private String authorName = null;
+	private int likes;
 	
 	public Long getCommentID() {
 		return commentId;
@@ -99,6 +100,14 @@ public class Comments {
 
 	public void setAuthorName(String authorName) {
 		this.authorName = authorName;
+	}
+
+	public int getLikes() {
+		return likes;
+	}
+
+	public void setLikes(int likes) {
+		this.likes = likes;
 	}
 	
 	

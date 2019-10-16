@@ -17,10 +17,14 @@ class WallDataService {
         return axios.get(`${JPA_API_URL}/users/${username}/post/${postId}`)
     }
 
-    
     deletePost(username, postID) {
     	//console.log('delete delete ...')
         return axios.delete(`${JPA_API_URL}/users/${username}/post/${postID}`);
+    }
+
+    likePost(username, postID) {
+        //console.log('like post')
+        return axios.get(`${JPA_API_URL}/users/${username}/post/${postID}/like`);
     }
 
     toUpdatePost(username, postId, post){

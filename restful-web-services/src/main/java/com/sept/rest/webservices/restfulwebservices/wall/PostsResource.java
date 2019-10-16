@@ -16,7 +16,13 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
+import com.sept.rest.webservices.restfulwebservices.entities.CommentLikes;
+import com.sept.rest.webservices.restfulwebservices.entities.Comments;
+import com.sept.rest.webservices.restfulwebservices.entities.PostLikes;
 import com.sept.rest.webservices.restfulwebservices.entities.Posts;
+import com.sept.rest.webservices.restfulwebservices.entities.Students;
+import com.sept.rest.webservices.restfulwebservices.repositories.CommentLikesRepository;
+import com.sept.rest.webservices.restfulwebservices.repositories.PostLikesRepository;
 import com.sept.rest.webservices.restfulwebservices.repositories.PostsRepository;
 import com.sept.rest.webservices.restfulwebservices.repositories.StudentsRepository;
 
@@ -31,12 +37,22 @@ public class PostsResource {
 	@Autowired
 	private StudentsRepository studentsRepository;
 	
+	@Autowired
+	private PostLikesRepository likesRepository;
+	
 	// Mapping to get a list of all undeleted posts for a given wall
 	//		When specific id can be determined rework to fetch appropriate wall
 	@GetMapping(path = "/jpa/users/{username}/wall")
 	public List<Posts> sendVisiblePostList(@PathVariable String username) {
 		int studentId = studentsRepository.findBydisplayName(username).getStudentID();
-		return postsRepository.findByOwnerIdAndDeletedFalseOrderByCreationTimeDesc(studentId);
+		List<Posts> list = postsRepository.findByOwnerIdAndDeletedFalseOrderByCreationTimeDesc(studentId);
+		
+		for (Posts post : list) {
+			List<PostLikes> likes = likesRepository.findByPostId(post.getPostID());
+			post.setLikes(likes.size());
+		}
+		
+		return list;
 	}
 	
 	// Mapping to get a specific post if undeleted
@@ -105,6 +121,21 @@ public class PostsResource {
 		}
 		// User not authorized to delete post. Respond with appropriate status
 		return new ResponseEntity<Void>(HttpStatus.FORBIDDEN);
+	}
+	
+	// Mapping to Like a post
+	@GetMapping("/jpa/users/{username}/post/{posttId}/like")
+	public ResponseEntity<Void> likeComment(@PathVariable String username, @PathVariable Integer postId) {
+		// get user id
+		int studentId = studentsRepository.findBydisplayName(username).getStudentID();
+		
+		// create Like entity
+		PostLikes like = new PostLikes(postId, studentId);
+		
+		// store it
+		likesRepository.save(like);
+		
+		return ResponseEntity.noContent().build();
 	}
 
 }

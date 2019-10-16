@@ -18,6 +18,11 @@ class CommentDataService {
         return axios.delete(`${JPA_API_URL}/users/${username}/comment/${commentId}`)
     }
 
+    likeComment(username, commentId) {
+        //console.log('like post')
+        return axios.get(`${JPA_API_URL}/users/${username}/comment/${commentId}/like`);
+    }
+
 }
 
 export default new CommentDataService()

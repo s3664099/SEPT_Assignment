@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import HeaderWall from './HeaderWall';
 import AuthenticationService from '../todo/AuthenticationService'
 // import SideNavBar from './SideNavBar';
-import StudentList from './StudentList';
+// import StudentList from './StudentList';
 // import ActivityNavBar from './ActivityNavBar'
 // <!--<SideNavBar />
 import OtherPost from './OtherPost'

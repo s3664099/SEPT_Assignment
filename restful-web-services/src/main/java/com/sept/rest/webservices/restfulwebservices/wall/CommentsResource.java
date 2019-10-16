@@ -16,8 +16,10 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
+import com.sept.rest.webservices.restfulwebservices.entities.CommentLikes;
 import com.sept.rest.webservices.restfulwebservices.entities.Comments;
 import com.sept.rest.webservices.restfulwebservices.entities.Students;
+import com.sept.rest.webservices.restfulwebservices.repositories.CommentLikesRepository;
 import com.sept.rest.webservices.restfulwebservices.repositories.CommentsRepository;
 import com.sept.rest.webservices.restfulwebservices.repositories.StudentsRepository;
 
@@ -32,6 +34,9 @@ public class CommentsResource {
 	@Autowired
 	private StudentsRepository studentsRepository;
 	
+	@Autowired
+	private CommentLikesRepository likesRepository;
+	
 	// Mapping to get a list of all undeleted posts for a given wall
 	//		When specific id can be determined rework to fetch appropriate wall
 	@GetMapping(path = "/jpa/users/{username}/post/{postId}/comment")
@@ -42,6 +47,8 @@ public class CommentsResource {
 		for (Comments comment : list) {
 			Students author = studentsRepository.findByStudentId(comment.getAuthorID());
 			comment.setAuthorName(author.getDisplay_Name());
+			List<CommentLikes> likes = likesRepository.findByCommentId(comment.getCommentID());
+			comment.setLikes(likes.size());
 		}
 		
 		return list;
@@ -112,6 +119,21 @@ public class CommentsResource {
 		}
 		// User not authorized to delete post. Respond with appropriate status
 		return new ResponseEntity<Void>(HttpStatus.FORBIDDEN);
+	}
+	
+	// Mapping to Like a comment
+	@GetMapping("/jpa/users/{username}/comment/{commentId}/like")
+	public ResponseEntity<Void> likeComment(@PathVariable String username, @PathVariable Long commentId) {
+		// get user id
+		int studentId = studentsRepository.findBydisplayName(username).getStudentID();
+		
+		// create Like entity
+		CommentLikes like = new CommentLikes(commentId, studentId);
+		
+		// store it
+		likesRepository.save(like);
+		
+		return ResponseEntity.noContent().build();
 	}
 
 }

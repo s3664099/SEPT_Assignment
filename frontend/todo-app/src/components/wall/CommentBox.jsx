@@ -21,6 +21,7 @@ class CommentBox extends Component {
     this.handleSubmit = this.handleSubmit.bind(this)
     this.deleteComments = this.deleteComments.bind(this)
     this.toggleHideButton = this.toggleHideButton.bind(this)
+    this.likeCommentButton = this.likeCommentButton.bind(this)
   }
 
   componentDidMount(){
@@ -55,6 +56,16 @@ deleteComments(commentID){
     this.getComments()
   })
 }
+
+
+  likeCommentButton(commentID){
+    console.log('like comment' + commentID)
+    let username = AuthenticationService.getLoggedInUserName()
+    CommentDataServcie.likeComment(username, commentID)
+    .then(response=>{
+      this.getComments()
+    })
+  }
 
 getComments(){
   CommentDataServcie.retrieveComments(this.state.username, this.state.postID)
@@ -132,6 +143,7 @@ render() {
             <div className ="message">{comment.message}</div>
             <div className = "commentFooter">
               <div className ="timeStamp">{moment(comment.modified_Time).format('DD-MM-YYYY HH:MM')}</div>
+              <div className="Likes">{comment.likes}<button onClick ={()=>this.likeCommentButton(comment.postID)}>Like</button></div>
               <button className="deleteButton2" onClick = {()=>this.deleteComments(comment.commentID)}>Delete</button>
             </div>
           </div>

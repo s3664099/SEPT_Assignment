@@ -27,6 +27,7 @@ class PostContainer extends Component {
     this.addPostClicked = this.addPostClicked.bind(this)
     this.editPostButton = this.editPostButton.bind(this)
     this.deletePostButton = this.deletePostButton.bind(this)
+    this.likePostButton = this.likePostButton.bind(this)
   }
 
   componentWillUnmount() {
@@ -66,6 +67,14 @@ class PostContainer extends Component {
     this.props.history.push(`/wall/${postID}`)
   }
 
+  likePostButton(postID){
+    console.log('like post' + postID)
+    let username = AuthenticationService.getLoggedInUserName()
+    WallDataService.likePost(username, postID)
+    .then(response=>{
+      this.refreshPosts()
+    })
+  }
 
   deletePostButton(postID){
     console.log('delete post' + postID)
@@ -115,6 +124,7 @@ class PostContainer extends Component {
                         <div className ="timeStamp">{moment(post.creationTime).format('DD-MM-YYYY HH:MM')}</div>
                         <div className="postSetting">
                         {/*<button className =f"commentButton" onClick ={()=>this.showHideComments()}>Comments</button>*/}
+                        <div className="Likes">{post.likes}<button onClick ={()=>this.likePostButton(post.postID)}>Like</button></div>
                         <button className ="editButton" onClick ={()=>this.editPostButton(post.postID)}>Edit</button>
                         <button className ="deleteButton" onClick ={()=>this.deletePostButton(post.postID)}>Delete</button>
                         </div>

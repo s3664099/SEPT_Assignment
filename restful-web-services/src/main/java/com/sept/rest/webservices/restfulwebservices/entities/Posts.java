@@ -36,6 +36,7 @@ public class Posts {
 	private Timestamp modifiedTime;
 	private boolean deleted;
 	private boolean edited;
+	private int likes;
 	
 	public Integer getPostID() {
 		return postId;
@@ -100,5 +101,13 @@ public class Posts {
 		if (postId != other.postId)
 			return false;
 		return true;
+	}
+
+	public int getLikes() {
+		return likes;
+	}
+
+	public void setLikes(int likes) {
+		this.likes = likes;
 	}
 }
