@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
-import renderer from 'react-test-renderer'
+//import renderer from 'react-test-renderer'
 import HeaderWall from './components/wall/HeaderWall';
 //import WallComponent from './components/wall/WallComponent'
 //import NewPost from './components/wall/NewPost';
@@ -32,14 +32,14 @@ it('PostContainer renders without crashing', () => {
   ReactDOM.render(<PostContainer />, div);
   ReactDOM.unmountComponentAtNode(div);
 });
-*/
+
 it('header wall snapshot compare', () => {
   const tree = renderer
     .create(<HeaderWall name={'sept'}/>)
     .toJSON();
   expect(tree).toMatchSnapshot();
 });
-
+*/
 /*
 it('trial mock object', ()=>{
   expect.assertions(0);

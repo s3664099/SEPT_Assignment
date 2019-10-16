@@ -8,8 +8,6 @@ import {withRouter} from 'react-router-dom'
 //import moment from 'moment'
 
 
-// import Popup from "reactjs-popup"
-// import NewPost from './NewPost.jsx'
 
 
 
