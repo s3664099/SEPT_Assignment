@@ -1,34 +1,47 @@
 package com.sept.rest.webservices.restfulwebservices.entities;
 
+import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
-import javax.persistence.Id;
 
 @Entity
 public class PostLikes {
+	public PostLikes(PostLikesIdentity id) {
+		this.id = id;
+	}
+	
 	public PostLikes(Integer postId, int studentId) {
 		super();
-		this.postId = postId;
-		this.studentId = studentId;
+		this.id = new PostLikesIdentity(postId, studentId);
 	}
 	
 	public PostLikes() {
 		
 	}
 	
-	@Id
-	private Integer postId;
-	private int studentId;
+	@EmbeddedId
+	private PostLikesIdentity id;
 	
 	public Integer getPostId() {
-		return postId;
+		return id.getPostId();
 	}
+	
 	public void setPostId(Integer postId) {
-		this.postId = postId;
+		id.setPostId(postId);
 	}
+	
 	public int getStudentId() {
-		return studentId;
+		return id.getStudentId();
 	}
+	
 	public void setStudentId(int studentId) {
-		this.studentId = studentId;
+		id.setStudentId(studentId);
+	}
+
+	public PostLikesIdentity getId() {
+		return id;
+	}
+
+	public void setId(PostLikesIdentity id) {
+		this.id = id;
 	}
 }

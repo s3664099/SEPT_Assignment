@@ -6,10 +6,11 @@ import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
 import com.sept.rest.webservices.restfulwebservices.entities.CommentLikes;
+import com.sept.rest.webservices.restfulwebservices.entities.CommentLikesIdentity;
 
 @Repository
-public interface CommentLikesRepository extends CrudRepository<CommentLikes, Long> {
-	List<CommentLikes> findByStudentId(Integer studentID);
+public interface CommentLikesRepository extends CrudRepository<CommentLikes, CommentLikesIdentity> {
+	List<CommentLikes> findByIdStudentId(Integer studentID);
 	
-	List<CommentLikes> findByCommentId(Long CommentID);
+	List<CommentLikes> findByIdCommentId(Long CommentID);
 }

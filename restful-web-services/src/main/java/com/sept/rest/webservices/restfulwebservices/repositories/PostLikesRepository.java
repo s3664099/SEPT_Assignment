@@ -6,10 +6,11 @@ import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
 import com.sept.rest.webservices.restfulwebservices.entities.PostLikes;
+import com.sept.rest.webservices.restfulwebservices.entities.PostLikesIdentity;
 
 @Repository
-public interface PostLikesRepository extends CrudRepository<PostLikes, Integer> {
-	List<PostLikes> findByStudentId(Integer studentID);
+public interface PostLikesRepository extends CrudRepository<PostLikes, PostLikesIdentity> {
+	List<PostLikes> findByIdStudentId(Integer studentID);
 	
-	List<PostLikes> findByPostId(Integer postID);
+	List<PostLikes> findByIdPostId(Integer postID);
 }

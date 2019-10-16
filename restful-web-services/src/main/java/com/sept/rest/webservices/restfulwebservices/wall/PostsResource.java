@@ -44,7 +44,7 @@ public class PostsResource {
 		List<Posts> list = postsRepository.findByOwnerIdAndDeletedFalseOrderByCreationTimeDesc(studentId);
 		
 		for (Posts post : list) {
-			List<PostLikes> likes = likesRepository.findByPostId(post.getPostID());
+			List<PostLikes> likes = likesRepository.findByIdPostId(post.getPostID());
 			post.setLikes(likes.size());
 		}
 		

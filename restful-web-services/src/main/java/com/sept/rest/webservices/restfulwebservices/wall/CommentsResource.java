@@ -47,7 +47,7 @@ public class CommentsResource {
 		for (Comments comment : list) {
 			Students author = studentsRepository.findByStudentId(comment.getAuthorID());
 			comment.setAuthorName(author.getDisplay_Name());
-			List<CommentLikes> likes = likesRepository.findByCommentId(comment.getCommentID());
+			List<CommentLikes> likes = likesRepository.findByIdCommentId(comment.getCommentID());
 			comment.setLikes(likes.size());
 		}
 		
