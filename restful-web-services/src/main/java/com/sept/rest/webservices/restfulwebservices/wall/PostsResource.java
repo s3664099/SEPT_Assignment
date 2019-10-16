@@ -16,12 +16,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
-import com.sept.rest.webservices.restfulwebservices.entities.CommentLikes;
-import com.sept.rest.webservices.restfulwebservices.entities.Comments;
 import com.sept.rest.webservices.restfulwebservices.entities.PostLikes;
 import com.sept.rest.webservices.restfulwebservices.entities.Posts;
-import com.sept.rest.webservices.restfulwebservices.entities.Students;
-import com.sept.rest.webservices.restfulwebservices.repositories.CommentLikesRepository;
 import com.sept.rest.webservices.restfulwebservices.repositories.PostLikesRepository;
 import com.sept.rest.webservices.restfulwebservices.repositories.PostsRepository;
 import com.sept.rest.webservices.restfulwebservices.repositories.StudentsRepository;

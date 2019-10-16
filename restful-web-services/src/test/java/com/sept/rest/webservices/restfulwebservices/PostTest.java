@@ -7,36 +7,26 @@ import static org.junit.Assert.assertTrue;
 
 import java.sql.Timestamp;
 
-import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.Test;
+import org.junit.BeforeClass;
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.junit4.SpringRunner;
 
 import com.sept.rest.webservices.restfulwebservices.entities.Posts;
 import com.sept.rest.webservices.restfulwebservices.entities.Students;
 
-//@ExtendWith(SpringExtension.class)
-//@RunWith(SpringRunner.class)
-//@SpringBootTest
+@RunWith(SpringRunner.class)
+@ContextConfiguration()
+@SpringBootTest
 public class PostTest {
 
 	private static Students student;
 	private static Posts post;
 	private static Timestamp time;
 	
-	
-//	@Test
-//	public void contextLoads() {
-//		
-//		Posts post = new Posts(1, 0, "Hello", null, null, false, false);
-//		entityManager.persist(post);
-//		entityManager.flush();
-//		
-//		Optional<Posts> found = repository.findById(post.getPostID());
-//		
-//		assertEquals(found.isPresent(), true);
-//
-//	}
-	
-	@BeforeAll
+	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
 
 		student = new Students("Mr Bean",3999999,"Mr","Bean");
