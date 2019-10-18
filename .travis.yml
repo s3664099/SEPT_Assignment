@@ -25,7 +25,6 @@ git:
 branches:
   only:
     - master
-    - development
     - backwardYaml
     
 before_install:
@@ -61,8 +60,8 @@ script:
   - gcloud container clusters delete high5-cluster
   - gcloud container clusters create high5-cluster --num-nodes=2
   - kubectl create deployment high5-web --image=gcr.io/high5softwarept/high5app
-  - kubectl expose services high5-web  --port=8080 --name=backend
-  - kubectl expose deployment --type=LoadBalancer --name=frontend --port 80 --target-port 4200
+  - kubectl expose services kubernetes  --port=8080 --name=backend
+  - kubectl expose deployment high5-web --type=LoadBalancer --name=frontend --port 80 --target-port 4200
   - sleep 100
   - kubectl get pods
   - kubectl get deployment
