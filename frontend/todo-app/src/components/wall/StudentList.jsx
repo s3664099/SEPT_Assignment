@@ -67,10 +67,9 @@ class StudentList extends Component {
           placeholder="Search for student..."
           ref={input => this.search = input}
           onChange={this.filterList}
-          //value={this.state.query}
+          
         />
-        {/*<button type="submit" onClick={this.buttonClicked}>Search</button>*/}
-        {/*<Suggestions results={this.state.results} />*/}
+
       </form>
             <ul className="studentList">{
                 this.state.filteredList.map(

@@ -1,12 +1,9 @@
 import React from 'react';
 import Enzyme from 'enzyme'
-import {shallow} from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 Enzyme.configure({ adapter: new Adapter() })
 import NewPost from '../components/wall/NewPost'
 import ReactDOM from 'react-dom';
-import { isMainThread } from 'worker_threads';
-import * as renderer from 'react-test-renderer'
 
 const createNewPost = (props) =>{
     const div = document.createElement('div');
@@ -24,3 +21,10 @@ test('new post component did mount test', ()=>{
     ReactDOM.unmountComponentAtNode(div);
 })
 
+test('handle submit test', ()=>{
+    const div = document.createElement('div');
+    const wrapper = createNewPost({});
+    const spy = jest.spyOn(wrapper, 'handleSubmit');
+    expect(spy).toHaveBeenCalledTimes(0);
+    ReactDOM.unmountComponentAtNode(div);
+})

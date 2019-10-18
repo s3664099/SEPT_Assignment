@@ -52,10 +52,10 @@ it('add post button', () => {
 
 it('delete post button', () => {
   const div = document.createElement('div');
-  const wrapper = createPostContainer({});
+  const wrapper = createPostContainer({})
   const spy = jest.spyOn(wrapper, 'deletePostButton');
-  expect(spy).toHaveBeenCalledTimes(0);
-  ReactDOM.unmountComponentAtNode(div);
+  expect(spy).toHaveBeenCalledTimes(0)
+  ReactDOM.unmountComponentAtNode(div)
 });
 
 it('refresh posts', () => {
