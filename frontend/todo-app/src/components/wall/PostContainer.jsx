@@ -1,14 +1,10 @@
 import React, {Component} from 'react'
 import './PostContainer.css'
 import CommentBox from './CommentBox'
-import WallDataService from '../../api/todo/WallDataService.js'
-import AuthenticationService from './AuthenticationService.js'
+import WallDataService from './WallDataService.js'
+import AuthenticationService from '../AuthenticationService.js'
 import {withRouter} from 'react-router-dom'
 import moment from 'moment'
-
-
-// import Popup from "reactjs-popup"
-// import NewPost from './NewPost.jsx'
 
 
 class PostContainer extends Component {
@@ -22,8 +18,6 @@ class PostContainer extends Component {
       name: this.props.match.params.name,
       posts:[]
     }
-
-    //name = this.props.match.params.name;
 
     console.log(this.state)
     this.refreshPosts = this.refreshPosts.bind(this)

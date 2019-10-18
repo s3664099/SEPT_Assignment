@@ -1,16 +1,11 @@
 import React, { Component } from 'react'
 import HeaderWall from './HeaderWall';
-import AuthenticationService from '../todo/AuthenticationService'
-// import SideNavBar from './SideNavBar';
+import AuthenticationService from '../AuthenticationService'
 import PostContainer from './PostContainer';
-import StudentList from './StudentList';
-// import ActivityNavBar from './ActivityNavBar'
-// <!--<SideNavBar />
-// <ActivityNavBar/>-->
+import StudentList from '../students/StudentList';
 
 class wallComponent extends Component {
   
-
     render() {
         const userName = AuthenticationService.getLoggedInUserName();
       return (

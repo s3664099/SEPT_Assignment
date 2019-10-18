@@ -1,12 +1,7 @@
 import React, { Component } from 'react'
 import HeaderWall from './HeaderWall';
-import AuthenticationService from '../todo/AuthenticationService'
-// import SideNavBar from './SideNavBar';
-// import StudentList from './StudentList';
-// import ActivityNavBar from './ActivityNavBar'
-// <!--<SideNavBar />
+import AuthenticationService from '../AuthenticationService'
 import OtherPost from './OtherPost'
-// <ActivityNavBar/>-->
 
 class OtherWall extends Component {
 

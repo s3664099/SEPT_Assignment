@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import StudentListDataService from '../../api/todo/StudentListDataService'
+import StudentListDataService from './StudentListDataService'
 import {withRouter} from 'react-router-dom'
 import './studentList.css'
 class StudentList extends Component {

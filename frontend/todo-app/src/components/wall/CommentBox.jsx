@@ -1,9 +1,9 @@
 import React, { Component } from 'react'
-import CommentDataServcie from '../../api/todo/CommentDataServcie';
+import CommentDataServcie from './CommentDataServcie';
 import './CommentBox.css'
 import { Formik, Form, Field} from 'formik';
 import moment from 'moment'
-import AuthenticationService from '../wall/AuthenticationService'
+import AuthenticationService from '../AuthenticationService'
 
 
 class CommentBox extends Component {

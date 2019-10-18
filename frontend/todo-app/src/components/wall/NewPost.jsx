@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { Formik, Form, Field} from 'formik';
-import WallDataService from '../../api/todo/WallDataService';
-import AuthenticationService from './AuthenticationService.js'
+import WallDataService from './WallDataService';
+import AuthenticationService from '../AuthenticationService.js'
 import moment from 'moment'
 import './NewPost.css'
 

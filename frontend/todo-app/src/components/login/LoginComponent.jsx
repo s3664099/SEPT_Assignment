@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
-import AuthenticationService from './AuthenticationService.js'
-import FooterComponent from './FooterComponent.jsx'
+import AuthenticationService from '../AuthenticationService.js'
+import FooterComponent from '../FooterComponent.jsx'
 
 class LoginComponent extends Component {
 
