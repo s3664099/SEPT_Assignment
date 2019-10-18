@@ -1,5 +1,4 @@
 import React, {Component} from 'react'
-import BottomBar from './BottomBar'
 import './PostContainer.css'
 import CommentBox from './CommentBox'
 import WallDataService from '../../api/todo/WallDataService.js'
@@ -133,7 +132,6 @@ class PostContainer extends Component {
                         <button className ="deleteButton" onClick ={()=>this.deletePostButton(post.postID)}>Delete</button>
                         </div>
                         <hr></hr>
-                        <div>{<BottomBar />}</div>
 
                         <div>
 
