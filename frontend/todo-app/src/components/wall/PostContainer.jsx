@@ -12,16 +12,20 @@ import moment from 'moment'
 // import NewPost from './NewPost.jsx'
 
 
-
 class PostContainer extends Component {
+
 
   constructor(props){
     console.log(" post constructor")
+    
     super(props)
     this.state ={
       name: this.props.match.params.name,
       posts:[]
     }
+
+    //name = this.props.match.params.name;
+
     console.log(this.state)
     this.refreshPosts = this.refreshPosts.bind(this)
     this.addPostClicked = this.addPostClicked.bind(this)
@@ -46,7 +50,7 @@ class PostContainer extends Component {
     this.refreshPosts();
   }
 
-  refreshPosts(){
+  refreshPosts(){   
     if (this.state.name === undefined) {
       let username = AuthenticationService.getLoggedInUserName()
       WallDataService.retrieveAllVisiblePosts(username)
