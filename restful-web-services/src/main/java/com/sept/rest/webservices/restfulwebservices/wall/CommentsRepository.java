@@ -1,11 +1,9 @@
-package com.sept.rest.webservices.restfulwebservices.repositories;
+package com.sept.rest.webservices.restfulwebservices.wall;
 
 import java.util.List;
 
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
-
-import com.sept.rest.webservices.restfulwebservices.entities.Comments;
 
 @Repository
 public interface CommentsRepository extends CrudRepository<Comments, Long> {

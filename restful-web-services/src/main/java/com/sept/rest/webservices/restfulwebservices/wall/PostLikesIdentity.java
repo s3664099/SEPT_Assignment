@@ -1,4 +1,4 @@
-package com.sept.rest.webservices.restfulwebservices.entities;
+package com.sept.rest.webservices.restfulwebservices.wall;
 
 import java.io.Serializable;
 import javax.persistence.Embeddable;

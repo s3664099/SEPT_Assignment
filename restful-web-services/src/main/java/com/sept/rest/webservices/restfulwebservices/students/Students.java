@@ -1,4 +1,4 @@
-package com.sept.rest.webservices.restfulwebservices.entities;
+package com.sept.rest.webservices.restfulwebservices.students;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;

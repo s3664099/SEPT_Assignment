@@ -1,9 +1,7 @@
-package com.sept.rest.webservices.restfulwebservices.repositories;
+package com.sept.rest.webservices.restfulwebservices.students;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
-
-import com.sept.rest.webservices.restfulwebservices.entities.Students;
 
 @Repository
 public interface StudentsRepository extends JpaRepository<Students, Integer> {

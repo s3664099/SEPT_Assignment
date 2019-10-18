@@ -1,15 +1,11 @@
-package com.sept.rest.webservices.restfulwebservices.entities;
+package com.sept.rest.webservices.restfulwebservices.wall;
 
 import java.sql.Timestamp;
-//import java.util.ArrayList;
-//import java.util.List;
-
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
-//import com.sept.rest.webservices.user.Students;
 
 @Entity
 public class Comments {

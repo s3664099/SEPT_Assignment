@@ -105,11 +105,6 @@ toggleHideButton() {
   })  // to show it
 }
 
-countComments() {
-  var number = this.state.comments.length
-  return <text>Show comments ( + {number} + )</text>
-}
-
 render() {
 
   console.log(this.state);
@@ -151,7 +146,7 @@ render() {
       }
       </div>
     }
-    <button className="commentButton" onClick={this.toggleHideButton}>{this.state.showTheThing ? <text>Hide</text> : <text>Show comments ({this.state.comments.length})</text>}</button>
+    <button className="commentButton" onClick={this.toggleHideButton}>{this.state.showTheThing ? <h6>Hide</h6> : <h6>Show comments ({this.state.comments.length})</h6>}</button>
     </div>
   )
 }

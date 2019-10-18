@@ -1,4 +1,4 @@
-package com.sept.rest.webservices.restfulwebservices.entities;
+package com.sept.rest.webservices.restfulwebservices.wall;
 
 import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
