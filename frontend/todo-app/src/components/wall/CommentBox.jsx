@@ -33,22 +33,6 @@ class CommentBox extends Component {
   }
 
 
-  /*
-  shouldComponentUpdate(nextProps, nextState) {
-  console.log('shouldComponentUpdate on wall')
-  //console.log(nextProps)
-  //console.log(nextState)
-  return true
-}*/
-/*
-hideButton(){
-var comment = document.getElementById("commentSection")
-if(comment.style.display ==="none"){
-comment.style.display ="block"
-}else{
-comment.style.display = "none"
-}
-}*/
 
 deleteComments(commentID){
   CommentDataServcie.deleteComments(this.state.username, commentID)
@@ -74,16 +58,6 @@ getComments(){
   }))
 }
 
-/*
-authorID: 3691487
-commentID: 4
-creation_Time: "2019-09-20T10:04:45.000+0000"
-deleted: false
-edited: false
-message: "fake comment"
-modified_Time: "2019-09-20T10:04:45.000+0000"
-parentId: 131
-*/
 handleSubmit(event){
   let author = AuthenticationService.getLoggedInUserName();
   let comment ={
