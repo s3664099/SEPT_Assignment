@@ -61,7 +61,7 @@ script:
   - gcloud container clusters delete high5-cluster
   - gcloud container clusters create high5-cluster --num-nodes=2
   - kubectl create deployment high5-web --image=gcr.io/high5softwarept/high5app
-  - kubectl expose services high5-web  --name=backend --port 4200 --target-port 8080
+  - kubectl expose services high5-web  --all
   - kubectl expose deployment --type=LoadBalancer --name=frontend --port 80 --target-port 4200
   - sleep 100
   - kubectl get pods
