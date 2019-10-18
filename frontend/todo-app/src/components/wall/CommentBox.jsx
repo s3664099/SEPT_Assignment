@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
-import CommentDataServcie from './CommentDataServcie';
-import './CommentBox.css'
+import CommentDataServcie from './WallDataService';
+import './Wall.css'
 import { Formik, Form, Field} from 'formik';
 import moment from 'moment'
 import AuthenticationService from '../AuthenticationService'

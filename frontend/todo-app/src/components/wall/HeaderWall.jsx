@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import './HeaderWall.css'
+import './Wall.css'
 
 class HeaderWall extends Component {
 

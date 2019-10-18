@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import './PostContainer.css'
+import './Wall.css'
 import CommentBox from './CommentBox'
 import WallDataService from './WallDataService.js'
 import AuthenticationService from '../AuthenticationService.js'
