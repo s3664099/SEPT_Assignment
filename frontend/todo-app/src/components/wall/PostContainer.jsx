@@ -7,8 +7,6 @@ import {withRouter} from 'react-router-dom'
 import moment from 'moment'
 
 
-// import Popup from "reactjs-popup"
-// import NewPost from './NewPost.jsx'
 
 
 class PostContainer extends Component {
@@ -23,7 +21,7 @@ class PostContainer extends Component {
       posts:[]
     }
 
-    //name = this.props.match.params.name;
+  
 
     console.log(this.state)
     this.refreshPosts = this.refreshPosts.bind(this)
