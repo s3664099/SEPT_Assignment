@@ -1,12 +1,10 @@
 import React, {Component} from 'react'
-import './PostContainer.css'
+import './Wall.css'
 import CommentBox from './CommentBox'
-import WallDataService from '../../api/todo/WallDataService.js'
-import AuthenticationService from './AuthenticationService.js'
+import WallDataService from './WallDataService.js'
+import AuthenticationService from '../AuthenticationService.js'
 import {withRouter} from 'react-router-dom'
 import moment from 'moment'
-
-
 
 
 class PostContainer extends Component {
@@ -20,8 +18,6 @@ class PostContainer extends Component {
       name: this.props.match.params.name,
       posts:[]
     }
-
-  
 
     console.log(this.state)
     this.refreshPosts = this.refreshPosts.bind(this)
@@ -125,7 +121,7 @@ class PostContainer extends Component {
                         <div className ="timeStamp">{moment(post.creationTime).format('DD-MM-YYYY HH:MM')}</div>
                         <div className="postSetting">
                         {/*<button className =f"commentButton" onClick ={()=>this.showHideComments()}>Comments</button>*/}
-                        <div className="Likes">{post.likes}<button className = "likeButton" onClick ={()=>this.likePostButton(post.postID)}>Like</button></div>
+                        <div className="Likes">{post.likes}<button className="likeButton" onClick ={()=>this.likePostButton(post.postID)}>Like</button></div>
                         <button className ="editButton" onClick ={()=>this.editPostButton(post.postID)}>Edit</button>
                         <button className ="deleteButton" onClick ={()=>this.deletePostButton(post.postID)}>Delete</button>
                         </div>

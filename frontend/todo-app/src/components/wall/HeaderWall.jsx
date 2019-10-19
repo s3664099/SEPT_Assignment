@@ -1,6 +1,5 @@
 import React, {Component} from 'react'
-import './HeaderWall.css'
-//import Search from './Search.jsx'
+import './Wall.css'
 
 class HeaderWall extends Component {
 
@@ -8,19 +7,15 @@ class HeaderWall extends Component {
         super(props);
     }*/
 
-    
+
 
     render(){
              return (
-                 
+
             <header>
                 <nav className="wallnav">
                     <div className="wallLogo">
                         <a className ="RMITWall" href="http://www.rmit.edu.au">RMITWall</a>
-                    </div>
-
-                    <div className="search">
-                      {/*<Search/>*/}
                     </div>
 
                     <div className="Greetings">

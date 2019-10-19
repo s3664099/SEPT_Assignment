@@ -14,8 +14,8 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import com.sept.rest.webservices.restfulwebservices.entities.Posts;
-import com.sept.rest.webservices.restfulwebservices.entities.Students;
+import com.sept.rest.webservices.restfulwebservices.students.Students;
+import com.sept.rest.webservices.restfulwebservices.wall.Posts;
 
 @RunWith(SpringRunner.class)
 @ContextConfiguration()

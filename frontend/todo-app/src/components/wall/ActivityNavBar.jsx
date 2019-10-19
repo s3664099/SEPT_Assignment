@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import './SideNavBar.css'
+import './Wall.css'
 import Popup from "reactjs-popup";
 
 class ActivityNavBar extends Component {

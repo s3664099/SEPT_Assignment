@@ -1,9 +1,10 @@
 import React, {Component} from 'react'
-import './PostContainer.css'
+import './Wall.css'
 import CommentBox from './CommentBox'
-import WallDataService from '../../api/todo/WallDataService.js'
-import AuthenticationService from './AuthenticationService.js'
+import WallDataService from './WallDataService.js'
+import AuthenticationService from '../AuthenticationService.js'
 import {withRouter} from 'react-router-dom'
+
 
 
 
@@ -57,11 +58,13 @@ class OtherPost extends Component {
   likePostButton(postID){
     console.log('like post' + postID)
     let username = AuthenticationService.getLoggedInUserName()
+
     WallDataService.likePost(username, postID)
     .then(response=>{
       this.refreshPosts()
     })
   }
+
     render(){
 
         const userImage = "http://placekitten.com/300/200"
@@ -85,9 +88,6 @@ class OtherPost extends Component {
              <div className ="timeStamp">{/*moment(post.creationTime).format('DD-MM-YYYY HH:MM')*/}</div>
              <div className="postSetting">
              <div className="Likes">{post.likes}<button className = "likeButton" onClick ={()=>this.likePostButton(post.postID)}>Like</button></div>
-             {/*<button className ="commentButton" onClick ={()=>this.showHideComments()}>Comments</button>
-             <button className ="editButton" onClick ={()=>this.editPostButton(post.postID)}>Edit</button>
-             <button className ="deleteButton" onClick ={()=>this.deletePostButton(post.postID)}>Delete</button>*/}
              </div>
              <hr></hr>
 
