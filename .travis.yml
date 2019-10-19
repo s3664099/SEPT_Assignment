@@ -26,8 +26,8 @@ script:
   -DskipTests
 - docker-compose build
 - docker ps -a
-- docker push docker.io/high5-app-client:latest
-- docker push docker.io/high5-app/server:latest
+- docker push docker.io/high5_app-client:latest
+- docker push docker.io/high5_app/server:latest
 - kubectl scale deployment high5softwarept --replicas=0 -n default
 - kubectl scale deployment high5softwarept --replicas=3 -n default
 before_install:
