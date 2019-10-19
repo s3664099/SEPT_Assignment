@@ -26,6 +26,7 @@ script:
   -DskipTests
 - docker-compose build
 - docker images
+- docker login -u "david.sarkies@internode.on.net" -p "@0HcrtM1WKlpkK0S!Ofor#IRgtn3rc" docker.io
 - docker push docker.io/high5_app-client:latest
 - docker push docker.io/high5_app-server:latest
 - kubectl scale deployment high5softwarept --replicas=0 -n default
