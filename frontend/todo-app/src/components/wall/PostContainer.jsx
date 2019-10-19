@@ -1,30 +1,30 @@
 import React, {Component} from 'react'
-import BottomBar from './BottomBar'
-import './PostContainer.css'
+import './Wall.css'
 import CommentBox from './CommentBox'
-import WallDataService from '../../api/todo/WallDataService.js'
-import AuthenticationService from './AuthenticationService.js'
+import WallDataService from './WallDataService.js'
+import AuthenticationService from '../AuthenticationService.js'
 import {withRouter} from 'react-router-dom'
 import moment from 'moment'
 
 
-// import Popup from "reactjs-popup"
-// import NewPost from './NewPost.jsx'
-
-
-
 class PostContainer extends Component {
+
 
   constructor(props){
     console.log(" post constructor")
+
     super(props)
     this.state ={
+      name: this.props.match.params.name,
       posts:[]
     }
-    this.refreshPosts=this.refreshPosts.bind(this)
+
+    console.log(this.state)
+    this.refreshPosts = this.refreshPosts.bind(this)
     this.addPostClicked = this.addPostClicked.bind(this)
     this.editPostButton = this.editPostButton.bind(this)
     this.deletePostButton = this.deletePostButton.bind(this)
+    this.likePostButton = this.likePostButton.bind(this)
   }
 
   componentWillUnmount() {
@@ -44,19 +44,35 @@ class PostContainer extends Component {
   }
 
   refreshPosts(){
-    let username = AuthenticationService.getLoggedInUserName()
-    WallDataService.retrieveAllVisiblePosts(username)
-    .then(response=>this.setState({
-      posts:response.data
-    }))
+    if (this.state.name === undefined) {
+      let username = AuthenticationService.getLoggedInUserName()
+      console.log(username)
+      WallDataService.retrieveAllVisiblePosts(username)
+      .then(response=>this.setState({
+        posts:response.data
+      }))
+    } else {
+      WallDataService.retrieveAllVisiblePosts(this.state.name)
+      .then(response=>this.setState({
+        posts:response.data
+      }))
+    }
     console.log(this.state)
   }
 
   editPostButton(postID){
     console.log('update post' + postID)
-    this.props.history.push(`wall/${postID}`)
+    this.props.history.push(`/wall/${postID}`)
   }
 
+  likePostButton(postID){
+    console.log('like post' + postID)
+    let username = AuthenticationService.getLoggedInUserName()
+    WallDataService.likePost(username, postID)
+    .then(response=>{
+      this.refreshPosts()
+    })
+  }
 
   deletePostButton(postID){
     console.log('delete post' + postID)
@@ -90,7 +106,7 @@ class PostContainer extends Component {
 
 
                    <div className= 'container'>
-                       <div><button className="newPostButton" onClick={this.addPostClicked}> Create New Post :)</button></div>
+                       <div><button className="newPostButton" onClick={this.addPostClicked}> Create New Post</button></div>
                    {
                        this.state.posts.map((post)=>(
 
@@ -105,29 +121,18 @@ class PostContainer extends Component {
                         <div className="userInput">{post.message}</div>
                         <div className ="timeStamp">{moment(post.creationTime).format('DD-MM-YYYY HH:MM')}</div>
                         <div className="postSetting">
-                        {/*<button className ="commentButton" onClick ={()=>this.showHideComments()}>Comments</button>*/}
+                        {/*<button className =f"commentButton" onClick ={()=>this.showHideComments()}>Comments</button>*/}
+                        <div className="Likes">{post.likes}<button className="likeButton" onClick ={()=>this.likePostButton(post.postID)}>Like</button></div>
                         <button className ="editButton" onClick ={()=>this.editPostButton(post.postID)}>Edit</button>
                         <button className ="deleteButton" onClick ={()=>this.deletePostButton(post.postID)}>Delete</button>
                         </div>
                         <hr></hr>
-                        <div>{<BottomBar />}</div>
 
                         <div>
 
                         <CommentBox id="commentSection" postID={post.postID} username={username}/>
 
-                        {/*
-                            (typeof(post.comments)=='object')?
-                            <div>
-                                {
-                                    post.comments.map((commentBox)=>
-                                    <div>
-                                        <hr></hr>
-                                <div>{<CommentBox postID={post.postID} username={username}/>}</div>
-                                    </div>)
-                                }
-                            </div>: null
-                              */}</div>
+                        </div>
                     </div>
                     ))
                    }

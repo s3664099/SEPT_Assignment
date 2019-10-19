@@ -1,20 +1,19 @@
 import React, { Component } from 'react'
 import HeaderWall from './HeaderWall';
 import AuthenticationService from '../AuthenticationService'
-import PostContainer from './PostContainer';
-import StudentList from '../students/StudentList';
+import OtherPost from './OtherPost'
 
-class wallComponent extends Component {
-  
+class OtherWall extends Component {
+
     render() {
         const userName = AuthenticationService.getLoggedInUserName();
+
       return (
         <div className="Wall">
         <HeaderWall name = {userName}/>
-        <StudentList/>
-        <PostContainer />
+        <OtherPost />
         </div>
       );
     }
   }
-export default wallComponent;
+export default OtherWall;

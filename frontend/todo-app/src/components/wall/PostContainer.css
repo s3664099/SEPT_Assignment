@@ -1,11 +1,11 @@
 .postContainer{
     border: 1px solid #111;
     border-radius: 25px;
-    width: 800px;
+    width: 1000px;
     display: block;
     margin:20px auto;
     padding:5px;
-    text-align: justify;
+    text-align: left;
     padding: 10px;
 }
 
@@ -30,7 +30,7 @@
   margin: auto 10px;
 }
 
-.editButton, .deleteButton{
+.editButton, .deleteButton, .likeButton{
   border-radius: 20px;
   padding: 0 10px;
   margin: 0 3px;
@@ -43,9 +43,15 @@
   border: 1px solid red;
 }
 
+.likeButton{
+  color: #0F77FF;
+  border: 1px solid #0F77FF;
+  margin-left: 5px;
+}
+
 .postSetting {
   position: relative;
-  left: 520px;
+  left: 67%;
   text-align: right;
   display: inline;
 }
@@ -69,6 +75,13 @@
   background-image: linear-gradient(to bottom, #12B8FF, #0F77FF);filter:progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr=#12B8FF, endColorstr=#0F77FF);
 }
 
-.newPostButton:hover, .editButton:hover, .deleteButton:hover {
+.newPostButton:hover, .editButton:hover, .deleteButton:hover, .likeButton:hover {
   cursor: pointer;
+}
+
+.Likes {
+  width: 0;
+  display: inline;
+  font-size: inherit;
+  margin-left: 10px;
 }

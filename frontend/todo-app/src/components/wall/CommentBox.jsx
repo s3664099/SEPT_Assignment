@@ -1,8 +1,9 @@
 import React, { Component } from 'react'
-import CommentDataServcie from '../../api/todo/CommentDataServcie';
-import './CommentBox.css'
+import CommentDataServcie from './WallDataService';
+import './Wall.css'
 import { Formik, Form, Field} from 'formik';
 import moment from 'moment'
+import AuthenticationService from '../AuthenticationService'
 
 
 class CommentBox extends Component {
@@ -20,6 +21,7 @@ class CommentBox extends Component {
     this.handleSubmit = this.handleSubmit.bind(this)
     this.deleteComments = this.deleteComments.bind(this)
     this.toggleHideButton = this.toggleHideButton.bind(this)
+    this.likeCommentButton = this.likeCommentButton.bind(this)
   }
 
   componentDidMount(){
@@ -31,22 +33,6 @@ class CommentBox extends Component {
   }
 
 
-  /*
-  shouldComponentUpdate(nextProps, nextState) {
-  console.log('shouldComponentUpdate on wall')
-  //console.log(nextProps)
-  //console.log(nextState)
-  return true
-}*/
-/*
-hideButton(){
-var comment = document.getElementById("commentSection")
-if(comment.style.display ==="none"){
-comment.style.display ="block"
-}else{
-comment.style.display = "none"
-}
-}*/
 
 deleteComments(commentID){
   CommentDataServcie.deleteComments(this.state.username, commentID)
@@ -55,6 +41,16 @@ deleteComments(commentID){
   })
 }
 
+
+  likeCommentButton(commentID){
+    console.log('like comment' + commentID)
+    let username = AuthenticationService.getLoggedInUserName()
+    CommentDataServcie.likeComment(username, commentID)
+    .then(response=>{
+      this.getComments()
+    })
+  }
+
 getComments(){
   CommentDataServcie.retrieveComments(this.state.username, this.state.postID)
   .then(res => this.setState({
@@ -62,23 +58,15 @@ getComments(){
   }))
 }
 
-/*
-authorID: 3691487
-commentID: 4
-creation_Time: "2019-09-20T10:04:45.000+0000"
-deleted: false
-edited: false
-message: "fake comment"
-modified_Time: "2019-09-20T10:04:45.000+0000"
-parentId: 131
-*/
 handleSubmit(event){
+  let author = AuthenticationService.getLoggedInUserName();
   let comment ={
     message:event.postComment,
-    parentId:this.state.postID
+    parentId:this.state.postID,
+    authorName:author
   }
 
-  CommentDataServcie.postComments(this.state.username, this.state.postID, comment)
+  CommentDataServcie.postComments(author, this.state.postID, comment)
   .then(()=>{
     this.getComments()
   })
@@ -89,11 +77,6 @@ toggleHideButton() {
   this.setState({
     showTheThing: !this.state.showTheThing
   })  // to show it
-}
-
-countComments() {
-  var number = this.state.comments.length
-  return <text>Show comments ( + {number} + )</text>
 }
 
 render() {
@@ -125,10 +108,11 @@ render() {
         this.state.comments.map((comment)=>(
           <div className = "commentArea">
             <img className ="profilePic2" src={userImage2} alt="Profile Pic"></img>
-            <div className ="authorID">author:{comment.authorID}</div>
+            <div className ="authorID">{comment.authorName}</div>
             <div className ="message">{comment.message}</div>
             <div className = "commentFooter">
               <div className ="timeStamp">{moment(comment.modified_Time).format('DD-MM-YYYY HH:MM')}</div>
+              <div className="Likes">{comment.likes}<button className="likeButton" onClick ={()=>this.likeCommentButton(comment.commentID)}>Like</button></div>
               <button className="deleteButton2" onClick = {()=>this.deleteComments(comment.commentID)}>Delete</button>
             </div>
           </div>
@@ -136,7 +120,7 @@ render() {
       }
       </div>
     }
-    <button className="commentButton" onClick={this.toggleHideButton}>{this.state.showTheThing ? <text>Hide</text> : <text>Show comments ({this.state.comments.length})</text>}</button>
+    <button className="commentButton" onClick={this.toggleHideButton}>{this.state.showTheThing ? <h6>Hide</h6> : <h6>Show comments ({this.state.comments.length})</h6>}</button>
     </div>
   )
 }

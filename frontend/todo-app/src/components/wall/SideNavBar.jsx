@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import './SideNavBar.css'
+import './Wall.css'
 
 
 class SideNavBar extends Component {
