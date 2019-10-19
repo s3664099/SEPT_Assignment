@@ -4,6 +4,7 @@ FROM node:12.4.0-alpine as build
 # Configure the main working directory inside the docker image. 
 # This is the base directory used in any further RUN, COPY, and ENTRYPOINT 
 # commands.
+COPY . /High5
 WORKDIR High5/frontend/todo-app
 
 # Copy the package.json as well as the package-lock.json and install 
