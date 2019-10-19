@@ -2,9 +2,8 @@ import React from 'react';
 import Enzyme from 'enzyme'
 import Adapter from 'enzyme-adapter-react-16';
 Enzyme.configure({ adapter: new Adapter() })
-import StudentList from '../components/wall/StudentList'
+import StudentList from '../components/students/StudentList'
 import ReactDOM from 'react-dom';
-import StudentList from '../components/wall/StudentList';
 
 const createStudentList = (props) =>{
     const div = document.createElement('div');
