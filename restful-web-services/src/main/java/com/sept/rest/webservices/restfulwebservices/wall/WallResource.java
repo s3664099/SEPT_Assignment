@@ -223,8 +223,8 @@ public class WallResource {
 	}
 
 	// Mapping to Like a post
-	@GetMapping("/jpa/users/{username}/post/{posttId}/like")
-	public ResponseEntity<Void> likeComment(@PathVariable String username, @PathVariable Integer postId) {
+	@GetMapping("/jpa/users/{username}/post/{postId}/like")
+	public ResponseEntity<Void> likePost(@PathVariable String username, @PathVariable Integer postId) {
 		// get user id
 		int studentId = studentsRepository.findBydisplayName(username).getStudentID();
 

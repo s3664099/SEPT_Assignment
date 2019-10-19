@@ -121,63 +121,6 @@
   display: inline;
 }
 
-.search{
-  text-align: center;
-  display: inline-block;
-  width: 500px;
-  margin: 10px;
-}
-
-.search input {
-  width: 300px;
-  height: 30px;
-  border-radius: 25px;
-  border: 1px solid #ddd;
-  margin: 5px;
-  padding: 10px;
-}
-
-.search input:focus {
-  border: 1px solid rgb(153, 224, 255);
-}
-
-.search button {
-  height: 30px;
-  border:0px solid #05cdff;
-  -webkit-border-radius: 50px;
-  -moz-border-radius: 50px;
-  border-radius: 50px;
-  text-decoration:none;
-  display:inline-block;
-  color: #FFFFFF;
-  background-color: #12B8FF; background-image: -webkit-gradient(linear, left top, left bottom, from(#12B8FF), to(#0F77FF));
-  background-image: -webkit-linear-gradient(top, #12B8FF, #0F77FF);
-  background-image: -moz-linear-gradient(top, #12B8FF, #0F77FF);
-  background-image: -ms-linear-gradient(top, #12B8FF, #0F77FF);
-  background-image: -o-linear-gradient(top, #12B8FF, #0F77FF);
-  background-image: linear-gradient(to bottom, #12B8FF, #0F77FF);filter:progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr=#12B8FF, endColorstr=#0F77FF);
-}
-
-.search button:hover {
-  cursor: pointer;
-}
-
-.search ul {
-  float: left;
-  position:absolute;
-  background-color: white;
-  margin-left: 65px;
-  border: 1px solid #ddd;
-  width: 300px;
-  color: black;
-  list-style-type: none;
-}
-
-.search ul li {
-  text-align: left;
-  text-decoration: none;
-}
-
 .postButton {
   height: 50px;
   width: 200px;
@@ -228,13 +171,11 @@ h3{
 .postContainer{
     border: 1px solid #111;
     border-radius: 25px;
-    width: 95%;
+    width: 1000px;
     display: block;
-    margin:20px;
-    padding:5px;
+    margin:20px auto;
     text-align: left;
     padding: 10px;
-    float:right;
 }
 
 .userImage, .userName{
@@ -258,7 +199,7 @@ h3{
   margin: auto 10px;
 }
 
-.editButton, .deleteButton{
+.editButton, .deleteButton, .likeButton{
   border-radius: 20px;
   padding: 0 10px;
   margin: 0 3px;
@@ -271,9 +212,15 @@ h3{
   border: 1px solid red;
 }
 
+.likeButton{
+  color: #0F77FF;
+  border: 1px solid #0F77FF;
+  margin-left: 5px;
+}
+
 .postSetting {
   position: relative;
-  left: 75%;
+  left: 650px;
   text-align: right;
   display: inline;
 }
@@ -297,7 +244,7 @@ h3{
   background-image: linear-gradient(to bottom, #12B8FF, #0F77FF);filter:progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr=#12B8FF, endColorstr=#0F77FF);
 }
 
-.newPostButton:hover, .editButton:hover, .deleteButton:hover {
+.newPostButton:hover, .editButton:hover, .deleteButton:hover, .likeButton:hover {
   cursor: pointer;
 }
 
@@ -305,7 +252,7 @@ h3{
     height:100%;
     width:15%;
     background-color: rgb(235, 216, 193);
-   
+
 }
 
 .sidenav a, .activityNavBar a{
@@ -327,4 +274,10 @@ h3{
 
 .sidenav{
     float:left;
+}
+
+.Likes {
+  width: 0;
+  display: inline;
+  margin-left: 10px;
 }

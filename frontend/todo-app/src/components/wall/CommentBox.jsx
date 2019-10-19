@@ -112,7 +112,7 @@ render() {
             <div className ="message">{comment.message}</div>
             <div className = "commentFooter">
               <div className ="timeStamp">{moment(comment.modified_Time).format('DD-MM-YYYY HH:MM')}</div>
-              <div className="Likes">{comment.likes}<button onClick ={()=>this.likeCommentButton(comment.commentID)}>Like</button></div>
+              <div className="Likes">{comment.likes}<button className="likeButton" onClick ={()=>this.likeCommentButton(comment.commentID)}>Like</button></div>
               <button className="deleteButton2" onClick = {()=>this.deleteComments(comment.commentID)}>Delete</button>
             </div>
           </div>

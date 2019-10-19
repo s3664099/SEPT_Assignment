@@ -1,11 +1,11 @@
 .studentListArea {
   padding: 10px;
-  float:left;
   width: 280px;
   margin: 50px 20px 50px 50px;
   position: static;
   border: 1px solid black;
   border-radius: 25px;
+  float: left;
 }
 
 .studentList{
@@ -31,4 +31,17 @@
 
 .studentList button:hover{
   cursor: pointer;
+}
+
+.search {
+  width: 100%;
+  height: 30px;
+  border-radius: 25px;
+  border: 1px solid #ddd;
+  margin: 5px auto;
+  padding: 10px;
+}
+
+.search:focus {
+  border: 1px solid rgb(153, 224, 255);
 }

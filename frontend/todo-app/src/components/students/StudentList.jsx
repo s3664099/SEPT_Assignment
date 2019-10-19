@@ -63,6 +63,7 @@ class StudentList extends Component {
           <h4>Students</h4>
           <form>
         <input
+          className="search"
           type="text"
           placeholder="Search for student..."
           ref={input => this.search = input}

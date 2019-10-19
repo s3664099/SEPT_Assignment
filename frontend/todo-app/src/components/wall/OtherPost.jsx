@@ -20,9 +20,6 @@ class OtherPost extends Component {
     }
     console.log(this.state)
     this.refreshPosts = this.refreshPosts.bind(this)
-    this.addPostClicked = this.addPostClicked.bind(this)
-    this.editPostButton = this.editPostButton.bind(this)
-    this.deletePostButton = this.deletePostButton.bind(this)
   }
 
   componentWillUnmount() {
@@ -58,24 +55,14 @@ class OtherPost extends Component {
     console.log(this.state)
   }
 
-  editPostButton(postID){
-    console.log('update post' + postID)
-    this.props.history.push(`wall/edit/${postID}`)
-  }
-
-
-  deletePostButton(postID){
-    console.log('delete post' + postID)
+  likePostButton(postID){
+    console.log('like post' + postID)
     let username = AuthenticationService.getLoggedInUserName()
-    WallDataService.deletePost(username, postID)
+
+    WallDataService.likePost(username, postID)
     .then(response=>{
       this.refreshPosts()
     })
-  }
-
-  addPostClicked(){
-    console.log("new post button clicked")
-    this.props.history.push(`/wall/create/-1`)
   }
 
     render(){
@@ -100,9 +87,7 @@ class OtherPost extends Component {
              <div className="userInput">{post.message}</div>
              <div className ="timeStamp">{/*moment(post.creationTime).format('DD-MM-YYYY HH:MM')*/}</div>
              <div className="postSetting">
-             {/*<button className ="commentButton" onClick ={()=>this.showHideComments()}>Comments</button>
-             <button className ="editButton" onClick ={()=>this.editPostButton(post.postID)}>Edit</button>
-             <button className ="deleteButton" onClick ={()=>this.deletePostButton(post.postID)}>Delete</button>*/}
+             <div className="Likes">{post.likes}<button className = "likeButton" onClick ={()=>this.likePostButton(post.postID)}>Like</button></div>
              </div>
              <hr></hr>
 
