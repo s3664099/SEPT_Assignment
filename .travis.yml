@@ -1,82 +1,51 @@
+# this must be in the root
+
 sudo: required
 version: '2.7'
-
-language:
-  - minimal
-
-services:
-  - docker
-
-notifications:
-  email: false
-  
 cache:
   directories:
-    - "$HOME/gcloud-cloud-sdk/"
-
+  - "$HOME/google-cloud-sdk"
 env:
   global:
-    - CLOUDSDK_CORE_DISABLE_PROMPTS=1
-    - NO_GCE_CHECK=true
-
+  - CLOUDSDK_CORE_DISABLE_PROMPTS=1
+  - NO_GCE_CHECK=true
+services:
+- docker
+language: java
+node_js:
+- stable
 git:
   quiet: true
-
 branches:
   only:
-    - master
-    - backwardYaml
-    
-before_install:
-  - docker build -t gcr.io/high5softwarept/high5app .
-  - docker run -d -p 4200:4200 -p 8080:8080 gcr.io/high5softwarept/high5app
-  
-  # [START auth]
-  # Decrypt the credentials we added to the repo using the key we added with the Travis command line tool
-
-  - if [ ! -d $HOME/google-cloud-sdk/bin ]; then
-    rm -rf "$HOME/google-cloud-sdk";
-    curl https://sdk.cloud.google.com | bash > /dev/null;
-    fi
-  
-  - source $HOME/google-cloud-sdk/path.bash.inc
-  - gcloud components update kubectl
-
-  - openssl aes-256-cbc -K $encrypted_b55655e464c7_key -iv $encrypted_b55655e464c7_iv 
-    -in credentials.tar.gz.enc -out credentials.tar.gz -d
-  - tar -xzf credentials.tar.gz
- 
-  - gcloud auth activate-service-account --key-file client-secret.json
-  - gcloud auth configure-docker
-
-  
-install:
-  # Set the correct project to deploy to
-  - gcloud config set project high5softwarept 
-
+  - twopods
 script:
-  - docker push gcr.io/high5softwarept/high5app
-  - gcloud config set compute/zone australia-southeast1-c
-  - gcloud container clusters delete high5-cluster
-  - gcloud container clusters create high5-cluster --num-nodes=2
-#  - kubectl apply -f high5.yaml
-#  - kubectl apply -f high5-service.yaml
-#  - kubectl apply -f frontend.yaml
-
-  - kubectl create deployment high5-web --image=gcr.io/high5softwarept/high5app
-  - kubectl expose deployment high5-web --type=LoadBalancer --name=high5app --port 80 --target-port 4200
-  - kubectl expose services high5app --target-port=8080 --name=backend
-  - sleep 100
-  - kubectl get pods
-  - kubectl get deployment
-  - kubectl get services
-  - kubectl describe services
-
-dd:
-  - openssl aes-256-cbc -K $encrypted_988292aa886d_key -iv $encrypted_988292aa886d_iv -in credentials.tar.gz.enc -out credentials.tar.gz -d
-    - in client-secret.json.enc -out client-secret.json -deployment  
-
-
-
-
-
+- export GOOGLE_APPLICATION_CREDENTIALS=client-secret.json
+- cd restful-web-services/
+- mvn clean install -B -Dorg.slf4j.simpleLogger.log.org.apache.maven.cli.transfer.Slf4jMavenTransferListener=warn
+  -DskipTests
+- cd ../
+#skipping test don't worry about this part
+- cd ./frontend/todo-app/
+- cd ../..
+- docker-compose build
+- docker tag tagname/high5-app/client:latest
+- docker tag tagname/high5-app/server:latest
+- docker tag tagname/high5-app/database:latest
+- docker push docker.io/high5-app/client
+- docker push docker.io/high5-app/server
+- docker push docker.io/high5-app/database
+- kubectl scale deployment high5softwarept --replicas=0 -n default
+- kubectl scale deployment high5softwarept --replicas=3 -n default
+before_install:
+- openssl aes-256-cbc -K $encrypted_9cbd34978f53_key -iv $encrypted_9cbd34978f53_iv -in client-secret.json.enc -out client-secret.json -d
+- if [ ! -d "$HOME/google-cloud-sdk/bin" ]; then rm -rf "$HOME/google-cloud-sdk";
+  curl https://sdk.cloud.google.com | bash > /dev/null; fi
+- source $HOME/google-cloud-sdk/path.bash.inc
+- gcloud components update kubectl
+- gcloud auth activate-service-account --key-file client-secret.json
+- gcloud config set project high5softwarept
+- gcloud auth list
+- gcloud container clusters get-credentials sept --zone australia-southeast1-a --project high5softwarept
+notifications:
+  email: false
