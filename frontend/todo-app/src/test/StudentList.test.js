@@ -2,8 +2,13 @@ import React from 'react';
 import Enzyme from 'enzyme'
 import Adapter from 'enzyme-adapter-react-16';
 Enzyme.configure({ adapter: new Adapter() })
+<<<<<<< HEAD
 import ReactDOM from 'react-dom';
 import StudentList from '../components/students/StudentList';
+=======
+import StudentList from '../components/students/StudentList'
+import ReactDOM from 'react-dom';
+>>>>>>> b890aa77af4739072796340318f8a09375842ca5
 
 const createStudentList = (props) =>{
     const div = document.createElement('div');
@@ -34,6 +39,7 @@ test('student list filter list', ()=>{
     expect(spy).toHaveBeenCalledTimes(0);
     ReactDOM.unmountComponentAtNode(div);
 })
+<<<<<<< HEAD
 
 test('studentlist getList', ()=>{
     const div = document.createElement('div');
@@ -69,3 +75,5 @@ test('studentlist mock student object', ()=>{
     ReactDOM.unmountComponentAtNode(div);
 })
 
+=======
+>>>>>>> b890aa77af4739072796340318f8a09375842ca5
