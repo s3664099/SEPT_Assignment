@@ -25,9 +25,9 @@ script:
 - mvn clean install -B -Dorg.slf4j.simpleLogger.log.org.apache.maven.cli.transfer.Slf4jMavenTransferListener=warn
   -DskipTests
 - docker-compose build
-- docker ps -a
+- docker images
 - docker push docker.io/high5_app-client:latest
-- docker push docker.io/high5_app/server:latest
+- docker push docker.io/high5_app-server:latest
 - kubectl scale deployment high5softwarept --replicas=0 -n default
 - kubectl scale deployment high5softwarept --replicas=3 -n default
 before_install:
