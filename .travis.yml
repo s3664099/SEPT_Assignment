@@ -31,10 +31,8 @@ script:
 - docker-compose build
 - docker tag tagname/high5-app/client:latest
 - docker tag tagname/high5-app/server:latest
-- docker tag tagname/high5-app/database:latest
 - docker push docker.io/high5-app/client
 - docker push docker.io/high5-app/server
-- docker push docker.io/high5-app/database
 - kubectl scale deployment high5softwarept --replicas=0 -n default
 - kubectl scale deployment high5softwarept --replicas=3 -n default
 before_install:
