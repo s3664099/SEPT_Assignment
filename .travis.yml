@@ -22,6 +22,7 @@ env:
 git:
   quiet: true
 
+#branches that will deploy to travis
 branches:
   only:
     - master
