@@ -12,18 +12,18 @@ import {withRouter} from 'react-router-dom'
 class OtherPost extends Component {
 
   constructor(props){
-    console.log(" post constructor")
+    //console.log(" post constructor")
     super(props)
     this.state ={
       name: this.props.match.params.name,
       posts:[]
     }
-    console.log(this.state)
+    //console.log(this.state)
     this.refreshPosts = this.refreshPosts.bind(this)
   }
 
   componentWillUnmount() {
-    console.log('componentWillUnmount on wall')
+    //console.log('componentWillUnmount on wall')
   }
 
   shouldComponentUpdate(nextProps, nextState) {
@@ -35,6 +35,7 @@ class OtherPost extends Component {
 
   componentDidMount()
   {
+    //console.log("component did mount")
     this.refreshPosts();
   }
 
@@ -52,7 +53,7 @@ class OtherPost extends Component {
         posts:response.data
       }))
     }
-    console.log(this.state)
+    //console.log(this.state)
   }
 
   likePostButton(postID){
@@ -73,7 +74,6 @@ class OtherPost extends Component {
 
 
             <div className= 'container'>
-           {/* <div><button className="newPostButton" onClick={this.addPostClicked}> Create New Post :)</button></div>*/}
         {
             this.state.posts.map((post)=>(
 

@@ -1,4 +1,4 @@
-package com.sept.rest.webservices.restfulwebservices.wall;
+/*package com.sept.rest.webservices.restfulwebservices.wall;
 
 import java.net.URI;
 import java.util.List;
@@ -237,3 +237,4 @@ public class WallResource {
 		return ResponseEntity.noContent().build();
 	}
 }
+*/

@@ -20,7 +20,7 @@ import com.sept.rest.webservices.restfulwebservices.entities.PostLikes;
 import com.sept.rest.webservices.restfulwebservices.entities.Posts;
 import com.sept.rest.webservices.restfulwebservices.repositories.PostLikesRepository;
 import com.sept.rest.webservices.restfulwebservices.repositories.PostsRepository;
-import com.sept.rest.webservices.restfulwebservices.repositories.StudentsRepository;
+import com.sept.rest.webservices.restfulwebservices.students.StudentsRepository;
 
 // Class containing all mappings related to posts on a wall
 @RestController

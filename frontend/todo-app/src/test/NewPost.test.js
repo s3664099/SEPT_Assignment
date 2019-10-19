@@ -21,10 +21,27 @@ test('new post component did mount test', ()=>{
     ReactDOM.unmountComponentAtNode(div);
 })
 
+
 test('handle submit test', ()=>{
     const div = document.createElement('div');
     const wrapper = createNewPost({});
     const spy = jest.spyOn(wrapper, 'handleSubmit');
     expect(spy).toHaveBeenCalledTimes(0);
     ReactDOM.unmountComponentAtNode(div);
+})
+
+test('post id empty postId', ()=>{
+    const div = document.createElement('div');
+    const wrapper = createNewPost({});
+    expect(wrapper.state.postId).toBe(-1)
+    ReactDOM.unmountComponentAtNode(div); 
+})
+
+test('create new empty post', ()=>{
+    const div = document.createElement('div');
+    const wrapper = createNewPost({});
+    expect(wrapper.state.postContent).toBe('')
+    expect(wrapper.state.ownerId).toBe(0)
+    expect(wrapper.state.createTime).toBe('')
+    ReactDOM.unmountComponentAtNode(div);  
 })

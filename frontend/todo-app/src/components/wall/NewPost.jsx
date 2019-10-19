@@ -52,17 +52,17 @@ class NewPost extends Component{
             message:event.postContent
         }
         if(this.state.postId === "-1"){
-            console.log("create new post")
+            //console.log("create new post")
             WallDataService.createPost(username, post)
             .then(()=>this.props.history.push('/wall'))
         }else{
-            console.log("update new post")
+            //console.log("update new post")
             WallDataService.toUpdatePost(username, this.state.postId, post)
             .then(
                 () => this.props.history.push('/wall'))
 
         }
-        console.log(event)
+        //console.log(event)
     }
 
 
@@ -70,7 +70,7 @@ class NewPost extends Component{
       const userImage = "http://placekitten.com/300/200"
 
       let {postContent, createTime, modifiedTime} = this.state
-      console.log(this.state)
+      //console.log(this.state)
         let username = AuthenticationService.getLoggedInUserName()
         return (
             <div>

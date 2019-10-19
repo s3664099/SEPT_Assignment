@@ -3,10 +3,6 @@ import './Wall.css'
 
 class HeaderWall extends Component {
 
-    /*constructor(props){
-        super(props);
-    }*/
-
 
 
     render(){

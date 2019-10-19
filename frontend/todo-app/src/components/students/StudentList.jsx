@@ -15,18 +15,18 @@ class StudentList extends Component {
     }
 
     componentDidMount(){
-        console.log("Com will mount student list")
+        //console.log("Com will mount student list")
         this.getList();
     }
 
     componentWillUnmount(){
-        console.log("Com will unmount student list")
+        //console.log("Com will unmount student list")
     }
 
     shouldComponentUpdate(nextProps, nextState) {
-        console.log('shouldComponentUpdate on wall')
-        console.log(nextProps)
-        console.log(nextState)
+        //console.log('shouldComponentUpdate on wall')
+        //console.log(nextProps)
+        //console.log(nextState)
         return true
       }
 
@@ -56,7 +56,7 @@ class StudentList extends Component {
 
     render(){
       const userImage = "http://placekitten.com/32/32"
-        console.log(this.props.history)
+        //console.log(this.props.history)
         return(
 
           <div className="studentListArea">
