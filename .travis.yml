@@ -59,9 +59,13 @@ script:
   - gcloud config set compute/zone australia-southeast1-c
   - gcloud container clusters delete high5-cluster
   - gcloud container clusters create high5-cluster --num-nodes=2
-  - kubectl create deployment high5-web --image=gcr.io/high5softwarept/high5app
-  - kubectl expose deployment high5-web --type=LoadBalancer --name=frontend --port 80 --target-port 4200
-  - kubectl expose services frontend  --port=8080 --target-port=4200  --name=backend
+  - kubectl apply -f https://k8s.io/high5softwarept/high5.yaml
+  - kubectl apply -f https://k8s.io/high5softwarept/high5-service.yaml
+  - kubectl apply -f https://k8s.io/high5softwarept/frontend.yaml
+
+#  - kubectl create deployment high5-web --image=gcr.io/high5softwarept/high5app
+#  - kubectl expose deployment high5-web --type=LoadBalancer --name=frontend --port 80 --target-port 4200
+#  - kubectl expose services frontend  --port=8080 --target-port=4200  --name=backend
   - sleep 100
   - kubectl get pods
   - kubectl get deployment

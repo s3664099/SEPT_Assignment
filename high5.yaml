@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: high5
+spec:
+  selector:
+    matchLabels:
+      app: high5
+      tier: backend
+      track: stable
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        app: high5
+        tier: backend
+        track: stable
+    spec:
+      containers:
+        - name: high5
+          image: "gcr.io/high5softwarept/high5app"
+          ports:
+            - name: http
+              containerPort: 80
