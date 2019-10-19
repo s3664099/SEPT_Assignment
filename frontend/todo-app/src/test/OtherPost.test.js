@@ -44,14 +44,14 @@ test('other post empty post', ()=>{
     ReactDOM.unmountComponentAtNode(div);
 })
 
-test('other post empty post2', ()=>{
+test('other post empty post name', ()=>{
     const div = document.createElement('div');
     const wrapper = createOtherPost({});
     expect(wrapper.state.name).toBe('sept')
     ReactDOM.unmountComponentAtNode(div);
 })
 
-test('likePostButton', ()=>{
+test('other post likePostButton', ()=>{
     const div = document.createElement('div');
     const wrapper = createOtherPost({});
     const spy = jest.spyOn(wrapper, 'likePostButton');
@@ -59,7 +59,7 @@ test('likePostButton', ()=>{
     ReactDOM.unmountComponentAtNode(div);
 })
 
-test('refreshPosts', ()=>{
+test('other post refreshPosts', ()=>{
     const div = document.createElement('div');
     const wrapper = createOtherPost({});
     const spy = jest.spyOn(wrapper, 'refreshPosts');

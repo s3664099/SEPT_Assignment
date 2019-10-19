@@ -44,7 +44,7 @@ const comment =
     "message": 'abcde'
 }
 
-test('CommentBox comments', ()=>{
+test('CommentBox comments test', ()=>{
     const div = document.createElement('div');
     const wrapper = ReactDOM.render(<CommentBox username={'sept'} postID={1} showTheThing={false} />, div);
     wrapper.setState({comments:comment})
