@@ -48,6 +48,6 @@ before_install:
 - gcloud auth activate-service-account --key-file client-secret.json
 - gcloud config set project high5softwarept
 - gcloud auth list
-- gcloud container clusters get-credentials sept --zone australia-southeast1-a --project high5softwarept
+- gcloud container clusters get-credentials high5-cluster --zone australia-southeast1-a --project high5softwarept
 notifications:
   email: false
