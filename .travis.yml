@@ -25,6 +25,7 @@ script:
 - mvn clean install -B -Dorg.slf4j.simpleLogger.log.org.apache.maven.cli.transfer.Slf4jMavenTransferListener=warn
   -DskipTests
 - docker-compose build
+- docker ps -a
 - docker tag tagname/high5-app/client:latest
 - docker tag tagname/high5-app/server:latest
 - docker push docker.io/high5-app/client
