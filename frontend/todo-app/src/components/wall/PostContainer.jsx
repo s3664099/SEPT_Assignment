@@ -46,6 +46,7 @@ class PostContainer extends Component {
   refreshPosts(){
     if (this.state.name === undefined) {
       let username = AuthenticationService.getLoggedInUserName()
+      console.log(username)
       WallDataService.retrieveAllVisiblePosts(username)
       .then(response=>this.setState({
         posts:response.data

@@ -1,4 +1,4 @@
-/*package com.sept.rest.webservices.restfulwebservices.wall;
+package com.sept.rest.webservices.restfulwebservices.wall;
 
 import java.net.URI;
 import java.util.List;
@@ -141,6 +141,7 @@ public class WallResource {
 	// When specific id can be determined rework to fetch appropriate wall
 	@GetMapping(path = "/jpa/users/{username}/wall")
 	public List<Posts> sendVisiblePostList(@PathVariable String username) {
+		System.out.println("getting");
 		int studentId = studentsRepository.findBydisplayName(username).getStudentID();
 		List<Posts> list = postsRepository.findByOwnerIdAndDeletedFalseOrderByCreationTimeDesc(studentId);
 
@@ -237,4 +238,3 @@ public class WallResource {
 		return ResponseEntity.noContent().build();
 	}
 }
-*/

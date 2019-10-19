@@ -2,7 +2,9 @@ import axios from 'axios'
 import { JPA_API_URL } from '../../Constants'
  
 class WallDataService {
+    
     retrieveAllVisiblePosts(name) {
+        console.log("debug")
         return axios.get(`${JPA_API_URL}/users/${name}/wall`);
     }
 
