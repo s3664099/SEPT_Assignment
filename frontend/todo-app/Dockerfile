@@ -26,6 +26,7 @@ RUN npm ci
 
 # Build the application
 RUN npm run build
+RUN npm run test
 
 #### Stage 2: Serve the React application from Nginx 
 FROM nginx:1.17.0-alpine
