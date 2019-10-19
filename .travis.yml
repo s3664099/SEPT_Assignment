@@ -65,7 +65,7 @@ script:
 
   - kubectl create deployment high5-web --image=gcr.io/high5softwarept/high5app
   - kubectl expose deployment high5-web --type=LoadBalancer --name=high5app --port 80 --target-port 4200
-  - kubectl expose services high5-web --target-port=8080 --name=backend
+  - kubectl expose services high5app --target-port=8080 --name=backend
   - sleep 100
   - kubectl get pods
   - kubectl get deployment
