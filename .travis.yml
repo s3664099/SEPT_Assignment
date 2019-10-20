@@ -68,11 +68,7 @@ script:
   - kubectl expose deployment high5-web --type=LoadBalancer --name=high5app --port 80 --target-port 4200
   - kubectl expose services high5app --target-port=8080 --name=backend
   - kubectl expose services high5app --target-port=4200 --name=frontend
-  - kubectl expose services high5app --target-port=3306 --name=database
-  - kubectl port-forward high5-web 4200:8080
-  - kubectl port-forward high5-web 8080:4200
-  - kubectl port-forward high5-web 3306:35.232.84.28
-
+#  - kubectl expose services high5app --target-port=3306 --name=database
 
   - sleep 100
   - kubectl get pods
