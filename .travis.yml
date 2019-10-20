@@ -25,8 +25,8 @@ git:
 #branches that will deploy to travis
 branches:
   only:
-#    - master
-#    - development
+    - master
+    - development
     
 before_install:
   - docker build -t gcr.io/high5softwarept/high5app .
