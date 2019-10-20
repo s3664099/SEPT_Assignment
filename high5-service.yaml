@@ -12,6 +12,6 @@ spec:
     targetPort: 4200
   - name: backend
     protocol: TCP
-    port: 443
+    port: 80
     targetPort: 8080
   type: LoadBalancer

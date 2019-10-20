@@ -7,7 +7,7 @@ spec:
     matchLabels:
       app: high5
       track: stable
-  replicas:
+  replicas: 1
   template:
     metadata:
       labels:
