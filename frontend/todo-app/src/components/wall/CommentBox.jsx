@@ -9,7 +9,7 @@ import AuthenticationService from '../AuthenticationService'
 class CommentBox extends Component {
 
   constructor(props){
-    console.log("comment box constructor")
+    //console.log("comment box constructor")
     super(props)
     this.state ={
       comments:[],
@@ -43,7 +43,7 @@ deleteComments(commentID){
 
 
   likeCommentButton(commentID){
-    console.log('like comment' + commentID)
+    //console.log('like comment' + commentID)
     let username = AuthenticationService.getLoggedInUserName()
     CommentDataServcie.likeComment(username, commentID)
     .then(response=>{
@@ -70,7 +70,7 @@ handleSubmit(event){
   .then(()=>{
     this.getComments()
   })
-  console.log(comment)
+  //console.log(comment)
 }
 
 toggleHideButton() {
@@ -81,7 +81,7 @@ toggleHideButton() {
 
 render() {
 
-  console.log(this.state);
+  //console.log(this.state);
 
   const userImage = "http://placekitten.com/300/200"
   const userImage2 = "https://i.redd.it/i8t6f16vdd421.jpg"
