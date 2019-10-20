@@ -65,9 +65,9 @@ script:
 #  - kubectl apply -f frontend.yaml
 
   - kubectl create deployment high5-web --image=gcr.io/high5softwarept/high5app
-  - kubectl expose deployment high5-web --type=LoadBalancer --name=high5app --port 80 --target-port 4200
-  - kubectl expose services high5app --target-port=8080 --name=backend
-  - kubectl expose services high5app --target-port=4200 --name=frontend
+  - kubectl expose deployment high5-web --type=LoadBalancer --name=high5appLoadBalancer
+  - kubectl expose services high5appLoadBalancer --port=80 --target-port=8080 --name=backend
+  - kubectl expose services high5appLoadBalancer --port=80 --target-port=4200 --name=frontend
 #  - kubectl expose services high5app --target-port=3306 --name=database
 
   - sleep 100
@@ -83,4 +83,5 @@ dd:
 
 
 
-
+high5-web-899cdfbbf-9gmjn
+high5-web-899cdfbbf-b4pb8
