@@ -17,4 +17,8 @@ spec:
       containers:
         - name: high5
           image: "gcr.io/high5softwarept/high5app"
-
+          ports:
+            - name: http
+              containerPort: 80
+            - name: https
+              containerPort: 443

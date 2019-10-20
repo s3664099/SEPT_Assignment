@@ -70,6 +70,9 @@ script:
 #  - kubectl expose services high5appLoadBalancer --port=80 --target-port=4200 --name=frontend
 #  - kubectl expose services high5app --target-port=3306 --name=database
 
+  - kubectl scale deployment high5 --replicas=0 -n default
+  - kubectl scale deployment high5 --replicas=1 -n default
+
   - sleep 100
   - kubectl get pods
   - kubectl get deployment
