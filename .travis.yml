@@ -25,8 +25,8 @@ git:
 #branches that will deploy to travis
 branches:
   only:
-    - master
-    - development
+#    - master
+#    - development
     
 before_install:
   - docker build -t gcr.io/high5softwarept/high5app .
@@ -58,10 +58,10 @@ install:
 script:
   - docker push gcr.io/high5softwarept/high5app
   - gcloud config set compute/zone australia-southeast1-c
-  - gcloud container clusters delete high5-cluster
-  - gcloud container clusters create high5-cluster --num-nodes=2
-  - kubectl apply -f high5.yaml
-  - kubectl apply -f high5-service.yaml
+# - gcloud container clusters delete high5-cluster
+#  - gcloud container clusters create high5-cluster --num-nodes=2
+#  - kubectl apply -f high5.yaml
+#  - kubectl apply -f high5-service.yaml
 #  - kubectl apply -f frontend.yaml
 
 #  - kubectl create deployment high5-web --image=gcr.io/high5softwarept/high5app
@@ -70,14 +70,11 @@ script:
 #  - kubectl expose services high5appLoadBalancer --port=80 --target-port=4200 --name=frontend
 #  - kubectl expose services high5app --target-port=3306 --name=database
 
-  - kubectl scale deployment high5 --replicas=0 -n default
-  - kubectl scale deployment high5 --replicas=1 -n default
-
-  - sleep 100
-  - kubectl get pods
-  - kubectl get deployment
-  - kubectl get services
-  - kubectl describe services
+#  - sleep 100
+#  - kubectl get pods
+#  - kubectl get deployment
+#  - kubectl get services
+#  - kubectl describe services
 
 dd:
   - openssl aes-256-cbc -K $encrypted_988292aa886d_key -iv $encrypted_988292aa886d_iv -in credentials.tar.gz.enc -out credentials.tar.gz -d
