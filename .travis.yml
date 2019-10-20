@@ -58,6 +58,7 @@ install:
 script:
   - docker push gcr.io/high5softwarept/high5app
   - gcloud config set compute/zone us-central1-a
+  - gcloud compute instances create-with-container --container-image gcr.io/high5softwarept/high5app
 # - gcloud container clusters delete high5-cluster
 #  - gcloud container clusters create high5-cluster --num-nodes=2
 #  - kubectl apply -f high5.yaml
