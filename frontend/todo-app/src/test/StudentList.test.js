@@ -3,7 +3,7 @@ import Enzyme from 'enzyme'
 import Adapter from 'enzyme-adapter-react-16';
 Enzyme.configure({ adapter: new Adapter() })
 import ReactDOM from 'react-dom';
-import StudentList from '../components/students/StudentList';
+import StudentList from '../components/students/StudentList'
 
 const createStudentList = (props) =>{
     const div = document.createElement('div');

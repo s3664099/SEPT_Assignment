@@ -4,6 +4,7 @@ import Adapter from 'enzyme-adapter-react-16';
 Enzyme.configure({ adapter: new Adapter() })
 import ReactDOM from 'react-dom';
 import OtherPost from '../components/wall/OtherPost';
+import HeaderWall from '../components/wall/HeaderWall';
 
 const createOtherPost = (props) =>{
     const div = document.createElement('div');
@@ -12,6 +13,13 @@ const createOtherPost = (props) =>{
     }
   return ReactDOM.render(<OtherPost.WrappedComponent location={`/otherWall/:name`} {...defaultProps} />, div);
 }
+
+test('HeaderWall renders successfully', () => {
+    const div = document.createElement('div');
+    ReactDOM.render(<HeaderWall />, div);
+    ReactDOM.unmountComponentAtNode(div);
+  });
+    
 
 test('other post componentDidMount', ()=>{
     const div = document.createElement('div');

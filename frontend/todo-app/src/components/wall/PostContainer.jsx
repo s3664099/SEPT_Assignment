@@ -11,7 +11,7 @@ class PostContainer extends Component {
 
 
   constructor(props){
-    console.log(" post constructor")
+    //console.log(" post constructor")
 
     super(props)
     this.state ={
@@ -19,7 +19,7 @@ class PostContainer extends Component {
       posts:[]
     }
 
-    console.log(this.state)
+   // console.log(this.state)
     this.refreshPosts = this.refreshPosts.bind(this)
     this.addPostClicked = this.addPostClicked.bind(this)
     this.editPostButton = this.editPostButton.bind(this)
@@ -46,7 +46,7 @@ class PostContainer extends Component {
   refreshPosts(){
     if (this.state.name === undefined) {
       let username = AuthenticationService.getLoggedInUserName()
-      console.log(username)
+     // console.log(username)
       WallDataService.retrieveAllVisiblePosts(username)
       .then(response=>this.setState({
         posts:response.data
@@ -57,7 +57,7 @@ class PostContainer extends Component {
         posts:response.data
       }))
     }
-    console.log(this.state)
+    //console.log(this.state)
   }
 
   editPostButton(postID){
