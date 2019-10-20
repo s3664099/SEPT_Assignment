@@ -27,14 +27,15 @@ script:
   -DskipTests
 - docker-compose build
 - docker images
-- docker push high5_app-client:latest
-- docker push high5_app-server:latest
+- docker tag high5_app-client:latest gcr.io/high5softwarept/high5_app-client:latest
+- docker tag high5_app-server:latest gcr.io/high5softwarept/high5_app-server:latest
+- docker push gcr.io/high5softwarept/high5_app-client:latest
+- docker push gcr.io/high5softwarept/high5_app-client:latest
 - gcloud container clusters create high5app-2-container-cluster --num-nodes=1
 - gcloud compute instances list
 - kubectl create deployment high5app-2-container-cluster --image=high5_app-client:latest
 - kubectl create deployment high5app-2-container-cluster --image=high5_app-server:latest
 - kubectl get pods
-- 
 
 before_install:
 - openssl aes-256-cbc -K $encrypted_b55655e464c7_key -iv $encrypted_b55655e464c7_iv 
